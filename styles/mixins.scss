@@ -1,0 +1,371 @@
+@import "variables";
+@import "colors";
+@import "fonts";
+@import "reset";
+
+@mixin input($lineHeight: 31px, $font-size: $font-size-ss, $width: 100%, $height: $lineHeight) {
+    font-family: $font-family;
+    font-size: $font-size;
+    text-align: left;
+    color: $text-dark;
+    width: $width;
+    height: $height;
+    line-height: $lineHeight;
+    margin: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    padding-right: 10px;
+    padding-left: 10px;
+    background: $white;
+    border: 1px solid $border-color;
+    border-radius: $input-border-radius;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+    &:disabled {
+        color: $text-light;
+        border: 1px solid $input-disabled;
+    }
+    &:hover {
+        border: 1px solid $input-hover;
+    }
+    &:focus, &:active {
+        border: 1px solid $input-focus;
+        box-shadow: inset 0 0 0 3px rgba(136, 130, 216, 0.15);
+    }
+    &.ng-valid:not(.ng-pristine) {
+        // border: 1px solid $input-success;
+    }
+    &.ng-invalid.ng-touched {
+        border: 1px solid $input-error;
+        transition: none;
+    }
+    .ct-form-has-error &.ng-invalid {
+        border: 1px solid $input-error;
+        transition: none;
+    }
+    &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+        font-style: normal;
+    }
+    &::-moz-placeholder { /* Firefox 19+ */
+        font-style: normal;
+    }
+    &:-ms-input-placeholder { /* IE 10+ */
+        font-style: normal;
+    }
+    &::placeholder {
+        font-size: $font-size-ss;
+        font-style: normal;
+        color: $text-light;
+    }
+    &:focus {
+        outline: none;
+    }
+}
+
+@mixin searchBox($height) {
+    display: block;
+    width: 100%;
+    height: $height;
+    line-height: $height;
+    margin: 0;
+    padding: 0 5px;
+    background-color: $bg-light;
+    border: none;
+    box-shadow: $shadow-textbox;
+    position: relative;
+
+    .options-search-icon:after {
+        content: 'N';
+        display: inline-block;
+        font-family: 'ctIcon';
+        font-size: 15px;
+        font-weight: normal;
+        color: $text-light;
+        width: 20px;
+        height: 20px;
+        position: absolute;
+        right: 10px;
+        top: 2px;
+    }
+
+    .options-search-input {
+        @include input;
+        border-radius: 2px;
+        padding-right: 30px;
+        &:focus, &:active {
+            border: 1px solid $input-hover;
+            box-shadow: none;
+             + .options-search-icon:after {
+                content: 'U';
+            }
+        }
+    }
+}
+
+@mixin addFilter {
+    font-size: $font-size-xs;
+    font-weight: 400;
+    letter-spacing: -0.1px;
+    color: $system-regular;
+    width: fit-content;
+    height: 22px;
+    line-height: 22px;
+    margin-right: 10px;
+    padding-right: 10px;
+    padding-left: 5px;
+    background-color: $white;
+    border-radius: 30px;
+    cursor: pointer;
+
+    .plus-circle {
+        display: inline-block;
+        text-align: center;
+        width: 15px;
+        height: 15px;
+        line-height: 15px;
+        margin-right: 5px;
+        background-color: $system-regular-bg;
+        border-radius: 50%;
+        vertical-align: text-bottom;
+    }
+
+    .iconFont.plus {
+        font-family: 'ctIcon';
+        display: inline-block;
+        font-size: 8px;
+        vertical-align: top;
+        &:after {
+            content: 'p';
+        }
+    }
+}
+
+@mixin optionsList($lineHeight: 26px,
+                $width: unset,
+                $max-width: 390px,
+                $minWidth: 125px) {
+    width: $width;
+    max-width: $max-width;
+    min-width: $minWidth;
+    max-height: $lineHeight * 10.6;
+    margin: 1px 0 0 0;
+    padding: 2px 0 0 0;
+    background-color: $white;
+    border: 1px solid $border-color;
+    border-radius: $dd-border-radius;
+    box-shadow: $box-shadow;
+    list-style: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    overflow-y: auto;
+
+    //li
+    .options-item {
+        display: flex;
+        height: $lineHeight;
+        line-height: $lineHeight;
+        justify-content: flex-start;
+    }
+
+    //button
+    .option {
+        @include resetBtn;
+        display: inline-flex;
+        text-align: left;
+        font-size: $font-size-xs;
+        color: $text-dark;
+        width: 100%;
+        height: 100%;
+        padding-top: 0;
+        padding-right: 15px;
+        padding-bottom: 0;
+        padding-left: 15px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        cursor: pointer;
+        &:focus {
+            background-color: $hover-bg;
+            outline: none;
+        }
+        &:hover {
+            background-color: $hover-bg;
+        }
+        &.active {
+            color: $text-darkest;
+            font-weight: 600;
+        }
+        &.disabled {
+            opacity: 0.5;
+            cursor: default;
+            &:hover {
+                background-color: initial;
+            }
+        }
+        &-text {
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            flex-grow: 1;
+        }
+        &>*:not(.option-text) {
+            flex: 0 0;
+        }
+        &>*:not(:last-child) {
+            margin-right: 13px;
+        }
+        &.no-results:hover {
+            background-color: initial;
+            cursor: default;
+        }
+    }
+
+    //in case the list is more than 10 items
+    &.long .option {
+        padding-right: 5px;
+    }
+
+    //icon before text
+    .option-icon:before {
+        content: attr(data-icon);
+        display: inline-block;
+        font-family: 'ctIcon';
+        font-weight: normal;
+    }
+
+    //icon before text
+    .question {
+        color: $text-light;
+        &:hover {
+            color: $text-medium;
+            cursor: pointer;
+        }
+    }
+}
+
+@mixin optionsListCompiled($headerHeight: 0, $footerHeight: 0) {
+    padding: 0;
+    border: 1px solid $border-color;
+    border-radius: $dd-border-radius;
+    box-shadow: $box-shadow;
+    .options-header {
+        display: flex;
+        height: $headerHeight;
+        line-height: $headerHeight;
+        margin-left: 13px;
+        margin-right: 12px + 5px; //scroll bar width + .option padding
+        justify-content: space-between;
+        &-text {
+            font-size: $font-size-p;
+            font-weight: 700;
+        }
+    }
+
+    .options-search {
+        @include searchBox($headerHeight);
+    }
+
+    .options-list {
+        margin-top: 0;
+        padding-top: 0;
+        border: none;
+        box-shadow: none;
+        position: static;
+        .option {
+            padding-right: 5px;
+        }
+    }
+
+    .options-footer {
+        display: flex;
+        width: 100%;
+        height: 50px;
+        line-height: 50px;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-top: 3px;
+        box-shadow: 0 -1px 3px 0 rgba(0, 0, 0, 0.21);
+        justify-content: space-between;
+        align-items: center;
+        .options-add {
+            @include addFilter;
+        }
+    }
+}
+
+@mixin optionsToggleBtn($width: 220px) {
+    @include input;
+    display: flex;
+    font-size: $font-size-ss;
+    width: var(--dd-width, $width);
+    padding-right: 0;
+    justify-content: space-between;
+    align-items: center;
+
+    .options-list-btn-label {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        flex-grow: 1;
+    }
+
+    //override of bootstrap
+    &:after {
+        content: '`';
+        display: inline-block;
+        text-align: center;
+        font-family: 'ctIcon';
+        font-size: 17px;
+        color: $text-medium;
+        width: 31px;
+        height: 100%;
+        background-image: linear-gradient(to top, #f2f4f7, #ffffff);
+        border: none;
+        border-left: 1px solid $border-color;
+        vertical-align: middle;
+        flex-shrink: 0;
+    }
+
+    &:hover:after {
+        color: $text-darkest;
+    }
+}
+
+@mixin dd-descriptive {
+    width: 209px;
+    height: auto;
+    padding: 8px 0;
+    border-radius: 2px;
+    background-color: $white;
+    box-shadow: $box-shadow;
+    .options-item-description {
+        padding: 10px 13px 0 13px;
+    }
+    .options-item-description:not(:last-child) .option-description {
+        padding-bottom: 10px;
+        border-bottom: 1px solid $border-color;
+    }
+    .options-item-description:hover {
+        background-color: $hover-bg;
+    }
+    .option-title {
+        font-size: $font-size-xs;
+        color: $black;
+        margin-bottom: 3px;
+    }
+    .option-description {
+        font-size: $font-size-p;
+        color: $text-medium;
+    }
+}
+
+
+
+
+
+

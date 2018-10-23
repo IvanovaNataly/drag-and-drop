@@ -1,0 +1,106 @@
+@import "mixins";
+
+body {
+    padding: 50px;
+}
+
+//Define this variable in component css/scss file
+//in order to equal width of dropdown trigger and dropdown list
+.some-class-1 {
+    --dd-width: 180px;
+}
+
+.some-class-2 {
+   --dd-width: 300px;
+}
+
+.some-class-3 {
+    --dd-width: 220px;
+}
+/////////////////////////////////////////////////////
+
+.options-list {
+    &.primary {
+        @include optionsList($lineHeight: 37px,
+                             $width: var(--dd-width, 280px),
+                             $max-width: unset,
+                             $minWidth: unset);
+    }
+    &.simple {
+        @include optionsList($lineHeight: 26px,
+                            $width: var(--dd-width, unset),
+                            $max-width: 390px,
+                            $minWidth: 125px);
+    }
+}
+
+.options-box {
+    &.with-titles {
+        @include optionsListCompiled($headerHeight: 20px); //titles height
+    }
+    &.with-search {
+        @include optionsListCompiled($headerHeight: 44px); //search height
+    }
+}
+
+.options-list-container {
+    //scroll bar in webkit based browsers
+    ::-webkit-scrollbar {
+        width: 12px;
+        height: 10px;
+    }
+    ::-webkit-scrollbar-track {
+        background-color: $white;
+    }
+    ::-webkit-scrollbar-thumb {
+        background-color: $scrollbar-workspace;
+        border-radius: 10px;
+        border: 2.5px solid $white;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+        background-color: $text-medium;
+    }
+}
+
+.options-list-btn {
+    @include optionsToggleBtn;
+}
+
+.options-list-primary-btn {
+    @include resetBtn;
+    .options-list-btn-label {
+        font-size: 12px;
+        line-height: normal;
+        color: $text-darkest;
+        border-bottom: thin solid transparent;
+        &:hover {
+            border-color: $text-darkest;
+        }
+    }
+
+    &:after {
+        content: '`';
+        display: inline-block;
+        text-align: center;
+        font-family: 'ctIcon';
+        font-size: 13px;
+        color: $text-darkest;
+        height: 100%;
+        margin-left: 0;
+        border: none;
+        vertical-align: middle;
+    }
+}
+
+.loader {
+    width: 100%;
+    height: 100%;
+    background: url('../assets/img/loader.svg') no-repeat center;
+}
+
+
+
+.options-list.descriptive {
+    @include dd-descriptive;
+}
+

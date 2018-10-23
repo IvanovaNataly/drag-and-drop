@@ -1,0 +1,178 @@
+@import 'reset.scss';
+
+$transition: background-color 0.3s,
+box-shadow 0.3s,
+border 0.3s;
+
+@mixin btnPrimary {
+    @include resetBtn;
+    font-size: $font-size-s;
+    color: $white;
+    width: fit-content;
+    min-width: 130px;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $primary-hover;
+    background-image: linear-gradient(to right, $primary-gr-start, $primary-gr-end);
+    border-radius: $button-border-radius;
+    box-shadow: $shadow-button;
+    vertical-align: top;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        background-color: $primary-hover;
+        background-image: none;
+        box-shadow: none;
+        position: relative;
+        top: 1px;
+    }
+    &[disabled] {
+        box-shadow: none;
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+@mixin btnPrimarySmall {
+    @include resetBtn;
+    font-size: $font-size-p;
+    color: $white;
+    width: fit-content;
+    min-width: 80px;
+    height: 28px;
+    line-height: 28px;
+    margin-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $primary-hover;
+    background-image: linear-gradient(to right, $primary-gr-start, $primary-gr-end);
+    border-radius: $button-border-radius;
+    vertical-align: top;
+    box-shadow: $shadow-button;
+    cursor: pointer;
+    // transition: $transition;
+    &:hover {
+        background-color: $primary-hover;
+        background-image: none;
+        box-shadow: none;
+        position: relative;
+        top: 1px;
+    }
+    &[disabled] {
+        box-shadow: none;
+        opacity: 0.3;
+        pointer-events: none;
+    }
+}
+
+@mixin btnSecondary {
+    @include resetBtn;
+    font-size: $font-size-s;
+    color: $text-medium;
+    width: fit-content;
+    min-width: 130px;
+    height: 40px;
+    line-height: 38px; //border takes 2px
+    margin-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $secondary-regular;
+    border: 1px solid $secondary-border;
+    border-radius: $button-border-radius;
+    vertical-align: top;
+    cursor: pointer;
+    transition: $transition;
+    &:hover {
+        color: $text-dark;
+        background-color: $secondary-hover;
+        .icon-font.icon-trash {
+            color: $text-dark;
+        }
+    }
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .icon-font.icon-trash {
+        color: $text-medium;
+        margin-right: 5px;
+        &:hover {
+            color: $text-dark;
+        }
+    }
+}
+
+@mixin btnSecondarySmall {
+    @include resetBtn;
+    font-size: $font-size-p;
+    color: $text-medium;
+    width: fit-content;
+    min-width: 80px;
+    width: fit-content;
+    height: 28px;
+    line-height: 26px; //border takes 2px
+    margin-left: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
+    background-color: $secondary-regular;
+    border: 1px solid $secondary-border;
+    border-radius: $button-border-radius;
+    vertical-align: top;
+    cursor: pointer;
+    // transition: $transition;
+    &:hover {
+        color: $text-dark;
+        background-color: $secondary-hover;
+    }
+    &[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+    .icon-trash {
+        margin-right: 5px;
+    }
+    .icon-trash-text {
+        display: inline-block;
+        height: 100%;
+        line-height: 26px;
+        vertical-align: top;
+    }
+}
+
+@mixin btnLinked {
+    color: $system-regular;
+    font-weight: 600;
+    min-width: 175px;
+    &:hover {
+        color: $system-regular;
+    }
+    .plus {
+        font-size: 8px;
+        display: inline-block;
+        margin-right: 5px;
+        vertical-align: top;
+    }
+}
+
+.ct-btn-primary {
+    @include btnPrimary;
+}
+
+.ct-btn-secondary {
+    @include btnSecondary;
+}
+
+.ct-btn-primary-small {
+    @include btnPrimarySmall;
+}
+
+.ct-btn-secondary-small {
+    @include btnSecondarySmall;
+}
+
+.ct-btn-linked {
+    @include btnLinked;
+}
