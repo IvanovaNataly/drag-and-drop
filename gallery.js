@@ -1,13 +1,17 @@
 $( function() {
     //Constant set of filters
-    var filters = '<li class="ui-widget-content ui-corner-tr">Location<select class="location-select"><option value="url">Page URL</option></select></li>'+
-        '<li class="ui-widget-content ui-corner-tr">Event</li>'+
-        '<li class="ui-widget-content ui-corner-tr">Engagement time</li>'+
-        '<li class="ui-widget-content ui-corner-tr">Scroll reach</li>'+
-        '<li class="ui-widget-content ui-corner-tr">Dom load time</li>'+
-        '<li class="ui-widget-content ui-corner-tr">Bounce rate</li>'+
-        '<li class="ui-widget-content ui-corner-tr">Text on page</li>'+
-        '<li class="ui-widget-content ui-corner-tr">JS Errors</li>';
+    var filters = '<li class="ui-widget-content">Location'+
+            '<select class="location-select"><option value="url">Page URL</option>'+
+                '<option value="url">Page Attribute</option>'+
+                 '<option value="url">Pageset</option></select></li>'+
+        '<li class="ui-widget-content title" data-title="Title">Event'+
+        '<input type="text" placeholder="Type definition"></li>'+
+        '<li class="ui-widget-content">Engagement time</li>'+
+        '<li class="ui-widget-content">Scroll reach</li>'+
+        '<li class="ui-widget-content">Dom load time</li>'+
+        '<li class="ui-widget-content">Bounce rate</li>'+
+        '<li class="ui-widget-content">Text on page</li>'+
+        '<li class="ui-widget-content">JS Errors</li>';
 
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
@@ -37,6 +41,8 @@ $( function() {
             // deleteImage( ui.draggable );
             var target = $(event.target);
             target.append(ui.draggable);
+            $(".ui-state-highlight").removeClass("ui-state-highlight");
+            $(".ui-state-active").removeClass("ui-state-active");
             addElements();
             $( "li", $gallery ).draggable({
                 cancel: "button", // these elements won't initiate dragging
@@ -44,7 +50,7 @@ $( function() {
                 containment: "document",
                 helper: "clone",
                 cursor: "move"
-            })
+            });
         }
     });
 

@@ -9,6 +9,10 @@ body {
     margin: 0;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 //#draggable { width: 100px; height: 40px; padding: 0.5em; float: left; margin: 10px 10px 10px 0; }
 //#droppable, #droppable2 { width: 230px; height: 120px; padding: 0.5em; float: left; margin: 10px; }
 //#droppable-inner, #droppable2-inner { width: 170px; height: 60px; padding: 0.5em; float: left; margin: 10px; }
@@ -17,6 +21,7 @@ body {
     min-height: 60px;
     padding: 20px;
     background-color: #F2F2F2;
+    border: 1px dashed transparent;
 }
 
 .level-visitor {
@@ -24,6 +29,7 @@ body {
     margin: 20px 0;
     padding: 20px;
     background-color: #F5E1C2;
+    border: 1px dashed transparent;
 }
 
 .level-pageview {
@@ -31,24 +37,20 @@ body {
     margin: 20px 0;
     padding: 20px;
     background-color: #A6D6AB;
-}
-
-.level-location {
-    min-height: 60px;
-    margin: 20px 0;
-    padding: 20px;
-    background-color: #FFFFFF;
+    border: 1px dashed transparent;
 }
 
 .wrapper {
     display: flex;
-    height: 100%;
+    height: 100vh;
     padding: 30px;
     align-items: stretch;
+    overflow: hidden;
 }
 
 .main {
     flex: 1 1;
+    overflow-y: auto;
     h3 {
         font-size: 12px;
         margin: 0 0 10px 0;
@@ -60,12 +62,16 @@ body {
 }
 
 .aside {
+    height: 100%;
     margin-left: 30px;
     padding: 30px;
     background-color: #666666;
     flex: 0 0 230px;
+    overflow-y: auto;
     .ui-widget-content {
         text-align: center;
+        min-width: unset;
+        cursor: move;
     }
     .location-select {
         display: none;
@@ -74,10 +80,14 @@ body {
 
 .ui-widget-content {
     text-align: left;
+    min-width: 170px;
     min-height: 40px;
     line-height: 40px;
     margin-bottom: 10px;
-    background-color: #fff;
+    background-color: $white;
+    border: none;
+    border-radius: 0;
+    box-shadow: $box-shadow;
     list-style: none;
 }
 
@@ -90,3 +100,22 @@ select {
     margin: 40px auto;
 }
 
+.ui-state-highlight {
+    color: initial;
+    border: 1px dashed black;
+}
+
+#gallery .title:not(.ui-draggable-dragging) {
+    margin-top: 40px;
+    position: relative;
+    &:before {
+        content: attr(data-title);
+        display: block;
+        text-align: left;
+        color: $white;
+        width: 100%;
+        height: 20px;
+        position: absolute;
+        top: -30px;
+    }
+}

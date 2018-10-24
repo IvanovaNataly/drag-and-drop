@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>jQuery UI Droppable - Simple photo manager</title>
+    <title>Drag & Drop</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" href="styles/drag-drop.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
@@ -19,9 +19,6 @@
                 <h3>Visit</h3>
                 <div id="droppable-pageview" class="level-pageview">
                     <h3>Pageview</h3>
-                    <!--<div id="droppable-location" class="ui-widget-header level-location">-->
-                        <!--<p>Location</p>-->
-                    <!--</div>-->
                 </div>
             </div>
         </div>
@@ -32,31 +29,34 @@
 
     <aside class="aside">
         <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Location
                 <select class="location-select">
                     <option value="url">Page URL</option>
+                    <option value="attr">Page Attribute</option>
+                    <option value="pageset">Pageset</option>
                 </select>
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content title" data-title="Title">
                 Event
+                <input type="text" placeholder="Type definition">
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Engagement time
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Scroll reach
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Dom load time
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Bounce rate
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 Text on page
             </li>
-            <li class="ui-widget-content ui-corner-tr">
+            <li class="ui-widget-content">
                 JS Errors
             </li>
         </ul>
