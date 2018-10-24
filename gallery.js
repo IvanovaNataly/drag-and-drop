@@ -38,7 +38,6 @@ $( function() {
             "ui-droppable-active": "ui-state-highlight"
         },
         drop: function( event, ui ) {
-            // deleteImage( ui.draggable );
             var target = $(event.target);
             target.append(ui.draggable);
             $(".ui-state-highlight").removeClass("ui-state-highlight");
@@ -51,6 +50,7 @@ $( function() {
                 helper: "clone",
                 cursor: "move"
             });
+            target.draggable( "destroy" );
         }
     });
 

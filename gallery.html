@@ -11,57 +11,56 @@
     <script src="gallery.js"></script>
 </head>
 <body>
-<div class="wrapper">
-    <div class="main">
-        <div id="droppable-global" class="level-global">
-            <h3>Visitor level</h3>
-            <div id="droppable-visit" class="level-visitor">
-                <h3>Visit</h3>
-                <div id="droppable-pageview" class="level-pageview">
-                    <h3>Pageview</h3>
+    <div class="wrapper">
+        <div class="main">
+            <div id="droppable-global" class="level-global">
+                <h3>Visitor level</h3>
+                <div id="droppable-visit" class="level-visitor">
+                    <h3>Visit</h3>
+                    <div id="droppable-pageview" class="level-pageview">
+                        <h3>Pageview</h3>
+                    </div>
                 </div>
             </div>
+            <div class="btn-wrapper">
+                <button class="ct-btn-primary btn-search">Search</button>
+            </div>
         </div>
-        <div class="btn-wrapper">
-            <button class="ct-btn-primary btn-search">Search</button>
-        </div>
+
+        <aside class="aside">
+            <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                <li class="ui-widget-content">
+                    Location
+                    <select class="location-select">
+                        <option value="url">Page URL</option>
+                        <option value="attr">Page Attribute</option>
+                        <option value="pageset">Pageset</option>
+                    </select>
+                </li>
+                <li class="ui-widget-content title" data-title="Title">
+                    Event
+                    <input type="text" placeholder="Type definition" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Engagement time
+                </li>
+                <li class="ui-widget-content">
+                    Scroll reach
+                </li>
+                <li class="ui-widget-content">
+                    Dom load time
+                </li>
+                <li class="ui-widget-content">
+                    Bounce rate
+                </li>
+                <li class="ui-widget-content">
+                    Text on page
+                </li>
+                <li class="ui-widget-content">
+                    JS Errors
+                </li>
+            </ul>
+        </aside>
     </div>
-
-    <aside class="aside">
-        <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-            <li class="ui-widget-content">
-                Location
-                <select class="location-select">
-                    <option value="url">Page URL</option>
-                    <option value="attr">Page Attribute</option>
-                    <option value="pageset">Pageset</option>
-                </select>
-            </li>
-            <li class="ui-widget-content title" data-title="Title">
-                Event
-                <input type="text" placeholder="Type definition" class="filter-input">
-            </li>
-            <li class="ui-widget-content">
-                Engagement time
-            </li>
-            <li class="ui-widget-content">
-                Scroll reach
-            </li>
-            <li class="ui-widget-content">
-                Dom load time
-            </li>
-            <li class="ui-widget-content">
-                Bounce rate
-            </li>
-            <li class="ui-widget-content">
-                Text on page
-            </li>
-            <li class="ui-widget-content">
-                JS Errors
-            </li>
-        </ul>
-    </aside>
-
-
 </body>
 </html>
