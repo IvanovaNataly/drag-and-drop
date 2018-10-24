@@ -93,7 +93,8 @@ body {
 }
 
 .filter-input,
-.location-select {
+.location-select,
+.condition-type {
     width: 200px;
     height: 31px;
     line-height: 31px;
@@ -116,6 +117,12 @@ body {
 .location-select {
     display: block;
     margin-left: 0;
+}
+
+.condition-type {
+    width: auto;
+    margin-left: 0;
+    margin-bottom: 10px;
 }
 
 .btn-wrapper {
@@ -141,4 +148,8 @@ body {
         position: absolute;
         top: -30px;
     }
+}
+
+.condition-type:last-child {
+    display: none;
 }

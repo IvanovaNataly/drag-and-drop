@@ -13,6 +13,12 @@ $( function() {
         '<li class="ui-widget-content">Text on page</li>'+
         '<li class="ui-widget-content">JS Errors</li>';
 
+    //Condition type dropdown
+    var conditionType = '<select class="condition-type">'+
+                        '<option value="and">and</option>'+
+                        '<option value="or">or</option>'+
+                        '</select>';
+
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
         $trash = $( "#droppable-global, #droppable-visit, #droppable-pageview" );
@@ -50,6 +56,7 @@ $( function() {
                 helper: "clone",
                 cursor: "move"
             });
+            target.append(conditionType);
             target.draggable( "destroy" );
         }
     });
