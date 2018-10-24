@@ -1,5 +1,6 @@
 @import "colors";
 @import "variables";
+@import "fonts";
 @import "buttons";
 
 body {
@@ -11,6 +12,23 @@ body {
 
 * {
     box-sizing: border-box;
+}
+
+//scroll bar in webkit based browsers
+::-webkit-scrollbar {
+    width: 12px;
+    height: 10px;
+}
+::-webkit-scrollbar-track {
+    background-color: $white;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-workspace;
+    border-radius: 10px;
+    border: 2.5px solid $white;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: $text-medium;
 }
 
 .wrapper {
@@ -68,7 +86,8 @@ body {
         border: 1px dashed $text-medium;
         .level-title,
         .level-visitor,
-        .visit-condition-select {
+        .visit-condition-select,
+        .level-pageview {
             display: none;
         }
         .visit-empty {
@@ -87,7 +106,6 @@ body {
     .visit-empty {
         display: none;
     }
-
 }
 
 .level-visitor {
@@ -96,6 +114,7 @@ body {
     padding: 20px;
     background-color: #F5E1C2;
     border: 1px dashed transparent;
+    //visibility: visible;
 }
 
 .level-pageview {
@@ -104,6 +123,7 @@ body {
     padding: 20px;
     background-color: #A6D6AB;
     border: 1px dashed transparent;
+    //visibility: visible;
 }
 
 .ui-widget-content {
@@ -122,6 +142,7 @@ body {
 .filter-input,
 .location-select,
 .condition-type {
+    font-family: "Open Sans", sans-serif;
     width: 200px;
     height: 31px;
     line-height: 31px;
@@ -196,4 +217,22 @@ body {
 
 .condition-type:last-child {
     display: none;
+}
+
+.iconFont {
+    font-family: 'ctIcon';
+    cursor: pointer;
+    font-weight: 400;
+    &.trash {
+        font-size: 14px;
+        color: $text-light;
+        &:after {
+            content: 'R';
+            display: inline-block;
+            vertical-align: top;
+        }
+        &:hover {
+            color: $text-medium;
+        }
+    }
 }

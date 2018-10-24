@@ -1,17 +1,65 @@
 $( function() {
     //Constant set of filters
-    var filters = '<li class="ui-widget-content">Location'+
+    var filters = '<li class="ui-widget-content title" data-title="Location">Location'+
             '<select class="location-select"><option value="url">Page URL</option>'+
-                '<option value="url">Page Attribute</option>'+
-                 '<option value="url">Pageset</option></select></li>'+
-        '<li class="ui-widget-content title" data-title="Title">Event'+
-        '<input type="text" placeholder="Type definition" class="filter-input"></li>'+
-        '<li class="ui-widget-content">Engagement time</li>'+
-        '<li class="ui-widget-content">Scroll reach</li>'+
-        '<li class="ui-widget-content">Dom load time</li>'+
-        '<li class="ui-widget-content">Bounce rate</li>'+
-        '<li class="ui-widget-content">Text on page</li>'+
-        '<li class="ui-widget-content">JS Errors</li>';
+            '<option value="url">Page Attribute</option>'+
+            '<option value="url">Pageset</option></select></li>'+
+        '<li class="ui-widget-content title" data-title="Behavior">Interaction and sequence'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Engagement time'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Action'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Scroll reach'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Time on page'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Bounce rate'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Looping'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Between looping'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Visited pages'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">First view of page'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content title" data-title="Experience">Text on page'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Attribute'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Clicks on page'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content title" data-title="Visitor environment">Browser'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Screen resolution'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Country'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Region'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Device'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Operating system'+
+            '<input type="text" placeholder="Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Fold height'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content">View port height'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content title" data-title="Web performance">Dom load time'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content">JS errors count'+
+            '<input type="text" placeholder="Type range" class="filter-input"></li>'+
+        '<li class="ui-widget-content">JS errors'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content title" data-title="Traffic Sources">Visit Referrer'+
+            '<input type="text" placeholder="Type or Search" class="filter-input"></li>'+
+        '<li class="ui-widget-content title" data-title="Visitor identification">Visitor ID'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Pageview ID'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>'+
+        '<li class="ui-widget-content">Visit ID'+
+            '<input type="text" placeholder="Type" class="filter-input"></li>';
 
     //Condition type dropdown
     var conditionType = '<select class="condition-type">'+
