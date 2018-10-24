@@ -1,16 +1,20 @@
 $( function() {
+    //Constant set of filters
+    var filters = '<li class="ui-widget-content ui-corner-tr">Location<select class="location-select"><option value="url">Page URL</option></select></li>'+
+        '<li class="ui-widget-content ui-corner-tr">Event</li>'+
+        '<li class="ui-widget-content ui-corner-tr">Engagement time</li>'+
+        '<li class="ui-widget-content ui-corner-tr">Scroll reach</li>'+
+        '<li class="ui-widget-content ui-corner-tr">Dom load time</li>'+
+        '<li class="ui-widget-content ui-corner-tr">Bounce rate</li>'+
+        '<li class="ui-widget-content ui-corner-tr">Text on page</li>'+
+        '<li class="ui-widget-content ui-corner-tr">JS Errors</li>';
 
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
-        $trash = $( "#droppable-global" );
+        $trash = $( "#droppable-global, #droppable-visit, #droppable-pageview" );
 
-    function addElements()
-    {
-        $gallery.empty().append(
-            "<li id='item1' class='list1Items'>Item 1</li>"+
-            "<li id='item2' class='list1Items'>Item 2</li>"+
-            "<li id='item3' class='list1Items'>Item 3</li>"
-        );
+    function addElements() {
+        $gallery.empty().append(filters);
     }
 
     // Let the gallery items be draggable
@@ -23,7 +27,7 @@ $( function() {
     });
 
     // Let the trash be droppable, accepting the gallery items
-    $( "#droppable-global, #droppable-visit" ).droppable({
+    $trash.droppable({
         greedy: true,
         accept: "#gallery > li",
         classes: {

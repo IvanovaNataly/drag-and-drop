@@ -1,2 +1,4 @@
 .idea/
 styles/dropdown.css.map
+*.map
+*.css

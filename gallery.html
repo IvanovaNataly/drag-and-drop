@@ -5,21 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>jQuery UI Droppable - Simple photo manager</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="/resources/demos/style.css">
-    <style>
-        #gallery { float: left; width: 65%; min-height: 12em; }
-        .gallery.custom-state-active { background: #eee; }
-        .gallery li { float: left; width: 96px; padding: 0.4em; margin: 0 0.4em 0.4em 0; text-align: center; }
-        .gallery li h5 { margin: 0 0 0.4em; cursor: move; }
-        .gallery li a { float: right; }
-        .gallery li a.ui-icon-zoomin { float: left; }
-        .gallery li img { width: 100%; cursor: move; }
-
-        #trash { min-height: 18em; padding: 1%; }
-        #trash h4 { line-height: 16px; margin: 0 0 0.4em; }
-        #trash h4 .ui-icon { float: left; }
-        #trash .gallery h5 { display: none; }
-    </style>
     <link rel="stylesheet" href="styles/drag-drop.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -28,51 +13,54 @@
 <body>
 <div class="wrapper">
     <div class="main">
-        <div id="trash" class="ui-widget-content ui-state-default">
-            <div id="droppable-global" class="ui-widget-header level-global">
-                <p>Visitor level</p>
-                <div id="droppable-visit" class="ui-widget-header level-visitor">
-                <p>Visit</p>
-            </div>
+        <div id="droppable-global" class="level-global">
+            <h3>Visitor level</h3>
+            <div id="droppable-visit" class="level-visitor">
+                <h3>Visit</h3>
+                <div id="droppable-pageview" class="level-pageview">
+                    <h3>Pageview</h3>
+                    <!--<div id="droppable-location" class="ui-widget-header level-location">-->
+                        <!--<p>Location</p>-->
+                    <!--</div>-->
+                </div>
             </div>
         </div>
-
+        <div class="btn-wrapper">
+            <button class="ct-btn-primary btn-search">Search</button>
+        </div>
     </div>
 
     <aside class="aside">
         <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
             <li class="ui-widget-content ui-corner-tr">
-                <h5 class="ui-widget-header">High Tatras</h5>
-                <img src="images/high_tatras_min.jpg" alt="The peaks of High Tatras" width="96" height="72">
-                <a href="images/high_tatras.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+                Location
+                <select class="location-select">
+                    <option value="url">Page URL</option>
+                </select>
             </li>
             <li class="ui-widget-content ui-corner-tr">
-                <h5 class="ui-widget-header">High Tatras 2</h5>
-                <img src="images/high_tatras2_min.jpg" alt="The chalet at the Green mountain lake" width="96" height="72">
-                <a href="images/high_tatras2.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+                Event
             </li>
             <li class="ui-widget-content ui-corner-tr">
-                <h5 class="ui-widget-header">High Tatras 3</h5>
-                <img src="images/high_tatras3_min.jpg" alt="Planning the ascent" width="96" height="72">
-                <a href="images/high_tatras3.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+                Engagement time
             </li>
             <li class="ui-widget-content ui-corner-tr">
-                <h5 class="ui-widget-header">High Tatras 4</h5>
-                <img src="images/high_tatras4_min.jpg" alt="On top of Kozi kopka" width="96" height="72">
-                <a href="images/high_tatras4.jpg" title="View larger image" class="ui-icon ui-icon-zoomin">View larger</a>
-                <a href="link/to/trash/script/when/we/have/js/off" title="Delete this image" class="ui-icon ui-icon-trash">Delete image</a>
+                Scroll reach
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                Dom load time
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                Bounce rate
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                Text on page
+            </li>
+            <li class="ui-widget-content ui-corner-tr">
+                JS Errors
             </li>
         </ul>
-
     </aside>
-<!--<div class="ui-widget ui-helper-clearfix">-->
-
-
-
-<!--</div>-->
 
 
 </body>
