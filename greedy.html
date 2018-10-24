@@ -12,36 +12,23 @@
 </head>
 <body>
     <div class="wrapper">
-        <div class="main">
-            <div id="droppable-global" class="ui-widget-header level-global">
-                <p>Visitor level</p>
-                <div id="droppable-visit" class="ui-widget-header level-visitor">
-                    <p>Visit</p>
-                    <div id="droppable-pageview" class="ui-widget-header level-pageview">
-                        <p>Pageview</p>
-                        <div id="droppable-location" class="ui-widget-header level-location">
-                            <p>Location</p>
-                            <select name="location" id="location">
-                                <option value="url">Page URL</option>
-                            </select>
-                        </div>
-                    </div>
-                </div>
+        <div id="draggable" class="ui-widget-content">
+            <p>Drag me to my target</p>
+        </div>
+
+        <div id="droppable" class="ui-widget-header">
+            <p>Outer droppable</p>
+            <div id="droppable-inner" class="ui-widget-header">
+                <p>Inner droppable (not greedy)</p>
             </div>
         </div>
 
-        <aside class="aside">
-            <ul id="gallery">
-                <li class="ui-widget-content">
-                    <p>Location</p>
-                </li>
-                <li class="ui-widget-content">
-                        <p>Event</p>
-                </li>
-            </ul>
-        </aside>
-
-
+        <div id="droppable2" class="ui-widget-header">
+            <p>Outer droppable</p>
+            <div id="droppable2-inner" class="ui-widget-header">
+                <p>Inner droppable (greedy)</p>
+            </div>
+        </div>
     </div>
 
     <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
