@@ -21,7 +21,7 @@ $( function() {
 
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
-        $trash = $( "#droppable-global, #droppable-visit, #droppable-pageview" );
+        $trash = $( ".level-global, .level-visitor, .level-pageview" );
 
     function addElements() {
         $gallery.empty().append(filters);
@@ -57,6 +57,9 @@ $( function() {
                 cursor: "move"
             });
             target.append(conditionType);
+            $(".level-global:not(.initiated)").addClass("empty");
+            target.addClass("initiated");
+            target.removeClass("empty");
             target.draggable( "destroy" );
         }
     });

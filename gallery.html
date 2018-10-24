@@ -12,16 +12,37 @@
 </head>
 <body>
     <div class="wrapper">
-        <div id="main" class="main">
-            <div id="droppable-global" class="level-global">
-                <h3>Visitor level</h3>
-                <div id="droppable-visit" class="level-visitor">
-                    <h3>Visit</h3>
-                    <div id="droppable-pageview" class="level-pageview">
-                        <h3>Pageview</h3>
+        <div class="main">
+            <div class="level-global empty">
+                <h3 class="level-title">Visitor level</h3>
+                <div class="level-visitor">
+                    <h3 class="level-title">Visit</h3>
+                    <div class="level-pageview">
+                        <h3 class="level-title">Pageview</h3>
                     </div>
                 </div>
+                <div class="visit-empty">+ Add Filter</div>
             </div>
+
+            <div class="level-global">
+                <select class="visit-condition-select">
+                    <option value="then">then</option>
+                    <option value="immediately">immediately follow</option>
+                    <option value="range">range</option>
+                    <option value="time">time</option>
+                </select>
+                <div class="level-visitor">
+                    <h3 class="level-title">Visit</h3>
+                    <div class="level-pageview">
+                        <h3 class="level-title">Pageview</h3>
+                    </div>
+                </div>
+                <div class="visit-empty">
+                    + Add Filter
+                    <span class="visit-empty-detail"> to visitor level</span>
+                </div>
+            </div>
+
             <div class="btn-wrapper">
                 <button class="ct-btn-primary btn-search">Search</button>
             </div>
@@ -29,7 +50,7 @@
 
         <aside class="aside">
             <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                <li class="ui-widget-content">
+                <li class="ui-widget-content title" data-title="Location">
                     Location
                     <select class="location-select">
                         <option value="url">Page URL</option>
@@ -37,30 +58,141 @@
                         <option value="pageset">Pageset</option>
                     </select>
                 </li>
-                <li class="ui-widget-content title" data-title="Title">
-                    Event
-                    <input type="text" placeholder="Type definition" class="filter-input">
+                <li class="ui-widget-content title" data-title="Behavior">
+                    Interaction and sequence
+                    <input type="text" placeholder="search" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
                     Engagement time
+                    <input type="text" placeholder="Type range" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Action
+                    <input type="text" placeholder="Search" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
                     Scroll reach
+                    <input type="text" placeholder="Search" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
-                    Dom load time
+                    Time on page
+                    <input type="text" placeholder="Search" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
                     Bounce rate
+                    <input type="text" placeholder="Search" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
+                    Looping
+                    <input type="text" placeholder="Type" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Between looping
+                    <input type="text" placeholder="Type" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Visited pages
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    First view of page
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content title" data-title="Experience">
                     Text on page
+                    <input type="text" placeholder="Type" class="filter-input">
                 </li>
                 <li class="ui-widget-content">
-                    JS Errors
+                    First view of page
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Attribute
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Clicks on page
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content title" data-title="Visitor environment">
+                    Browser
+                    <input type="text" placeholder="Type" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Screen resolution
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Country
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Region
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Device
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Operating system
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Fold height
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    View port height
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content title" data-title="Web performance">
+                    Dom load time
+                    <input type="text" placeholder="Type" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    JS errors count
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    JS errors
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content title" data-title="Visitor identification">
+                    Visitor ID
+                    <input type="text" placeholder="Type" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Pageview ID
+                    <input type="text" placeholder="Type or Search" class="filter-input">
+                </li>
+                <li class="ui-widget-content">
+                    Visit ID
+                    <input type="text" placeholder="Type or Search" class="filter-input">
                 </li>
             </ul>
         </aside>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </div>
 </body>
 </html>
