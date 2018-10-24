@@ -73,7 +73,8 @@ body {
         min-width: unset;
         cursor: move;
     }
-    .location-select {
+    .location-select,
+    .filter-input {
         display: none;
     }
 }
@@ -91,8 +92,30 @@ body {
     list-style: none;
 }
 
-select {
+.filter-input,
+.location-select {
+    width: 200px;
+    height: 31px;
+    line-height: 31px;
+    margin-left: 10px;
+    padding: 0 10px;
+    border: 1px solid $border-color;
+    border-radius: $input-border-radius;
+    &::placeholder {
+        color: $text-light;
+        font-style: italic;
+    }
+    &:focus {
+        border-color: $input-focus;
+    }
+    &:hover {
+        border-color: $input-hover;
+    }
+}
+
+.location-select {
     display: block;
+    margin-left: 0;
 }
 
 .btn-wrapper {

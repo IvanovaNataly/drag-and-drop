@@ -5,7 +5,7 @@ $( function() {
                 '<option value="url">Page Attribute</option>'+
                  '<option value="url">Pageset</option></select></li>'+
         '<li class="ui-widget-content title" data-title="Title">Event'+
-        '<input type="text" placeholder="Type definition"></li>'+
+        '<input type="text" placeholder="Type definition" class="filter-input"></li>'+
         '<li class="ui-widget-content">Engagement time</li>'+
         '<li class="ui-widget-content">Scroll reach</li>'+
         '<li class="ui-widget-content">Dom load time</li>'+
