@@ -108,6 +108,7 @@ $( function() {
             $(".level-global:not(.initiated)").addClass("empty");
             target.closest(".level-global").addClass("initiated");
             target.closest(".level-global").removeClass("empty");
+            target.removeClass("empty");
             target.draggable("destroy");
         }
     });

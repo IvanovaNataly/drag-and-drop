@@ -99,6 +99,9 @@ body {
             background-color: $white;
             border: 1px dashed $text-medium;
             z-index: 1;
+            &.empty {
+                display: none;
+            }
         }
         .visit-empty {
             display: inline;
@@ -132,6 +135,21 @@ body {
     padding: 20px;
     background-color: #A6D6AB;
     border: 1px dashed transparent;
+    z-index: 1;
+    &.empty {
+        background-color: #D5DDB9;
+        .level-title {
+            display: none;
+        }
+        .pageview-empty {
+            display: inline;
+        }
+    }
+    .pageview-empty {
+        display: none;
+        font-size: 12px;
+        font-weight: bold;
+    }
 }
 
 .ui-widget-content {
