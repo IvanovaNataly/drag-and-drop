@@ -106,9 +106,9 @@ $( function() {
             });
             target.append(conditionType);
             $(".level-global:not(.initiated)").addClass("empty");
-            target.addClass("initiated");
-            target.removeClass("empty");
-            target.draggable( "destroy" );
+            target.closest(".level-global").addClass("initiated");
+            target.closest(".level-global").removeClass("empty");
+            target.draggable("destroy");
         }
     });
 

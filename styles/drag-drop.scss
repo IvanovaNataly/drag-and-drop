@@ -82,13 +82,22 @@ body {
         }
     }
     &.empty {
-        background-color: $white;
-        border: 1px dashed $text-medium;
+        display: contents;
         .level-title,
-        .level-visitor,
-        .visit-condition-select,
-        .level-pageview {
+        .visit-condition-select {
             display: none;
+        }
+        .level-visitor {
+            display: contents;
+        }
+        .level-pageview {
+            width: 100%;
+            height: 80px;
+            line-height: 80px;
+            padding: 0;
+            background-color: $white;
+            border: 1px dashed $text-medium;
+            z-index: 1;
         }
         .visit-empty {
             display: block;
@@ -114,7 +123,6 @@ body {
     padding: 20px;
     background-color: #F5E1C2;
     border: 1px dashed transparent;
-    //visibility: visible;
 }
 
 .level-pageview {
@@ -123,7 +131,6 @@ body {
     padding: 20px;
     background-color: #A6D6AB;
     border: 1px dashed transparent;
-    //visibility: visible;
 }
 
 .ui-widget-content {
