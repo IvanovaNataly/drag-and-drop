@@ -110,6 +110,10 @@ body {
         min-width: unset;
         cursor: move;
     }
+    .ui-draggable-dragging {
+        padding-right: 20px;
+        padding-left: 20px;
+    }
     .location-select,
     .filter-input,
     .trash {
