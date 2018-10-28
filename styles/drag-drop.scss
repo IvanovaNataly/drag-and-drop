@@ -65,7 +65,8 @@ body {
         cursor: move;
     }
     .location-select,
-    .filter-input {
+    .filter-input,
+    .trash {
         display: none;
     }
 }
@@ -109,11 +110,14 @@ body {
             font-size: 20px;
             color: $text-medium;
         }
-        & ~ .level-global {
+        & ~ .level-global.empty {
             display: none;
         }
         &:not(:first-child) {
             margin-top: 20px;
+        }
+        &:first-of-type .level-pageview:first-of-type {
+            display: block;
         }
     }
     .visit-empty {
@@ -163,6 +167,7 @@ body {
     border-radius: 0;
     box-shadow: $box-shadow;
     list-style: none;
+    position: relative;
 }
 
 .filter-input,
@@ -251,6 +256,9 @@ body {
     font-family: 'ctIcon';
     cursor: pointer;
     font-weight: 400;
+    position: absolute;
+    right: 20px;
+    top: 30%;
     &.trash {
         font-size: 14px;
         color: $text-light;
