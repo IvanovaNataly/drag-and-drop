@@ -116,7 +116,8 @@ body {
     }
     .location-select,
     .filter-input,
-    .trash {
+    .trash,
+    .ui-widget-content .condition-type {
         display: none;
     }
 }
@@ -133,7 +134,19 @@ body {
         }
     }
     &.empty {
-        display: contents;
+        &:first-of-type {
+            display: contents;
+            .level-pageview:first-of-type {
+                display: block;
+                margin-top: 0;
+            }
+        }
+        &:not(:first-of-type) {
+            .level-pageview {
+                margin-top: 0;
+                background-color: transparent;
+            }
+        }
         .level-title,
         .visit-condition-select {
             display: none;
@@ -162,13 +175,6 @@ body {
         }
         & ~ .level-global.empty {
             display: none;
-        }
-        &:not(:first-child) {
-            margin-top: 20px;
-        }
-        &:first-of-type .level-pageview:first-of-type {
-            display: block;
-            margin-top: 0;
         }
     }
     .visit-empty {
@@ -219,6 +225,12 @@ body {
     box-shadow: $box-shadow;
     list-style: none;
     position: relative;
+    .condition-type {
+        display: inline-block;
+        margin-bottom: 0;
+        margin-left: 10px;
+        vertical-align: middle;
+    }
 }
 
 .filter-input,
@@ -246,8 +258,7 @@ body {
 }
 
 .location-select {
-    display: block;
-    margin-left: 0;
+    display: inline-block;
 }
 
 .condition-type {
@@ -312,7 +323,7 @@ body {
         color: $text-light;
         position: absolute;
         right: 20px;
-        top: 30%;
+        top: 19%;
         &:after {
             content: 'R';
             display: inline-block;

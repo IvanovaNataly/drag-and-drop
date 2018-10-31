@@ -30,7 +30,7 @@
                     <h3 class="level-title">Visit</h3>
                     <div class="level-pageview">
                         <h3 class="level-title">Pageview</h3>
-                        <span class="visit-empty">+ Add Filter</span>
+                        <span class="visit-empty">Drag here to add a filter</span>
                     </div>
                     <div class="level-pageview empty">
                         <h3 class="level-title">Pageview</h3>
@@ -51,7 +51,7 @@
                     <div class="level-pageview">
                         <h3 class="level-title">Pageview</h3>
                         <span class="visit-empty">
-                            + Add Filter to visitor level
+                            Drag here to add a filter to the visitor level
                         </span>
                     </div>
                 </div>
@@ -71,10 +71,16 @@
                         <option value="attr">Page Attribute</option>
                         <option value="pageset">Pageset</option>
                     </select>
+                    <input type="text" placeholder="Type" class="filter-input">
                     <span class="iconFont trash"></span>
                 </li>
                 <li class="ui-widget-content title" data-title="Behavior">
                     Interaction and sequence
+                    <select class="condition-type">
+                        <option value="url"></option>
+                        <option value="attr">-</option>
+                        <option value="pageset">NOT</option>
+                    </select>
                     <input type="text" placeholder="Search" class="filter-input">
                     <span class="iconFont trash"></span>
                 </li>

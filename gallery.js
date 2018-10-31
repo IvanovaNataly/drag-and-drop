@@ -4,6 +4,7 @@ $( function() {
             '<select class="location-select"><option value="url">Page URL</option>'+
             '<option value="url">Page Attribute</option>'+
             '<option value="url">Pageset</option></select>'+
+            '<input type="text" placeholder="Type" class="filter-input">'+
             '<span class="iconFont trash"></span></li>'+
         '<li class="ui-widget-content title" data-title="Behavior">Interaction and sequence'+
             '<input type="text" placeholder="Search" class="filter-input">'+
