@@ -143,17 +143,16 @@ border 0.3s;
 }
 
 @mixin btnLinked {
+    @include resetBtn;
     color: $system-regular;
-    font-weight: 600;
-    min-width: 175px;
     &:hover {
         color: $system-regular;
+        text-decoration: underline;
     }
     .plus {
         font-size: 8px;
         display: inline-block;
         margin-right: 5px;
-        vertical-align: top;
     }
 }
 

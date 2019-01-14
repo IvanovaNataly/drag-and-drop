@@ -1,14 +1,16 @@
-/* icons */
 @font-face {
     font-family: 'ctIcon';
-    src: url('../assets/fonts/ClicktalePlus.ttf');
+    src: url('../assets/fonts/ClicktalePlus.woff') format('woff'),
+    url('../assets/fonts/ClicktalePlus.eot') format('embedded-opentype'),
+    url('../assets/fonts/ClicktalePlus.ttf') format('truetype');
     font-style: normal;
 }
 
-/* icons */
 @font-face {
     font-family: 'ctIconPlus';
-    src: url('../assets/fonts/ClicktalePlus2.ttf');
+    src: url('../assets/fonts/ClicktalePlus2.woff') format('woff'),
+    url('../assets/fonts/ClicktalePlus2.eot') format('embedded-opentype'),
+    url('../assets/fonts/ClicktalePlus2.ttf') format('truetype');
     font-style: normal;
 }
 
