@@ -250,6 +250,7 @@ $( function() {
                 $target.closest(".empty").removeClass("empty");
                 $target.find(".level-empty-label").hide();
                 $target.droppable("destroy");
+                ui.draggable.draggable("destroy");
             }
         });
         return $droppableArea;
@@ -328,6 +329,7 @@ $( function() {
             $target.closest(".empty").removeClass("empty");
             $target.find(".level-empty-label").hide();
             $target.droppable("destroy");
+            ui.draggable.draggable("destroy");
         }
     });
 
