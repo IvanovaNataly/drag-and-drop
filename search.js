@@ -213,28 +213,59 @@ $( function() {
                         '<option value="or">or</option>'+
                         '</select>';
 
+    //Droppable area
+    function createDroppable() {
+        var $droppableArea = $('<div class="level-empty">' +
+            '<span class="level-empty-label">Drag here to add a filter</span>' +
+            '</div>');
+        $droppableArea.droppable({
+            greedy: true,
+            accept: "#gallery > li",
+            classes: {
+                "ui-droppable-active": "ui-state-highlight"
+            },
+            drop: function( event, ui ) {
+                var target = $(event.target);
+                target.append(ui.draggable);
+                $(".ui-state-highlight").removeClass("ui-state-highlight");
+                $(".ui-state-active").removeClass("ui-state-active");
+                addElements();
+                $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
+                $( "li", $gallery ).draggable({
+                    cancel: "button", // these elements won't initiate dragging
+                    revert: "invalid", // when not dropped, the item will revert back to its initial position
+                    containment: "document",
+                    helper: "clone",
+                    cursor: "move"
+                });
+                var da = createDroppable();
+                $(".level-pageview").append(da);
+                target.closest(".empty").removeClass("empty");
+                target.find(".level-empty-label").hide();
+                target.droppable("destroy");
+            }
+        });
+        return $droppableArea;
+    }
+
+
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
-        $trash = $( ".level-global, .level-visitor, .level-pageview" );
+        // $trash = $( ".level-visit, .level-pageview" );
+        $trash = $(".level-empty");
 
     function addElements() {
         $gallery.empty().append(filters);
     }
 
     function deleteItem(event) {
-        var target = $(event.target);
-        checkState(target);
-        target.closest(".ui-widget-content").remove();
-    }
+        var $target = $(event.target);
+        var $pageview = $target.closest(".level-pageview");
 
-    function checkState(target) {
-        var $global =   target.closest(".level-global");
-        var $pageview =  target.closest(".level-pageview");
-        target.closest(".ui-widget-content").prev(".condition-type").remove();
-        if ($global.find(".ui-widget-content").length === 1) {
-            $global.removeClass("initiated").addClass("empty");
-        };
-        if ($pageview.find(".ui-widget-content").length === 1) {
+        $target.closest(".level-empty").remove();
+
+        var levelEmpty = $pageview.find(".level-empty");
+        if(levelEmpty.length < 2) {
             $pageview.addClass("empty");
         }
     }
@@ -275,14 +306,11 @@ $( function() {
                 helper: "clone",
                 cursor: "move"
             });
-            target.append(conditionType);
-            // $(".level-global:not(.initiated)").addClass("empty");
-            // target.closest(".level-global").addClass("initiated");
-            // target.closest(".level-global").removeClass("empty");
-            target.removeClass("empty");
-            target.find(".hidden").removeClass("hidden");
-            target.find(".visit-empty").hide();
-            target.draggable("destroy");
+            var da = createDroppable();
+            $(".level-pageview").append(da);
+            target.closest(".empty").removeClass("empty");
+            target.find(".level-empty-label").hide();
+            target.droppable("destroy");
         }
     });
 
