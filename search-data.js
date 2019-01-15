@@ -2,20 +2,38 @@ $( function() {
     var key = "search";
 
     function postData() {
+        var $levelPageview = $(".level-pageview");
+        var $filters = $levelPageview.find(".ui-widget-content");
+        var name = $filters.find(".filter-name").text();
+        var inputs = $filters.find("select, input");
+        var sum = $.map( inputs, function(input) {
+            return input.value;
+        }).join(" ");
         return {
-            storage: "stored"
+            name: name,
+            selectValue: sum
+        }
+    }
+
+    function postFilter(filter) {
+        var name = filter.find(".filter-name").text();
+        var inputs = filter.find("select, input");
+        var sum = $.map( inputs, function(input) {
+            return input.value;
+        }).join(" ");
+        return {
+            name: name,
+            selectValue: sum
         }
     }
 
     function getData(keySrting) {
         var dataString = localStorage.getItem(keySrting);
-        console.log(dataString);
         return JSON.parse(dataString);
     }
 
     function storeData(dataObject) {
         var dataSring = JSON.stringify(dataObject);
-        console.log(dataSring);
         localStorage.setItem(key, dataSring);
     }
 
@@ -26,5 +44,5 @@ $( function() {
         console.log(data);
     }
 
-    $( "#searchBtn").click( function(event) { onSearch()});
-} );
+    $( "#searchBtn").click( function() { onSearch()});
+} );;
