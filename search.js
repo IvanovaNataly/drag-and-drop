@@ -208,10 +208,16 @@ $( function() {
         '<span class="iconFont trash"></span></li>';
 
     //Condition type dropdown
-    var conditionType = '<select class="condition-type">'+
-                        '<option value="and">and</option>'+
-                        '<option value="or">or</option>'+
-                        '</select>';
+    var $newGroupContainer = $('<div class="group-container">'+
+                            '<div class="condition-type-wrapper">'+
+                            '<select class="condition-type">'+
+                            '<option value="and">and</option>'+
+                            '<option value="andNot">and NOT</option>'+
+                            '<option value="or">or</option>'+
+                            '<option value="orNot">or NOT</option>'+
+                            '</select>'+
+                            '</div>'+
+                            '</div>');
 
     //Droppable area
     function createDroppable() {
@@ -240,7 +246,7 @@ $( function() {
                     cursor: "move"
                 });
                 var da = createDroppable();
-                $levelDroppable.append(da);
+                $target.after(da);
                 $target.closest(".empty").removeClass("empty");
                 $target.find(".level-empty-label").hide();
                 $target.droppable("destroy");
@@ -251,7 +257,6 @@ $( function() {
 
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
-        // $trash = $( ".level-visit, .level-pageview" );
         $trash = $(".level-empty");
 
     function addElements() {
@@ -273,9 +278,18 @@ $( function() {
     }
 
     function addLevel(event) {
-        var target = $(event.target);
-        target.hide();
-        target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
+        var $target = $(event.target);
+        $target.hide();
+        $target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
+    }
+
+    function addGroup(event) {
+        var $target = $(event.target);
+        var $targetClosest = $target.closest(".level-pageview");
+        var $newGroup = $newGroupContainer.clone();
+        var $droppableArea = createDroppable();
+        $newGroup.append($droppableArea);
+        $targetClosest.append($newGroup);
     }
 
     // Let the gallery items be draggable
@@ -310,7 +324,7 @@ $( function() {
                 cursor: "move"
             });
             var da = createDroppable();
-            $levelDroppable.append(da);
+            $target.after(da);
             $target.closest(".empty").removeClass("empty");
             $target.find(".level-empty-label").hide();
             $target.droppable("destroy");
@@ -319,5 +333,7 @@ $( function() {
 
     $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
 
-    $( ".add-level").click( function(event) { addLevel(event)});
+    $( "#addVisit").click( function(event) { addLevel(event)});
+
+    $( "#addGroup").click( function(event) { addGroup(event)});
 } );

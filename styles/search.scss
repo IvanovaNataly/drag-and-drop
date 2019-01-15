@@ -140,6 +140,7 @@ body {
 }
 
 .add-level {
+    margin-left: 15px;
     float: right;
 }
 
@@ -208,13 +209,22 @@ body {
 .location-select {
     display: inline-block;
 }
+.condition-type-wrapper {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+    &:after {
+        content: '';
+        display: block;
+        border-top: 1px solid $border-color;
+        flex: 1 1;
+    }
+}
 
 .condition-type {
     width: auto;
     height: 20px;
     line-height: 20px;
-    margin-left: 0;
-    margin-bottom: 10px;
 }
 
 .visit-condition-select {
