@@ -226,6 +226,7 @@ $( function() {
             },
             drop: function( event, ui ) {
                 var $target = $(event.target);
+                var $levelDroppable = $target.closest(".level-droppable");
                 $target.append(ui.draggable);
                 $(".ui-state-highlight").removeClass("ui-state-highlight");
                 $(".ui-state-active").removeClass("ui-state-active");
@@ -239,7 +240,7 @@ $( function() {
                     cursor: "move"
                 });
                 var da = createDroppable();
-                $(".level-pageview").append(da);
+                $levelDroppable.append(da);
                 $target.closest(".empty").removeClass("empty");
                 $target.find(".level-empty-label").hide();
                 $target.droppable("destroy");
@@ -259,13 +260,15 @@ $( function() {
 
     function deleteItem(event) {
         var $target = $(event.target);
-        var $pageview = $target.closest(".level-pageview");
+        var $levelDroppable = $target.closest(".level-droppable");
 
         $target.closest(".level-empty").remove();
-
-        var levelEmpty = $pageview.find(".level-empty");
-        if(levelEmpty.length < 2) {
-            $pageview.addClass("empty");
+        if($levelDroppable.find(".level-empty") < 2) {
+            $levelDroppable.addClass("empty");
+        }
+        if($levelDroppable.hasClass("level-visit")) {
+            $levelDroppable.addClass("hidden");
+            $(".add-level").show();
         }
     }
 
@@ -293,6 +296,7 @@ $( function() {
         },
         drop: function( event, ui ) {
             var $target = $(event.target);
+            var $levelDroppable = $target.closest(".level-droppable");
             $target.append(ui.draggable);
             $(".ui-state-highlight").removeClass("ui-state-highlight");
             $(".ui-state-active").removeClass("ui-state-active");
@@ -306,7 +310,7 @@ $( function() {
                 cursor: "move"
             });
             var da = createDroppable();
-            $(".level-pageview").append(da);
+            $levelDroppable.append(da);
             $target.closest(".empty").removeClass("empty");
             $target.find(".level-empty-label").hide();
             $target.droppable("destroy");
