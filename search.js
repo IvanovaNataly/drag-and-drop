@@ -225,8 +225,8 @@ $( function() {
                 "ui-droppable-active": "ui-state-highlight"
             },
             drop: function( event, ui ) {
-                var target = $(event.target);
-                target.append(ui.draggable);
+                var $target = $(event.target);
+                $target.append(ui.draggable);
                 $(".ui-state-highlight").removeClass("ui-state-highlight");
                 $(".ui-state-active").removeClass("ui-state-active");
                 addElements();
@@ -240,14 +240,13 @@ $( function() {
                 });
                 var da = createDroppable();
                 $(".level-pageview").append(da);
-                target.closest(".empty").removeClass("empty");
-                target.find(".level-empty-label").hide();
-                target.droppable("destroy");
+                $target.closest(".empty").removeClass("empty");
+                $target.find(".level-empty-label").hide();
+                $target.droppable("destroy");
             }
         });
         return $droppableArea;
     }
-
 
     // There's the gallery and the trash
     var $gallery = $( "#gallery" ),
@@ -273,7 +272,7 @@ $( function() {
     function addLevel(event) {
         var target = $(event.target);
         target.hide();
-        target.closest(".search-area").find(".level-visit").removeClass("hidden");
+        target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
     }
 
     // Let the gallery items be draggable
@@ -293,8 +292,8 @@ $( function() {
             "ui-droppable-active": "ui-state-highlight"
         },
         drop: function( event, ui ) {
-            var target = $(event.target);
-            target.append(ui.draggable);
+            var $target = $(event.target);
+            $target.append(ui.draggable);
             $(".ui-state-highlight").removeClass("ui-state-highlight");
             $(".ui-state-active").removeClass("ui-state-active");
             addElements();
@@ -308,9 +307,9 @@ $( function() {
             });
             var da = createDroppable();
             $(".level-pageview").append(da);
-            target.closest(".empty").removeClass("empty");
-            target.find(".level-empty-label").hide();
-            target.droppable("destroy");
+            $target.closest(".empty").removeClass("empty");
+            $target.find(".level-empty-label").hide();
+            $target.droppable("destroy");
         }
     });
 
