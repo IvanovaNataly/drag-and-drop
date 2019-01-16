@@ -287,8 +287,7 @@ $( function() {
             return total + filter;
         });
         $gallery.empty().append(filtersElements);
-        // $( ".is-toggle-btn").click( function(event) { isToogle(event)});
-        $(".is-toggle-btn").toggleText('is', 'not');
+        $( ".is-toggle-btn").click( function(event) { isToogleText(event)});
     }
 
     function deleteItem(event) {
@@ -311,26 +310,20 @@ $( function() {
         $target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
     }
 
-    $.fn.extend({
-        toggleText: function(a, b){
-            return this.text(this.text() == b ? a : b);
-        }
-    });
-
-    // function addGroup(event) {
-    //     var $target = $(event.target);
-    //     var $targetClosest = $target.closest(".level-pageview");
-    //     var $newGroup = $newGroupContainer.clone();
-    //     var $droppableArea = createDroppable();
-    //     $newGroup.append($droppableArea);
-    //     $targetClosest.append($newGroup);
-    // }
-
-    function isToogle(event) {
+    function addGroup(event) {
         var $target = $(event.target);
-        var text = $target.text();
-        var newText = (text === "is" ? "not" : "is");
-        console.log(newText);
+        var $targetClosest = $target.closest(".level-pageview");
+        var $newGroup = $newGroupContainer.clone();
+        var $droppableArea = createDroppable();
+        $newGroup.append($droppableArea);
+        $targetClosest.append($newGroup);
+    }
+
+    function isToogleText(event) {
+        var $target = $(event.target);
+        var currentText = $target.text();
+        var newText = (currentText === "is" ? "not" : "is");
+        console.log(currentText);
         $target.text(newText);
     }
 
