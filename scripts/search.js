@@ -1,5 +1,5 @@
-import { Pages } from './pages.js';
-import { Url } from './url.js';
+import { Pages } from './filters/pages.js';
+import { Url } from './filters/url.js';
 
 $( function() {
     //Constant set of filters
@@ -287,7 +287,8 @@ $( function() {
             return total + filter;
         });
         $gallery.empty().append(filtersElements);
-
+        // $( ".is-toggle-btn").click( function(event) { isToogle(event)});
+        $(".is-toggle-btn").toggleText('is', 'not');
     }
 
     function deleteItem(event) {
@@ -310,16 +311,31 @@ $( function() {
         $target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
     }
 
-    function addGroup(event) {
+    $.fn.extend({
+        toggleText: function(a, b){
+            return this.text(this.text() == b ? a : b);
+        }
+    });
+
+    // function addGroup(event) {
+    //     var $target = $(event.target);
+    //     var $targetClosest = $target.closest(".level-pageview");
+    //     var $newGroup = $newGroupContainer.clone();
+    //     var $droppableArea = createDroppable();
+    //     $newGroup.append($droppableArea);
+    //     $targetClosest.append($newGroup);
+    // }
+
+    function isToogle(event) {
         var $target = $(event.target);
-        var $targetClosest = $target.closest(".level-pageview");
-        var $newGroup = $newGroupContainer.clone();
-        var $droppableArea = createDroppable();
-        $newGroup.append($droppableArea);
-        $targetClosest.append($newGroup);
+        var text = $target.text();
+        var newText = (text === "is" ? "not" : "is");
+        console.log(newText);
+        $target.text(newText);
     }
 
     // Let the gallery items be draggable
+    addElements();
     $( "li", $gallery ).draggable({
         cancel: "a.ui-icon", // clicking an icon won't initiate dragging
         revert: "invalid", // when not dropped, the item will revert back to its initial position

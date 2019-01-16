@@ -123,6 +123,8 @@ body {
         padding-right: 20px;
         padding-left: 20px;
     }
+    .filter-content,
+    .is-toggle-btn,
     .location-select,
     .filter-input,
     .trash,
@@ -173,13 +175,17 @@ body {
     border-radius: 0;
     box-shadow: $box-shadow;
     list-style: none;
-    position: relative;
     .condition-type {
         display: inline-block;
         margin-bottom: 0;
         margin-left: 10px;
         vertical-align: middle;
     }
+}
+
+.filter-content {
+    display: flex;
+    align-items: center;
 }
 
 .filter-input,
@@ -225,6 +231,17 @@ body {
     width: auto;
     height: 20px;
     line-height: 20px;
+}
+
+.is-toggle-btn {
+    text-align: center;
+    font-size: 10px;
+    width: 30px;
+    height: 15px;
+    line-height: normal;
+    margin-right: 20px;
+    border-radius: 2px;
+    background-image: $dd-button-gradient;
 }
 
 .visit-condition-select {
@@ -275,9 +292,7 @@ body {
     &.trash {
         font-size: 14px;
         color: $text-light;
-        position: absolute;
-        right: 20px;
-        top: 19%;
+        margin-left: auto;
         &:after {
             content: 'R';
             display: inline-block;
