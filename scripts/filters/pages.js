@@ -21,8 +21,8 @@ export class Pages {
             '<option value="does not ends with">does not ends with</option>'+
             '</select>'+
             '<input type="text" placeholder="Type" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '</div>'
+            '<span class="iconFont trash"></span>'+
+        '</div></li>'
     )}
 }
 
