@@ -4,20 +4,13 @@ $( function() {
     function postData() {
         var $levelPageview = $(".level-pageview");
         var $filters = $levelPageview.find(".ui-widget-content");
-        var name = $filters.find(".filter-name").text();
-        var inputs = $filters.find("select, input");
-        var sum = $.map( inputs, function(input) {
-            return input.value;
-        }).join(" ");
-        return {
-            name: name,
-            selectValue: sum
-        }
+        return $.map($filters, postFilter);
+
     }
 
     function postFilter(filter) {
-        var name = filter.find(".filter-name").text();
-        var inputs = filter.find("select, input");
+        var name = $(filter).find(".filter-name").text();
+        var inputs = $(filter).find("select, input");
         var sum = $.map( inputs, function(input) {
             return input.value;
         }).join(" ");
