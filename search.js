@@ -274,11 +274,20 @@ $( function() {
         $trash = $(".level-empty");
 
     function addElements() {
-        // $gallery.empty().append(filters);
         let pages = new Pages();
         let url = new Url();
-        let filters = pages.renderPages() + url.renderUrl('Visited Pages');
-        $gallery.empty().append(filters);
+        let pagesFilter = pages.render();
+        let visitedPages = url.render('Visited Pages');
+        let visitReferrer = url.render('Visit referrer');
+        let previousPage = url.render('Previous page');
+        let nextPage = url.render('Next page');
+        let filtersArr =  [pagesFilter, visitedPages, visitReferrer,
+                        previousPage, nextPage];
+        let filtersElements = filtersArr.reduce( function(total, filter){
+            return total + filter;
+        });
+        $gallery.empty().append(filtersElements);
+
     }
 
     function deleteItem(event) {

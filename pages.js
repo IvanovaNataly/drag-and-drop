@@ -1,5 +1,5 @@
 export class Pages {
-    renderPages() {
+    render() {
         return ('<li class="ui-widget-content title" data-title="Location">'+
         '<span class="filter-name">Pages</span>'+
         '<select class="location-select">'+

@@ -1,5 +1,5 @@
 export class Url {
-    renderUrl(name) {
+    render(name) {
         return ('<li class="ui-widget-content title">'+
         '<span class="filter-name">' + name + '</span>'+
         '<select class="condition-type">'+
