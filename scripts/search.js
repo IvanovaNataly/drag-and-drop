@@ -7,6 +7,7 @@ import {Category} from "./filters/category.js";
 import {Sequence} from  "./filters/sequence.js";
 import {TextValue} from "./filters/text-value.js";
 import {BooleanValue} from "./filters/boolean-value.js";
+import {SearchData} from "./search-data.js";
 
 $( function() {
     let pages = new Pages();
@@ -18,6 +19,7 @@ $( function() {
     let sequence = new Sequence();
     let textValue = new TextValue();
     let booleanValue = new BooleanValue();
+    let searchData = new SearchData();
 
     //Condition type dropdown
     var $newGroupContainer = $('<div class="group-container">'+
@@ -236,4 +238,6 @@ $( function() {
     $('.sequence-select').change(function() {
         sequence.changeFilterContent( this );
     });
+
+    $( "#searchBtn").click( function() { searchData.onSearch()});
 } );

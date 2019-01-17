@@ -18,6 +18,10 @@ body {
     box-sizing: border-box;
 }
 
+h1, h2, h3, p {
+    margin: 0;
+}
+
 .hidden {
     display: none;
 }
@@ -353,8 +357,13 @@ body {
     }
 }
 
-.filter-input:not(.subheader-domain-wrapper) {
-    flex: 1 1;
+.filter-input {
+    &:not(.subheader-domain-wrapper) {
+        flex: 1 1;
+    }
+    .numeric-filter & {
+        flex: 0 0;
+    }
 }
 
 .location-select {

@@ -1,17 +1,19 @@
-$( function() {
-    var key = "search";
-
-    function postData() {
-        var $levelPageview = $(".level-pageview");
-        var $filters = $levelPageview.find(".ui-widget-content");
-        return $.map($filters, postFilter);
-
+export class SearchData {
+    constructor() {
+        this.data = {};
+        this.key = "search";
     }
 
-    function postFilter(filter) {
-        var name = $(filter).find(".filter-name").text();
-        var inputs = $(filter).find("select, input");
-        var sum = $.map( inputs, function(input) {
+    postData() {
+        const $levelPageview = $(".level-pageview");
+        const $filters = $levelPageview.find(".ui-widget-content");
+        return $.map($filters, this.postFilter);
+    }
+
+    postFilter(filter) {
+        const name = $(filter).find(".filter-name").text();
+        const inputs = $(filter).find("select, input");
+        const sum = $.map( inputs, function(input) {
             return input.value;
         }).join(" ");
         return {
@@ -20,22 +22,20 @@ $( function() {
         }
     }
 
-    function getData(keySrting) {
-        var dataString = localStorage.getItem(keySrting);
+    getData(keySrting) {
+        const dataString = localStorage.getItem(keySrting);
         return JSON.parse(dataString);
     }
 
-    function storeData(dataObject) {
-        var dataSring = JSON.stringify(dataObject);
-        localStorage.setItem(key, dataSring);
+    storeData(dataObject) {
+        const dataSring = JSON.stringify(dataObject);
+        localStorage.setItem(this.key, dataSring);
     }
 
-    function onSearch() {
-        var dataObject = postData();
-        storeData(dataObject);
-        var data = getData(key);
-        console.log(data);
+    onSearch() {
+        const dataObject = this.postData();
+        this.storeData(dataObject);
+        this.data = this.getData(this.key);
+        console.log(this.data);
     }
-
-    $( "#searchBtn").click( function() { onSearch()});
-} );;
+}

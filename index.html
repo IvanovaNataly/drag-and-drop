@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Drag & Drop</title>
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="styles/results.css">
     <link rel="stylesheet" href="styles/search.css">
     <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
@@ -18,7 +19,7 @@
     <script type="module" src="scripts/filters/text-value.js"></script>
     <script type="module" src="scripts/filters/boolean-value.js"></script>
     <script type="module" src="scripts/search.js"></script>
-    <script src="scripts/search-data.js"></script></head>
+    <script type="module" src="scripts/search-data.js"></script></head>
 <body>
     <div class="wrapper">
         <div class="subheader">
@@ -45,7 +46,6 @@
                 </div>
             </div>
             <div class="aside-container">
-
                 <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
                     <!--filters are appended dinamically -->
                 </ul>
@@ -53,9 +53,41 @@
         </aside>
 
         <div class="main">
-            <div class="search-area">
+            <section class="query-area">
+                <div class="query-area-visit">
+                    <h2 class="query-area-title">Visit level</h2>
+                    <div class="query-area-visit-queries">
+                        <!--queries are appended dynamically-->
+                        <div class="query">
+                            <h3 class="query-name">
+                                Interaction/Sequence
+                                <span class="iconFont pencil"></span>
+                            </h3>
+                            <p class="query-content">
+                                Clicktale event is one of the following: solitions from top Nav. AND THEN Clicktale event is one of the following:  NOT Clicked on solitions from top Nav
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="query-area-pageview">
+                    <h2 class="query-area-title">Pageview level</h2>
+                    <div class="query-area-pageview-queries">
+                        <!--queries are appended dynamically-->
+                        <div class="query">
+                            <h3 class="query-name">
+                                Interaction/Sequence
+                                <span class="iconFont pencil"></span>
+                            </h3>
+                            <p class="query-content">
+                                Clicktale event is one of the following: solitions from top Nav. AND THEN Clicktale event is one of the following:  NOT Clicked on solitions from top Nav
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="search-area">
                 <div class="level-visit level-droppable empty hidden">
-                    <h2 class="level-title">Visit</h2>
+                    <h2 class="level-title">Visit level</h2>
                     <p class="level-subtitle">Here you search metrics in a visit level</p>
                     <div class="level-empty">
                         <span class="level-empty-label">Drag here to add a filter</span>
@@ -78,10 +110,10 @@
                         <span class="level-empty-label">Drag here to add a filter</span>
                     </div>
                 </div>
-            </div>
-            <div class="btn-wrapper">
+            </section>
+            <section class="btn-wrapper">
                 <button id="searchBtn" class="ct-btn-primary btn-search">Search</button>
-            </div>
+            </section>
         </div>
     </div>
 </body>
