@@ -397,6 +397,9 @@ h1, h2, h3, p {
     background-image: $dd-button-gradient;
     flex: 0 0 30px;
     cursor: pointer;
+    &.negative-condition {
+        color: $system-alert;
+    }
 }
 
 .visit-condition-select {

@@ -64,6 +64,8 @@ $( function() {
                 $target.find(".level-empty-label").hide();
                 $target.droppable("destroy");
                 ui.draggable.draggable("destroy");
+                $(".is-toggle-btn").off("click", isToogleText);
+                $(".is-toggle-btn").on("click", isToogleText);
             }
         });
         return $droppableArea;
@@ -144,7 +146,6 @@ $( function() {
             return total + filter;
         });
         $gallery.empty().append(filtersElements);
-        $( ".is-toggle-btn").click( function(event) { isToogleText(event)});
     }
 
     function deleteItem(event) {
@@ -177,16 +178,20 @@ $( function() {
     }
 
     function isToogleText(event) {
-        var $target = $(event.target);
-        var currentText = $target.text();
-        var newText = (currentText === "is" ? "not" : "is");
-        console.log(currentText);
-        $target.text(newText);
+        let $target = $(event.target);
+        if($target.text() === "is") {
+            $target.text("not");
+            $target.addClass("negative-condition");
+        }
+        else {
+            $target.text("is");
+            $target.removeClass("negative-condition");
+        }
     }
-
 
     // Let the gallery items be draggable
     addElements();
+
     $( "li", $gallery ).draggable({
         cancel: "a.ui-icon", // clicking an icon won't initiate dragging
         revert: "invalid", // when not dropped, the item will revert back to its initial position
@@ -222,14 +227,16 @@ $( function() {
             $target.find(".level-empty-label").hide();
             $target.droppable("destroy");
             ui.draggable.draggable("destroy");
+            $(".is-toggle-btn").off("click", isToogleText);
+            $(".is-toggle-btn").on("click", isToogleText);
         }
     });
 
-    $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
+    $(".trash", $gallery ).click( function(event) { deleteItem(event)});
 
-    $( "#addVisit").click( function(event) { addLevel(event)});
+    $("#addVisit").click( function(event) { addLevel(event)});
 
-    $( "#addGroup").click( function(event) { addGroup(event)});
+    $("#addGroup").click( function(event) { addGroup(event)});
 
     $('.js-errors-select').change(function() {
         jsErrors.changeFilterContent( this );
