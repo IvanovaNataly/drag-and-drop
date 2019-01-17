@@ -171,8 +171,7 @@ body {
         &:focus {
             margin: 20px 0;
             background-color: $bg-search-aside-contrast;
-            border: none;
-            box-shadow: -1px 1px 1px 0 rgba(40, 52, 77, 0.56), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+            border: 1px solid $text-dark;
             outline: none;
         }
     }
@@ -202,38 +201,38 @@ body {
     .ui-widget-content .condition-type {
         display: none;
     }
-}
 
-[data-title]:not(.ui-draggable-dragging) {
-    margin-top: 50px;
-    position: relative;
-    &:first-child {
-        margin-top: 40px;
-    }
-    &:before {
-        content: attr(data-title);
-        display: block;
-        text-align: left;
-        color: $white;
-        width: 260px;
-        height: 31px;
-        line-height: 31px;
-        padding-left: 15px;
-        background-color: $bg-search-aside-contrast;
-        position: absolute;
-        top: -40px;
-        left: -15px;
-        cursor: default;
-    }
-    &:after {
-        content: "`";
-        font-family: "ctIcon";
-        font-size: 22px;
-        color: $white;
-        position: absolute;
-        top: -40px;
-        right: 0;
-        cursor: pointer;
+    [data-title]:not(.ui-draggable-dragging) {
+        margin-top: 50px;
+        position: relative;
+        &:first-child {
+            margin-top: 40px;
+        }
+        &:before {
+            content: attr(data-title);
+            display: block;
+            text-align: left;
+            color: $white;
+            width: 260px;
+            height: 31px;
+            line-height: 31px;
+            padding-left: 15px;
+            background-color: $bg-search-aside-contrast;
+            position: absolute;
+            top: -40px;
+            left: -15px;
+            cursor: default;
+        }
+        &:after {
+            content: "`";
+            font-family: "ctIcon";
+            font-size: 22px;
+            color: $white;
+            position: absolute;
+            top: -40px;
+            right: 0;
+            cursor: pointer;
+        }
     }
 }
 
@@ -349,6 +348,10 @@ body {
     &:hover {
         border-color: $input-hover;
     }
+}
+
+.filter-input:not(.subheader-domain-wrapper) {
+    flex: 1 1;
 }
 
 .location-select {
@@ -476,7 +479,7 @@ body {
     &.trash {
         font-size: 14px;
         color: $text-light;
-        margin-left: auto;
+        margin-left: 10px;
         &:after {
             content: 'R';
             display: inline-block;
