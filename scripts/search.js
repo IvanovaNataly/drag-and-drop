@@ -88,8 +88,11 @@ $( function() {
         let country = category.render("Country and region");
         let browser = category.render("Browser and browser version", "data-title='Visitor enviroment' ");
         let attribute = category.render("Attribute");
-        let pageviewId = category.render("Pageview ID");
-        let visitorId = category.render("Visitor ID", "data-title='Visitor identification' ");
+        let pageviewId = category.render("Pageview ID", "data-title='Visitor identification' ");
+        let visitorId = category.render("Visitor ID");
+        let visitId = category.render("Visit ID");
+        let operatingSystem = category.render("Operating System");
+        let foldHeight = category.render("Fold height");
         let device = category.render("Device");
         let sequenceFilter = sequence.render();
         let textValueFilter = textValue.render();
@@ -112,10 +115,10 @@ $( function() {
             browser,
             country,
             device,
-            //operation system
+            operatingSystem,
             windowSize,
             resolution,
-            //fold height
+            foldHeight,
             portrateLandscape,
 
             //web performance
@@ -133,7 +136,7 @@ $( function() {
             // visitor identification
             pageviewId,
             visitorId,
-            //visitID
+            visitId
             ];
         let filtersElements = filtersArr.reduce( function(total, filter){
             return total + filter;
