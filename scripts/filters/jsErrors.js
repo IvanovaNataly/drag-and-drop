@@ -4,7 +4,7 @@ export class JsErrors {
                             '<h3 class="filter-name">JS errors</h3>' +
                             '<div class="filter-content">' +
                                 '<div class="is-toggle-btn">is</div>' +
-                                '<select id="jsErrorsSelect" class="condition-type">' +
+                                '<select class="condition-type js-errors-select">' +
                                     '<option value="text" selected>JS errors text</option>' +
                                     '<option value="count">JS errors count</option>' +
                                 '</select>'+

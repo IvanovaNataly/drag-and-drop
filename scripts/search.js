@@ -4,6 +4,9 @@ import {JsErrors} from "./filters/jsErrors.js";
 import {Numeric} from "./filters/numeric.js";
 import {InputClick} from "./filters/inputs-clicks.js";
 import {Category} from "./filters/category.js";
+import {Sequence} from  "./filters/sequence.js";
+import {TextValue} from "./filters/text-value.js";
+import {BooleanValue} from "./filters/boolean-value.js";
 
 $( function() {
     let pages = new Pages();
@@ -12,6 +15,10 @@ $( function() {
     let numeric = new Numeric();
     let inputClick = new InputClick();
     let category = new Category();
+    let sequence = new Sequence();
+    let textValue = new TextValue();
+    let booleanValue = new BooleanValue();
+
     //Condition type dropdown
     var $newGroupContainer = $('<div class="group-container">'+
                             '<div class="condition-type-wrapper">'+
@@ -84,10 +91,16 @@ $( function() {
         let pageviewId = category.render("Pageview ID");
         let visitor = category.render("Visitor ID");
         let device = category.render("Device");
+        let sequenceFilter = sequence.render();
+        let textValueFilter = textValue.render();
+        let looping = booleanValue.render("Looping", "looping", "between looping");
+        let firstLastPage = booleanValue.render("First/Last page", "first page", "last page");
+        let portrateLandscape = booleanValue.render("Portrate/Landscape", "portrate", "ladnscape");
         let filtersArr =  [pagesFilter, visitedPages, visitReferrer,
                         previousPage, nextPage, jsErrorsFilter,
                         domLoadTime, timeOnPage, scrollReach, engagementTime, inputClickFilter,
-                        windowSize, resolution, country, browser, attribute, pageviewId, visitor, device];
+                        windowSize, resolution, country, browser, attribute, pageviewId, visitor, device,
+                        sequenceFilter, textValueFilter, looping, firstLastPage, portrateLandscape];
         let filtersElements = filtersArr.reduce( function(total, filter){
             return total + filter;
         });
@@ -179,7 +192,11 @@ $( function() {
 
     $( "#addGroup").click( function(event) { addGroup(event)});
 
-    $('#jsErrorsSelect').change(function() {
+    $('.js-errors-select').change(function() {
         jsErrors.changeFilterContent( this );
+    });
+
+    $('.sequence-select').change(function() {
+        sequence.changeFilterContent( this );
     });
 } );
