@@ -6,6 +6,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 12px;
+    color: $text-dark;
     padding: 0;
     margin: 0;
     background-color: $bg-body;
@@ -236,6 +237,7 @@ body {
     width: auto;
     height: 20px;
     line-height: 20px;
+    flex: 0 0;
 }
 
 .is-toggle-btn {
@@ -247,6 +249,7 @@ body {
     margin-right: 20px;
     border-radius: 2px;
     background-image: $dd-button-gradient;
+    flex: 0 0 30px;
     cursor: pointer;
 }
 
@@ -264,6 +267,30 @@ body {
     &:hover {
         border-color: $input-hover;
     }
+}
+
+.js-errors-text,
+.js-errors-count {
+    &:not(.hidden) {
+        display: flex;
+        flex: 1 1;
+        align-items: center;
+    }
+}
+
+.numeric-filter-line {
+    width: 40px;
+    margin-left: 15px;
+    border-top: 1px solid $text-dark;
+}
+
+.not-editable-input {
+    font-family: $font-family;
+    width: 35px;
+    margin-left: 15px;
+    background-color: transparent;
+    border: none;
+    cursor: default;
 }
 
 .btn-wrapper {

@@ -1,225 +1,11 @@
 import { Pages } from './filters/pages.js';
 import { Url } from './filters/url.js';
+import {JsErrors} from "./filters/jsErrors.js";
 
 $( function() {
-    //Constant set of filters
-    var filters = '<li class="ui-widget-content title" data-title="Location">'+
-        '<span class="filter-name">Pages</span>'+
-            '<select class="location-select">'+
-                '<option value="URL">Page URL</option>'+
-                '<option value="Attribute">Page Attribute</option>'+
-                '<option value="Pageset">Pageset</option>'+
-                '<option value="Query string">Query string</option>'+
-            '</select>'+
-            '<select class="condition-type">'+
-                '<option value="equals">equals</option>'+
-                '<option value="contains">contains</option>'+
-                '<option value="starts with">starts with</option>'+
-                '<option value="ends with">ends with</option>'+
-                '<option value="is NOT">is NOT</option>'+
-                '<option value="does not contain">does not contain</option>'+
-                '<option value="does not starts with">does not starts with</option>'+
-                '<option value="does not ends with">does not ends with</option>'+
-            '</select>'+
-            '<input type="text" placeholder="Type" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Behavior">Interaction and sequence'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Engagement time'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Action'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Scroll reach'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Time on page'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Bounce rate'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Looping'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Between looping'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Visited pages'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">First view of page'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Experience">Text on page'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Attribute'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Clicks on page'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Visitor environment">Browser'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Screen resolution'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Country'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Region'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Device'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Operating system'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Fold height'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">View port height'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Web performance">Dom load time'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">'+
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">JS errors count'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type range" class="filter-input">' +
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">JS errors'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">' +
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Traffic Sources">Visit Referrer'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type or Search" class="filter-input">' +
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content title" data-title="Visitor identification">Visitor ID'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">' +
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Pageview ID'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">' +
-            '<span class="iconFont trash"></span></li>'+
-        '<li class="ui-widget-content">Visit ID'+
-            '<select class="condition-type">'+
-                '<option value="none"></option>'+
-                '<option value="empty">-</option>'+
-                '<option value="not">NOT</option></select>'+
-            '<input type="text" placeholder="Type" class="filter-input">' +
-        '<span class="iconFont trash"></span></li>';
-
+    let pages = new Pages();
+    let url = new Url();
+    let jsErrors = new JsErrors();
     //Condition type dropdown
     var $newGroupContainer = $('<div class="group-container">'+
                             '<div class="condition-type-wrapper">'+
@@ -245,7 +31,6 @@ $( function() {
             },
             drop: function( event, ui ) {
                 var $target = $(event.target);
-                var $levelDroppable = $target.closest(".level-droppable");
                 $target.append(ui.draggable);
                 $(".ui-state-highlight").removeClass("ui-state-highlight");
                 $(".ui-state-active").removeClass("ui-state-active");
@@ -274,15 +59,14 @@ $( function() {
         $trash = $(".level-empty");
 
     function addElements() {
-        let pages = new Pages();
-        let url = new Url();
         let pagesFilter = pages.render();
         let visitedPages = url.render('Visited Pages');
         let visitReferrer = url.render('Visit referrer');
         let previousPage = url.render('Previous page');
         let nextPage = url.render('Next page');
+        let jsErrorsFilter = jsErrors.render();
         let filtersArr =  [pagesFilter, visitedPages, visitReferrer,
-                        previousPage, nextPage];
+                        previousPage, nextPage, jsErrorsFilter];
         let filtersElements = filtersArr.reduce( function(total, filter){
             return total + filter;
         });
@@ -327,6 +111,7 @@ $( function() {
         $target.text(newText);
     }
 
+
     // Let the gallery items be draggable
     addElements();
     $( "li", $gallery ).draggable({
@@ -346,7 +131,6 @@ $( function() {
         },
         drop: function( event, ui ) {
             var $target = $(event.target);
-            var $levelDroppable = $target.closest(".level-droppable");
             $target.append(ui.draggable);
             $(".ui-state-highlight").removeClass("ui-state-highlight");
             $(".ui-state-active").removeClass("ui-state-active");
@@ -373,4 +157,8 @@ $( function() {
     $( "#addVisit").click( function(event) { addLevel(event)});
 
     $( "#addGroup").click( function(event) { addGroup(event)});
+
+    $('#jsErrorsSelect').change(function() {
+        jsErrors.changeFilterContent( this );
+    });
 } );
