@@ -1,12 +1,15 @@
+import {Query} from './query.js';
+
 export class SearchData {
     constructor() {
         this.data = {};
         this.key = "search";
+        this.query = new Query();
     }
 
-    postData() {
-        const $levelPageview = $(".level-pageview");
-        const $filters = $levelPageview.find(".ui-widget-content");
+    postData(level) {
+        const $level = $("." + level);
+        const $filters = $level.find(".ui-widget-content");
         return $.map($filters, this.postFilter);
     }
 
@@ -33,9 +36,18 @@ export class SearchData {
     }
 
     onSearch() {
-        const dataObject = this.postData();
+        const dataObject = {
+            visit: this.postData("level-visit"),
+            pageview: this.postData("level-pageview"),
+        };
         this.storeData(dataObject);
         this.data = this.getData(this.key);
-        console.log(this.data);
+        this.renderData();
+        // console.log(this.data);
+    }
+
+    renderData() {
+        let $query = this.query.render("Interaction");
+        console.log($query);
     }
 }
