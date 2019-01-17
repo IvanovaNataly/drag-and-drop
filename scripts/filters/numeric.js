@@ -1,6 +1,6 @@
 export class Numeric {
-    render(name, unit, maxValue) {
-        return ('<li class="ui-widget-content numeric-filter">'+
+    render(name, unit, maxValue, groupTitlte) {
+        return ('<li class="ui-widget-content numeric-filter" '+ groupTitlte +'>'+
             '<h3 class="filter-name">' + name + '</h3>' +
             '<div class="filter-content">' +
                 '<div class="is-toggle-btn">is</div>' +

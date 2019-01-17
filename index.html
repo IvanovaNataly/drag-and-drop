@@ -36,15 +36,26 @@
         </div>
 
         <aside class="aside">
-            <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
-                <!--filters are appended dinamically -->
-            </ul>
+            <div class="aside-container-header">
+                <h2 class="aside-container-title">Filters</h2>
+                <button class="iconFont closeX white"></button>
+                <div class="aside-container-search">
+                    <input type="text" placeholder="Search..." class="aside-search">
+                    <span class="iconFont magnifying-glass"></span>
+                </div>
+            </div>
+            <div class="aside-container">
+
+                <ul id="gallery" class="gallery ui-helper-reset ui-helper-clearfix">
+                    <!--filters are appended dinamically -->
+                </ul>
+            </div>
         </aside>
 
         <div class="main">
             <div class="search-area">
                 <div class="level-visit level-droppable empty hidden">
-                    <h3 class="level-title">Visit</h3>
+                    <h2 class="level-title">Visit</h2>
                     <p class="level-subtitle">Here you search metrics in a visit level</p>
                     <div class="level-empty">
                         <span class="level-empty-label">Drag here to add a filter</span>

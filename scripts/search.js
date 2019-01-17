@@ -73,34 +73,68 @@ $( function() {
 
     function addElements() {
         let pagesFilter = pages.render();
-        let visitedPages = url.render('Visited Pages');
-        let visitReferrer = url.render('Visit referrer');
-        let previousPage = url.render('Previous page');
-        let nextPage = url.render('Next page');
+        let visitedPages = url.render("Visited Pages");
+        let visitReferrer = url.render("Visit referrer");
+        let previousPage = url.render("Previous page", "data-title='Web performance' ");
+        let nextPage = url.render("Next page");
         let jsErrorsFilter = jsErrors.render();
-        let domLoadTime = numeric.render("Dom load time", "ms", "max");
+        let domLoadTime = numeric.render("Dom load time", "ms", "max", "data-title='Web performance' ");
         let timeOnPage = numeric.render("Time on page", "sec", "max");
         let scrollReach = numeric.render("Scroll reach", "%", "100");
-        let engagementTime = numeric.render("Engagement time", "sec", "max");
+        let engagementTime = numeric.render("Engagement time", "sec", "max", "data-title='Behavior' ");
         let inputClickFilter = inputClick.render();
         let windowSize = category.render("Browser window size");
         let resolution = category.render("Screen resolution");
         let country = category.render("Country and region");
-        let browser = category.render("Browser and browser version");
+        let browser = category.render("Browser and browser version", "data-title='Visitor enviroment' ");
         let attribute = category.render("Attribute");
         let pageviewId = category.render("Pageview ID");
-        let visitor = category.render("Visitor ID");
+        let visitorId = category.render("Visitor ID", "data-title='Visitor identification' ");
         let device = category.render("Device");
         let sequenceFilter = sequence.render();
         let textValueFilter = textValue.render();
         let looping = booleanValue.render("Looping", "looping", "between looping");
         let firstLastPage = booleanValue.render("First/Last page", "first page", "last page");
         let portrateLandscape = booleanValue.render("Portrate/Landscape", "portrate", "ladnscape");
-        let filtersArr =  [pagesFilter, visitedPages, visitReferrer,
-                        previousPage, nextPage, jsErrorsFilter,
-                        domLoadTime, timeOnPage, scrollReach, engagementTime, inputClickFilter,
-                        windowSize, resolution, country, browser, attribute, pageviewId, visitor, device,
-                        sequenceFilter, textValueFilter, looping, firstLastPage, portrateLandscape];
+        let filtersArr =  [pagesFilter,
+            // behavior group
+            engagementTime,
+            sequenceFilter,
+            scrollReach,
+            timeOnPage,
+            inputClickFilter,
+
+            //experience group
+            textValueFilter,
+            attribute,
+
+            //visitor enviroment
+            browser,
+            country,
+            device,
+            //operation system
+            windowSize,
+            resolution,
+            //fold height
+            portrateLandscape,
+
+            //web performance
+            domLoadTime,
+            jsErrorsFilter,
+
+            //traffic flow
+            previousPage,
+            nextPage,
+            visitReferrer,
+            looping,
+            visitedPages,
+            firstLastPage,
+
+            // visitor identification
+            pageviewId,
+            visitorId,
+            //visitID
+            ];
         let filtersElements = filtersArr.reduce( function(total, filter){
             return total + filter;
         });

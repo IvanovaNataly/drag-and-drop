@@ -44,7 +44,7 @@ body {
 .wrapper {
     display: flex;
     height: 100vh;
-    padding: 70px 30px 30px 30px;
+    padding-top: $height-subheader;
     align-items: stretch;
     overflow: hidden;
 }
@@ -53,8 +53,8 @@ body {
 .subheader {
     display: flex;
     width: 100%;
-    height: 50px;
-    line-height: 50px;
+    height: $height-subheader;
+    line-height: $height-subheader;
     padding-right: 15px;
     padding-left: 15px;
     background-color: $white;
@@ -127,7 +127,120 @@ body {
 
 
 //main
+.aside {
+    color: $white;
+    height: 100%;
+    background-color: $bg-search-aside;
+    flex: 0 0 260px;
+    ::-webkit-scrollbar-track {
+        background-color: $bg-search-aside;
+    }
+    ::-webkit-scrollbar-thumb {
+        border: 2.5px solid $bg-search-aside;
+    }
+
+    &-container {
+        height: 100%;
+        padding: 0 10px 12px 15px;
+        overflow-y: auto;
+        overflow-x: hidden;
+    }
+
+    &-container-header {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        padding: 12px 20px 0 15px;
+    }
+
+    &-container-title {
+        font-size: 15px;
+        font-weight: 600;
+        margin: 0;
+    }
+
+    &-container-search {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 10px;
+        &,
+        &:hover,
+        &:focus {
+            margin: 20px 0;
+            background-color: $bg-search-aside-contrast;
+            border: none;
+            box-shadow: -1px 1px 1px 0 rgba(40, 52, 77, 0.56), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+            outline: none;
+        }
+    }
+
+    &-search {
+        font-family: inherit;
+        font-size: 13px;
+        color: $white;
+        background-color: transparent;
+        border: none;
+        &::placeholder {
+            color: $white;
+            font-style: italic;
+        }
+    }
+
+    .ui-helper-clearfix:before,
+    .ui-helper-clearfix:after {
+        content: none;
+    }
+
+    .filter-content,
+    .is-toggle-btn,
+    .location-select,
+    .filter-input,
+    .trash,
+    .ui-widget-content .condition-type {
+        display: none;
+    }
+}
+
+[data-title]:not(.ui-draggable-dragging) {
+    margin-top: 50px;
+    position: relative;
+    &:first-child {
+        margin-top: 40px;
+    }
+    &:before {
+        content: attr(data-title);
+        display: block;
+        text-align: left;
+        color: $white;
+        width: 260px;
+        height: 31px;
+        line-height: 31px;
+        padding-left: 15px;
+        background-color: $bg-search-aside-contrast;
+        position: absolute;
+        top: -40px;
+        left: -15px;
+        cursor: default;
+    }
+    &:after {
+        content: "`";
+        font-family: "ctIcon";
+        font-size: 22px;
+        color: $white;
+        position: absolute;
+        top: -40px;
+        right: 0;
+        cursor: pointer;
+    }
+}
+
 .main {
+    padding-top: 30px;
+    padding-right: 40px;
+    padding-left: 40px;
     flex: 1 1;
     overflow-y: auto;
     .level-title {
@@ -137,32 +250,6 @@ body {
     }
     .ui-widget-content {
         padding: 10px 20px;
-    }
-}
-
-.aside {
-    height: 100%;
-    margin-right: 30px;
-    padding: 30px;
-    background-color: #666666;
-    flex: 0 0 230px;
-    overflow-y: auto;
-    .ui-widget-content {
-        text-align: center;
-        min-width: unset;
-        cursor: move;
-    }
-    .ui-draggable-dragging {
-        padding-right: 20px;
-        padding-left: 20px;
-    }
-    .filter-content,
-    .is-toggle-btn,
-    .location-select,
-    .filter-input,
-    .trash,
-    .ui-widget-content .condition-type {
-        display: none;
     }
 }
 
@@ -198,16 +285,30 @@ body {
 }
 
 .ui-widget-content {
-    text-align: left;
     min-width: 170px;
     min-height: 40px;
-    line-height: 40px;
-    margin-bottom: 10px;
+    padding-right: 20px;
+    padding-left: 20px;
     background-color: $white;
     border: none;
     border-radius: 0;
     box-shadow: $box-shadow;
     list-style: none;
+    &:not(.ui-draggable-dragging) {
+        margin-bottom: 10px;
+    }
+    .aside & {
+        color: $white;
+        background-color: $bg-search-filter;
+        border-radius: $input-border-radius;
+        box-shadow: -1px 1px 1px 0 rgba(40, 52, 77, 0.56), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+        cursor: move;
+        .filter-name {
+            font-size: 12px;
+            font-weight: 400;
+            line-height: 40px;
+        }
+    }
     .condition-type {
         display: inline-block;
         margin-bottom: 0;
@@ -333,25 +434,45 @@ body {
     border: 1px dashed black;
 }
 
-#gallery .title:not(.ui-draggable-dragging) {
-    margin-top: 40px;
-    position: relative;
-    &:before {
-        content: attr(data-title);
-        display: block;
-        text-align: left;
-        color: $white;
-        width: 100%;
-        height: 20px;
-        position: absolute;
-        top: -30px;
-    }
-}
-
 .iconFont {
     font-family: 'ctIcon';
     cursor: pointer;
     font-weight: 400;
+    &.closeX {
+        font-size: 16px;
+        text-align: center;
+        color: $text-medium;
+        padding: 0;
+        margin: 0;
+        border: none;
+        background-color: transparent;
+        background-image: none;
+        box-shadow: none;
+        text-shadow: none;
+        cursor: pointer;
+        &:hover,
+            //&:active {
+            //    color: $text-dark;
+            //}
+        &:after {
+            content: 'U';
+        }
+        &.small {
+            font-size: 10px;
+        }
+        &.white {
+            color: $white;
+        }
+    }
+
+    &.magnifying-glass {
+        font-size: 16px;
+        color: $white;
+        &:after {
+            content: "N";
+        }
+    }
+
     &.trash {
         font-size: 14px;
         color: $text-light;

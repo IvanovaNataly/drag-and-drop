@@ -1,6 +1,6 @@
 export class Url {
-    render(name) {
-        return ('<li class="ui-widget-content url-filter">'+
+    render(name, groupTitlte) {
+        return ('<li class="ui-widget-content url-filter" '+ groupTitlte +'>'+
             '<h3 class="filter-name">' + name + '</h3>'+
             '<div class="filter-content">'+
                 '<div class="is-toggle-btn">is</div>'+
