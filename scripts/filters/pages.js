@@ -1,6 +1,6 @@
 export class Pages {
     render() {
-        return ('<li class="ui-widget-content title" data-title="Location">'+
+        return ('<li class="ui-widget-content pages-filter title" data-title="Location">'+
         '<h3 class="filter-name">Pages</h3>'+
         '<div class="filter-content">'+
             '<div class="is-toggle-btn">is</div>'+

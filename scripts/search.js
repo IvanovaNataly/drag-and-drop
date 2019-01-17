@@ -1,11 +1,17 @@
-import { Pages } from './filters/pages.js';
-import { Url } from './filters/url.js';
+import {Pages} from './filters/pages.js';
+import {Url} from './filters/url.js';
 import {JsErrors} from "./filters/jsErrors.js";
+import {Numeric} from "./filters/numeric.js";
+import {InputClick} from "./filters/inputs-clicks.js";
+import {Category} from "./filters/category.js";
 
 $( function() {
     let pages = new Pages();
     let url = new Url();
     let jsErrors = new JsErrors();
+    let numeric = new Numeric();
+    let inputClick = new InputClick();
+    let category = new Category();
     //Condition type dropdown
     var $newGroupContainer = $('<div class="group-container">'+
                             '<div class="condition-type-wrapper">'+
@@ -65,8 +71,23 @@ $( function() {
         let previousPage = url.render('Previous page');
         let nextPage = url.render('Next page');
         let jsErrorsFilter = jsErrors.render();
+        let domLoadTime = numeric.render("Dom load time", "ms", "max");
+        let timeOnPage = numeric.render("Time on page", "sec", "max");
+        let scrollReach = numeric.render("Scroll reach", "%", "100");
+        let engagementTime = numeric.render("Engagement time", "sec", "max");
+        let inputClickFilter = inputClick.render();
+        let windowSize = category.render("Browser window size");
+        let resolution = category.render("Screen resolution");
+        let country = category.render("Country and region");
+        let browser = category.render("Browser and browser version");
+        let attribute = category.render("Attribute");
+        let pageviewId = category.render("Pageview ID");
+        let visitor = category.render("Visitor ID");
+        let device = category.render("Device");
         let filtersArr =  [pagesFilter, visitedPages, visitReferrer,
-                        previousPage, nextPage, jsErrorsFilter];
+                        previousPage, nextPage, jsErrorsFilter,
+                        domLoadTime, timeOnPage, scrollReach, engagementTime, inputClickFilter,
+                        windowSize, resolution, country, browser, attribute, pageviewId, visitor, device];
         let filtersElements = filtersArr.reduce( function(total, filter){
             return total + filter;
         });
