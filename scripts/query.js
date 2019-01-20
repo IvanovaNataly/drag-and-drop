@@ -9,7 +9,7 @@ export class QueryRenderer {
     }
 
     render(query) {
-        let $query = ('<div class="query">'+
+        return ('<div class="query">'+
             '<h3 class="query-name">'+
             query.name +
             '<button class="iconFont pencil open-search"></button>'+
@@ -19,7 +19,6 @@ export class QueryRenderer {
             '</p>'+
             '</div>'
         );
-        return $query;
     }
 }
 

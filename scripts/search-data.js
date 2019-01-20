@@ -1,4 +1,5 @@
 import {QueryRenderer} from './query.js';
+import {PillRenderer} from './pill.js';
 
 export class SearchData {
     constructor() {
@@ -7,6 +8,7 @@ export class SearchData {
             Pageview: []};
         this.key = "search";
         this.queryRenderer = new QueryRenderer();
+        this.pillRenderer = new PillRenderer();
     }
 
     postData(level) {
@@ -54,12 +56,16 @@ export class SearchData {
 
     renderData() {
         $(".query-area").empty();
+        $(".pills-bar-container").empty();
         $(".search-area").hide();
         $(".btn-wrapper").hide();
         for (let key in this.data) {
             if (!this.data.hasOwnProperty(key) && this.data[key].length) continue;
             const level = this.data[key];
-            if (level.length) this.renderLevel(level, key);
+            if (level.length) {
+                this.renderPill(level, key);
+                this.renderLevel(level, key);
+            }
         }
     }
 
@@ -68,17 +74,27 @@ export class SearchData {
             '<h2 class="query-area-title">'+ key +' level</h2>'+
             '<div class="query-area-visit-queries">'+
             '</div></div>'
-        )
+        );
         const $queriesContainer = $level.find(".query-area-visit-queries");
         for (let query of level) {
             let $query = this.queryRenderer.render(query);
             $queriesContainer.append($query);
-            console.log($query);
         }
         $(".query-area").append($level);
         $(".query-area").show();
         $(".open-search").off("click", this.openSearch);
         $(".open-search").on("click", this.openSearch);
+    }
+
+    renderPill(level, key) {
+        const levelName = key.toLowerCase();
+        const $pillLevel = $('<div class="pills-bar-level '+ levelName +'">'+
+            levelName + ' level'+
+            '</div>'
+        );
+        let $allPills = this.pillRenderer.render(level);
+        $pillLevel.append($allPills);
+        $(".pills-bar-container").append($pillLevel);
     }
 
     openSearch() {

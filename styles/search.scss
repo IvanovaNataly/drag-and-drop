@@ -54,7 +54,7 @@ h1, h2, h3, p {
 .wrapper {
     display: flex;
     height: 100vh;
-    padding-top: $height-subheader;
+    padding-top: $height-subheader + $height-header;
     align-items: stretch;
     overflow: hidden;
 }
@@ -508,9 +508,19 @@ h1, h2, h3, p {
         }
     }
 
-    &.plus {
-        &:after {
-            content: 'p';
-        }
+    &.plus:after {
+        content: 'p';
+    }
+}
+
+.iconPlus {
+    font-family: 'ctIconPlus' !important;
+    cursor: pointer;
+    font-weight: 400;
+    &.action:after {
+        content: "A";
+    }
+    &.location:after {
+        content: "N";
     }
 }
