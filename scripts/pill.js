@@ -1,5 +1,5 @@
 export class PillRenderer {
-    renderContent(allPills) {
+    render(allPills) {
         const sum = $.map( allPills, function(pill) {
             if(pill.name === "Pages")
                 return ('<div class="pill">'+
@@ -13,11 +13,6 @@ export class PillRenderer {
                 '</div>'
             );
         }).join(" ");
-        console.log(sum);
         return sum;
-    }
-
-    render(allPills) {
-        return this.renderContent(allPills);
     }
 }
