@@ -26,8 +26,12 @@ h1, h2, h3, p {
     display: none;
 }
 
-.red {
-    border: 1px solid red;
+.alert {
+    color: $system-alert;
+}
+
+.capitalized {
+    text-transform: uppercase;
 }
 
 //scroll bar in webkit based browsers
@@ -393,11 +397,12 @@ h1, h2, h3, p {
     height: 15px;
     line-height: normal;
     margin-right: 20px;
-    border-radius: 2px;
     background-image: $dd-button-gradient;
+    border: none;
+    border-radius: 2px;
     flex: 0 0 30px;
     cursor: pointer;
-    &.negative-condition {
+    &.alert {
         color: $system-alert;
     }
 }

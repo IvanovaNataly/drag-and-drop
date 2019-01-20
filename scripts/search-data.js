@@ -1,10 +1,10 @@
-import {Query} from './query.js';
+import {QueryRenderer} from './query.js';
 
 export class SearchData {
     constructor() {
         this.data = {};
         this.key = "search";
-        this.query = new Query();
+        this.queryRenderer = new QueryRenderer();
     }
 
     postData(level) {
@@ -15,13 +15,18 @@ export class SearchData {
 
     postFilter(filter) {
         const name = $(filter).find(".filter-name").text();
-        const inputs = $(filter).find("select, input");
+        const inputs = $(filter).find("select, input, button");
         const sum = $.map( inputs, function(input) {
-            return input.value;
-        }).join(" ");
+            if(input.tagName === 'BUTTON') {
+                return input.textContent ;
+            }
+            else {
+                return input.value;
+            }
+        });
         return {
             name: name,
-            selectValue: sum
+            content: sum
         }
     }
 
@@ -47,7 +52,22 @@ export class SearchData {
     }
 
     renderData() {
-        let $query = this.query.render("Interaction");
-        console.log($query);
+        for (let key in this.data) {
+            if (!this.data.hasOwnProperty(key) && this.data[key].length) continue;
+            const level = this.data[key];
+            for (let prop in level) {
+                if(!level.hasOwnProperty(prop)) continue;
+                this.renderLevel(level);
+            }
+        }
+    }
+
+    renderLevel(level) {
+        console.log(level);
+        for (let query of level) {
+            let $query = this.queryRenderer.render(query);
+            console.log($query);
+        }
+
     }
 }

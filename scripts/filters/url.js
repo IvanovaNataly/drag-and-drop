@@ -3,7 +3,7 @@ export class Url {
         return ('<li class="ui-widget-content url-filter" '+ groupTitlte +'>'+
             '<h3 class="filter-name">' + name + '</h3>'+
             '<div class="filter-content">'+
-                '<div class="is-toggle-btn">is</div>'+
+                '<button class="is-toggle-btn">is</button>'+
                 '<select class="condition-type">'+
                     '<option value="equals">equals</option>'+
                     '<option value="contains">contains</option>'+

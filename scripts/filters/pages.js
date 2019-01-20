@@ -3,7 +3,7 @@ export class Pages {
         return ('<li class="ui-widget-content pages-filter" data-title="Pages">'+
         '<h3 class="filter-name">Pages</h3>'+
         '<div class="filter-content">'+
-            '<div class="is-toggle-btn">is</div>'+
+            '<button class="is-toggle-btn">is</button>'+
             '<select class="location-select">'+
                 '<option value="URL">Page URL</option>'+
                 '<option value="Attribute">Page Attribute</option>'+

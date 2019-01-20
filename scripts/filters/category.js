@@ -3,7 +3,7 @@ export class Category {
         return ('<li class="ui-widget-content category-filter" '+ groupTitlte +'>'+
         '<h3 class="filter-name">' + name + '</h3>'+
         '<div class="filter-content">'+
-            '<div class="is-toggle-btn">is</div>'+
+            '<button class="is-toggle-btn">is</button>'+
             '<select class="condition-type">'+
                 '<option value="is one of">is one of</option>'+
             '</select>'+

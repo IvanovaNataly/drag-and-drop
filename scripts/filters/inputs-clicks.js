@@ -3,7 +3,7 @@ export class InputClick {
         return ('<li class="ui-widget-content numeric-filter">'+
             '<h3 class="filter-name">Input/Clicks on page</h3>' +
             '<div class="filter-content">' +
-                '<div class="is-toggle-btn">is</div>' +
+                '<button class="is-toggle-btn">is</button>' +
                 '<select id="jsErrorsSelect" class="condition-type">' +
                     '<option value="click" selected>click</option>' +
                     '<option value="keystoke">keystoke</option>' +

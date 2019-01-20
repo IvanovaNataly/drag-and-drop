@@ -1,31 +1,25 @@
-export class Query {
-    constructor(name) {
-        this.query = ('<div class="query">'+
+export class QueryRenderer {
+    renderContent(content) {
+        const sum = $.map( content, function(element) {
+            if(element === "not")
+                return ('<span class="alert capitalized">' + element + '</span>');
+            else return element;
+        }).join(" ");
+        return sum;
+    }
+
+    render(query) {
+        let $query = ('<div class="query">'+
             '<h3 class="query-name">'+
-            name +
+            query.name +
             '<span class="iconFont pencil"></span>'+
             '</h3>'+
             '<p class="query-content">'+
-                'Clicktale event is one of the following: solitions from top Nav.'+
+            this.renderContent(query.content) +
             '</p>'+
-        '</div>'
+            '</div>'
         );
-    }
-
-    // changeFilterContent(select) {
-    //     const $filterWrapper = $(select).closest(".js-errors-filter");
-    //     if (select.value !== "text") {
-    //         $filterWrapper.find(".js-errors-text").addClass("hidden");
-    //         $filterWrapper.find(".js-errors-count").removeClass("hidden");
-    //     }
-    //     else {
-    //         $filterWrapper.find(".js-errors-text").removeClass("hidden");
-    //         $filterWrapper.find(".js-errors-count").addClass("hidden");
-    //     }
-    // }
-
-    render() {
-        return this.query;
+        return $query;
     }
 }
 

@@ -181,11 +181,11 @@ $( function() {
         let $target = $(event.target);
         if($target.text() === "is") {
             $target.text("not");
-            $target.addClass("negative-condition");
+            $target.addClass("alert");
         }
         else {
             $target.text("is");
-            $target.removeClass("negative-condition");
+            $target.removeClass("alert");
         }
     }
 

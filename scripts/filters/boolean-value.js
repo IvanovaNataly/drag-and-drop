@@ -3,7 +3,7 @@ export class BooleanValue {
         return ('<li class="ui-widget-content boolean-filter">'+
         '<h3 class="filter-name">' + name + '</h3>'+
         '<div class="filter-content">'+
-            '<div class="is-toggle-btn">is</div>'+
+            '<button class="is-toggle-btn">is</button>'+
             '<select class="condition-type">'+
                 '<option value=" ' + firstValue + ' ">' + firstValue + '</option>'+
                 '<option value=" ' + secondValue + ' ">' + secondValue + '</option>'+

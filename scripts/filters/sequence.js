@@ -3,7 +3,7 @@ export class Sequence {
         this.filterWrapper = ('<li class="ui-widget-content sequence-filter">'+
                             '<h3 class="filter-name">Interaction/Sequence</h3>' +
                             '<div class="filter-content">' +
-                                '<div class="is-toggle-btn">is</div>' +
+                                '<button class="is-toggle-btn">is</button>' +
                                 '<select class="condition-type sequence-select">' +
                                     '<option value="Clicktale event" selected>Clictale event</option>' +
                                     '<option value="Element (retroactive event)">Element (retroactive event)</option>' +
