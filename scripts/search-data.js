@@ -2,7 +2,9 @@ import {QueryRenderer} from './query.js';
 
 export class SearchData {
     constructor() {
-        this.data = {};
+        this.data = {
+            Visit: [],
+            Pageview: []};
         this.key = "search";
         this.queryRenderer = new QueryRenderer();
     }
@@ -42,32 +44,46 @@ export class SearchData {
 
     onSearch() {
         const dataObject = {
-            visit: this.postData("level-visit"),
-            pageview: this.postData("level-pageview"),
+            Visit: this.postData("level-visit"),
+            Pageview: this.postData("level-pageview"),
         };
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         this.renderData();
-        // console.log(this.data);
     }
 
     renderData() {
+        $(".query-area").empty();
+        $(".search-area").hide();
+        $(".btn-wrapper").hide();
         for (let key in this.data) {
             if (!this.data.hasOwnProperty(key) && this.data[key].length) continue;
             const level = this.data[key];
-            for (let prop in level) {
-                if(!level.hasOwnProperty(prop)) continue;
-                this.renderLevel(level);
-            }
+            if (level.length) this.renderLevel(level, key);
         }
     }
 
-    renderLevel(level) {
-        console.log(level);
+    renderLevel(level, key) {
+        const $level = $('<div class="query-area-'+ key.toLowerCase() +'">'+
+            '<h2 class="query-area-title">'+ key +' level</h2>'+
+            '<div class="query-area-visit-queries">'+
+            '</div></div>'
+        )
+        const $queriesContainer = $level.find(".query-area-visit-queries");
         for (let query of level) {
             let $query = this.queryRenderer.render(query);
+            $queriesContainer.append($query);
             console.log($query);
         }
+        $(".query-area").append($level);
+        $(".query-area").show();
+        $(".open-search").off("click", this.openSearch);
+        $(".open-search").on("click", this.openSearch);
+    }
 
+    openSearch() {
+        $(".query-area").hide();
+        $(".search-area").show();
+        $(".btn-wrapper").show();
     }
 }

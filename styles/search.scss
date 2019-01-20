@@ -458,31 +458,20 @@ h1, h2, h3, p {
 }
 
 .iconFont {
-    font-family: 'ctIcon';
+    font-family: 'ctIcon' !important;
     cursor: pointer;
     font-weight: 400;
     &.closeX {
+        @include resetBtn;
         font-size: 16px;
-        text-align: center;
         color: $text-medium;
-        padding: 0;
-        margin: 0;
-        border: none;
-        background-color: transparent;
-        background-image: none;
-        box-shadow: none;
-        text-shadow: none;
-        cursor: pointer;
+        &:after {
+            content: 'U';
+        }
         &:hover,
             //&:active {
             //    color: $text-dark;
             //}
-        &:after {
-            content: 'U';
-        }
-        &.small {
-            font-size: 10px;
-        }
         &.white {
             color: $white;
         }
@@ -511,6 +500,7 @@ h1, h2, h3, p {
     }
 
     &.pencil {
+        @include resetBtn;
         font-size: 16px;
         color: $text-medium;
         &:after {

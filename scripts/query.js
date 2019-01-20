@@ -12,7 +12,7 @@ export class QueryRenderer {
         let $query = ('<div class="query">'+
             '<h3 class="query-name">'+
             query.name +
-            '<span class="iconFont pencil"></span>'+
+            '<button class="iconFont pencil open-search"></button>'+
             '</h3>'+
             '<p class="query-content">'+
             this.renderContent(query.content) +
