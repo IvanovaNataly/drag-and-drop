@@ -8,7 +8,7 @@ export class PillRenderer {
                     '</div>'
                 );
             else return ('<div class="pill">'+
-                '<div class="iconPlus action"></div>'+
+                '<div class="icon-action"></div>'+
                 pill.name +
                 '</div>'
             );
