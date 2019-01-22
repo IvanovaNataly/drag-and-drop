@@ -52,6 +52,7 @@ export class SearchData {
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         this.renderData();
+        this.showResults();
     }
 
     renderData() {
@@ -101,5 +102,12 @@ export class SearchData {
         $(".query-area").hide();
         $(".search-area").show();
         $(".btn-wrapper").show();
+        $("#pillsBar").css("top", "0");
+        $("#aside").css("flex-basis", "260px");
+    }
+
+    showResults() {
+        $("#pillsBar").css("top", "50px");
+        $("#aside").css("flex-basis", "50px");
     }
 }

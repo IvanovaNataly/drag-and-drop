@@ -19,6 +19,8 @@ body {
 }
 
 h1, h2, h3, p {
+    font-size: inherit;
+    font-weight: 400;
     margin: 0;
 }
 
@@ -73,6 +75,7 @@ h1, h2, h3, p {
     position: fixed;
     top: 0;
     left: 0;
+    z-index: 1;
     &-title {
         font-size: 16px;
         font-weight: 600;
@@ -140,13 +143,23 @@ h1, h2, h3, p {
 .aside {
     color: $white;
     height: 100%;
-    background-color: $bg-search-aside;
     flex: 0 0 260px;
+    position: relative;
+    transition: all 100ms ease-out;
     ::-webkit-scrollbar-track {
         background-color: $bg-search-aside;
     }
     ::-webkit-scrollbar-thumb {
         border: 2.5px solid $bg-search-aside;
+    }
+
+    &-wrapper{
+        width: 260px;
+        height: 100%;
+        background-color: $bg-search-aside;
+        position: absolute;
+        top: 0;
+        right: 0;
     }
 
     &-container {
@@ -449,7 +462,7 @@ h1, h2, h3, p {
 
 .btn-wrapper {
     width: fit-content;
-    margin: 40px auto;
+    margin: 40px auto 0 auto;
 }
 
 .ui-state-highlight {
@@ -496,6 +509,9 @@ h1, h2, h3, p {
             color: $text-medium;
         }
     }
+    &.path-analysis:after {
+        content: '{';
+    }
     &.pencil {
         @include resetBtn;
         font-size: 16px;
@@ -537,5 +553,8 @@ h1, h2, h3, p {
     }
     &.location:after {
         content: "N";
+    }
+    &.shared:after {
+        content: 'S';
     }
 }

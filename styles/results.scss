@@ -13,8 +13,8 @@ $pill-height: 31px;
     &-area-title {
         font-size: 12px;
         font-weight: 700;
-        .query-area-pageview & {
-            margin-top: 15px;
+        .query-area-vitis & {
+            margin-bottom: 15px;
         }
     }
     &-name {
@@ -43,8 +43,10 @@ $pill-height: 31px;
     background-color: $white;
     box-shadow: $shadow-apply-segments-bar;
     align-items: center;
-    position: absolute;
-    top: $height-subheader;
+    position: fixed;
+    top: 0;
+    transition: top 100ms ease-out;
+    //top: $height-subheader;
     &-container {
         display: flex;
         align-items: center;
@@ -103,12 +105,12 @@ $pill-height: 31px;
 .results {
     &-area {
         width: 1308px;
-        margin: 0 auto;
+        margin: 30px auto;
     }
     &-summary {
         font-size: 13px;
         margin-bottom: 30px;
-        &-pageview {
+        &-pageviews {
             @include resetH;
             &-included {
                 font-size: 30px;
@@ -122,6 +124,10 @@ $pill-height: 31px;
         &-visits {
             display: inline-block;
             margin-right: 40px;
+        }
+        .path-analysis,
+        .shared {
+            margin-right: 5px;
         }
     }
     &-graphs {
