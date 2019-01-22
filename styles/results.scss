@@ -45,8 +45,8 @@ $pill-height: 31px;
     align-items: center;
     position: fixed;
     top: 0;
-    transition: top 100ms ease-out;
-    //top: $height-subheader;
+    transition: top 200ms ease-out;
+    z-index: 1;
     &-container {
         display: flex;
         align-items: center;

@@ -111,5 +111,10 @@ export class SearchData {
     showResults() {
         $("#pillsBar").css("top", "50px");
         $("#aside").css("flex-basis", "50px");
+        $("#main").animate({
+            scrollTop: $("#resultsArea").offset().top - 90
+        }, 500);
+        $(".aside-container-header").hide();
+        $(".aside-container").hide();
     }
 }
