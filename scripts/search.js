@@ -172,7 +172,8 @@ $( function() {
 
     function onDrop(event, ui) {
         const $target = $(event.target);
-        $target.append(ui.draggable);
+        const $draggable = ui.draggable;
+        $target.append($draggable);
         $(".ui-state-highlight").removeClass("ui-state-highlight");
         $(".ui-state-active").removeClass("ui-state-active");
         addElements();
@@ -182,14 +183,15 @@ $( function() {
             revert: "invalid", // when not dropped, the item will revert back to its initial position
             containment: "document",
             helper: "clone",
-            cursor: "move"
+            cursor: "move",
+            cursorAt: { top: -5, left: -5 }
         });
         const da = createDroppable();
         $target.after(da);
         $target.closest(".empty").removeClass("empty");
         $target.find(".level-empty-label").hide();
         $target.droppable("destroy");
-        ui.draggable.draggable("destroy");
+        $draggable.draggable("destroy");
         $("#searchBtn").prop("disabled", false);
         $(".is-toggle-btn").off("click", isToogleText);
         $(".is-toggle-btn").on("click", isToogleText);
@@ -204,7 +206,8 @@ $( function() {
         revert: "invalid", // when not dropped, the item will revert back to its initial position
         containment: "document",
         helper: "clone",
-        cursor: "move"
+        cursor: "move",
+        cursorAt: { top: -5, left: -5 }
     });
 
     // Let the trash be droppable, accepting the gallery items
