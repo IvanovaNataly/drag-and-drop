@@ -404,17 +404,21 @@ h1, h2, h3, p {
 }
 
 .is-toggle-btn {
+    @include resetBtn;
     text-align: center;
     font-size: 10px;
     width: 30px;
     height: 15px;
-    line-height: normal;
+    line-height: 13px;
     margin-right: 20px;
-    background-image: $dd-button-gradient;
-    border: none;
+    background-image: linear-gradient(to top, $silver-gradient-start, $white);
+    border: 1px solid $silver-border;
     border-radius: 2px;
     flex: 0 0 30px;
     cursor: pointer;
+    &:hover {
+        background-image: linear-gradient(to top, $silver-gradient-hover, $silver-gradient-start);
+    }
     &.alert {
         color: $system-alert;
     }
