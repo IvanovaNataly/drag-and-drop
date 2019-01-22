@@ -186,6 +186,7 @@ $( function() {
             cursor: "move",
             cursorAt: { top: -5, left: -5 }
         });
+        
         const da = createDroppable();
         $target.after(da);
         $target.closest(".empty").removeClass("empty");
