@@ -10,19 +10,21 @@ import {BooleanValue} from "./filters/boolean-value.js";
 import {SearchData} from "./search-data.js";
 
 $( function() {
-    let pages = new Pages();
-    let url = new Url();
-    let jsErrors = new JsErrors();
-    let numeric = new Numeric();
-    let inputClick = new InputClick();
-    let category = new Category();
-    let sequence = new Sequence();
-    let textValue = new TextValue();
-    let booleanValue = new BooleanValue();
-    let searchData = new SearchData();
+    const pages = new Pages();
+    const url = new Url();
+    const jsErrors = new JsErrors();
+    const numeric = new Numeric();
+    const inputClick = new InputClick();
+    const category = new Category();
+    const sequence = new Sequence();
+    const textValue = new TextValue();
+    const booleanValue = new BooleanValue();
+    const searchData = new SearchData();
+    const $gallery = $( "#gallery" );
+    const $trash = $(".level-empty");
 
     //Condition type dropdown
-    var $newGroupContainer = $('<div class="group-container">'+
+    const $newGroupContainer = $('<div class="group-container">'+
                             '<div class="condition-type-wrapper">'+
                             '<select class="condition-type">'+
                             '<option value="and">and</option>'+
@@ -35,7 +37,7 @@ $( function() {
 
     //Droppable area
     function createDroppable() {
-        var $droppableArea = $('<div class="level-empty">' +
+        const $droppableArea = $('<div class="level-empty">' +
             '<span class="level-empty-label">Drag here to add a filter</span>' +
             '</div>');
         $droppableArea.droppable({
@@ -50,10 +52,6 @@ $( function() {
         });
         return $droppableArea;
     }
-
-    // There's the gallery and the trash
-    var $gallery = $( "#gallery" ),
-        $trash = $(".level-empty");
 
     function addElements() {
         let pagesFilter = pages.render();
@@ -146,16 +144,16 @@ $( function() {
     }
 
     function addLevel(event) {
-        var $target = $(event.target);
+        const $target = $(event.target);
         $target.hide();
         $target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
     }
 
     function addGroup(event) {
-        var $target = $(event.target);
-        var $targetClosest = $target.closest(".level-pageview");
-        var $newGroup = $newGroupContainer.clone();
-        var $droppableArea = createDroppable();
+        const $target = $(event.target);
+        const $targetClosest = $target.closest(".level-pageview");
+        const $newGroup = $newGroupContainer.clone();
+        const $droppableArea = createDroppable();
         $newGroup.append($droppableArea);
         $targetClosest.append($newGroup);
     }
@@ -197,9 +195,10 @@ $( function() {
         $(".is-toggle-btn").on("click", isToogleText);
     }
 
-    // Let the gallery items be draggable
+    //Append filters
     addElements();
 
+    // Let the gallery items be draggable
     $( "li", $gallery ).draggable({
         cancel: "a.ui-icon", // clicking an icon won't initiate dragging
         revert: "invalid", // when not dropped, the item will revert back to its initial position
@@ -218,30 +217,6 @@ $( function() {
         drop: function( event, ui ) {
             onDrop(event, ui)
         }
-        // drop: function( event, ui ) {
-        //     var $target = $(event.target);
-        //     $target.append(ui.draggable);
-        //     $(".ui-state-highlight").removeClass("ui-state-highlight");
-        //     $(".ui-state-active").removeClass("ui-state-active");
-        //     addElements();
-        //     $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
-        //     $( "li", $gallery ).draggable({
-        //         cancel: "button", // these elements won't initiate dragging
-        //         revert: "invalid", // when not dropped, the item will revert back to its initial position
-        //         containment: "document",
-        //         helper: "clone",
-        //         cursor: "move"
-        //     });
-        //     var da = createDroppable();
-        //     $target.after(da);
-        //     $target.closest(".empty").removeClass("empty");
-        //     $target.find(".level-empty-label").hide();
-        //     $target.droppable("destroy");
-        //     ui.draggable.draggable("destroy");
-        //     $("#searchBtn").prop("disabled", false);
-        //     $(".is-toggle-btn").off("click", isToogleText);
-        //     $(".is-toggle-btn").on("click", isToogleText);
-        // }
     });
 
     $(".trash", $gallery ).click( function(event) { deleteItem(event)});
