@@ -96,6 +96,8 @@ export class SearchData {
         let $allPills = this.pillRenderer.render(level);
         $pillLevel.append($allPills);
         $(".pills-bar-container").append($pillLevel);
+        $(".pill").off("click", this.openSearch);
+        $(".pill").on("click", this.openSearch);
     }
 
     openSearch() {
