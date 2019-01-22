@@ -99,3 +99,81 @@ $pill-height: 31px;
         background: url("../assets/img/action.svg") no-repeat center;
     }
 }
+
+.results {
+    &-area {
+        width: 1308px;
+        margin: 0 auto;
+    }
+    &-summary {
+        font-size: 13px;
+        margin-bottom: 30px;
+        &-pageview {
+            @include resetH;
+            &-included {
+                font-size: 30px;
+                font-weight: 600;
+            }
+            &-bold {
+                font-weight: 600;
+            }
+        }
+        &-visitors,
+        &-visits {
+            display: inline-block;
+            margin-right: 40px;
+        }
+    }
+    &-graphs {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &-card {
+        margin: 5px auto;
+        border-radius: $button-border-radius;
+        background-repeat: no-repeat;
+        background-position: top left;
+        &.recordings {
+            width: 1308px;
+            height: 335px;
+            background-image: url("../assets/img/recordings.png");
+        }
+        &.trend {
+            width: 315px;
+            height: 274px;
+            background-image: url("../assets/img/trend.png");
+        }
+        &.errors {
+            width: 315px;
+            height: 274px;
+            background-image: url("../assets/img/JSerrors.png");       }
+        &.countries {
+            width: 315px;
+            height: 274px;
+            background-image: url("../assets/img/trend.png");
+        }
+        &.browsers {
+            width: 424px;
+            height: 274px;
+            background-image: url("../assets/img/browsers.png");
+        }
+        &.devices {
+            width: 424px;
+            height: 274px;
+            background-image: url("../assets/img/devices.png");
+        }
+        &.engagement-time {
+            width: 315px;
+            height: 274px;
+            background-image: url("../assets/img/engagementTime.png");
+        }
+        &.scroll-reach {
+            width: 315px;
+            height: 274px;
+            background-image: url("../assets/img/scrollReach.png");
+        }
+    }
+}
+
