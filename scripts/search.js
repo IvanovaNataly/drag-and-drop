@@ -45,27 +45,7 @@ $( function() {
                 "ui-droppable-active": "ui-state-highlight"
             },
             drop: function( event, ui ) {
-                var $target = $(event.target);
-                $target.append(ui.draggable);
-                $(".ui-state-highlight").removeClass("ui-state-highlight");
-                $(".ui-state-active").removeClass("ui-state-active");
-                addElements();
-                $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
-                $( "li", $gallery ).draggable({
-                    cancel: "button", // these elements won't initiate dragging
-                    revert: "invalid", // when not dropped, the item will revert back to its initial position
-                    containment: "document",
-                    helper: "clone",
-                    cursor: "move"
-                });
-                var da = createDroppable();
-                $target.after(da);
-                $target.closest(".empty").removeClass("empty");
-                $target.find(".level-empty-label").hide();
-                $target.droppable("destroy");
-                ui.draggable.draggable("destroy");
-                $(".is-toggle-btn").off("click", isToogleText);
-                $(".is-toggle-btn").on("click", isToogleText);
+                onDrop(event, ui)
             }
         });
         return $droppableArea;
@@ -149,16 +129,19 @@ $( function() {
     }
 
     function deleteItem(event) {
-        var $target = $(event.target);
-        var $levelDroppable = $target.closest(".level-droppable");
+        const $target = $(event.target);
+        const $levelDroppable = $target.closest(".level-droppable");
 
         $target.closest(".level-empty").remove();
-        if($levelDroppable.find(".level-empty") < 2) {
+        if($levelDroppable.find(".level-empty").length <= 1) {
             $levelDroppable.addClass("empty");
-        }
-        if($levelDroppable.hasClass("level-visit")) {
-            $levelDroppable.addClass("hidden");
-            $(".add-level").show();
+            if($levelDroppable.hasClass("level-visit")) {
+                $levelDroppable.addClass("hidden");
+                $(".add-level").show();
+            }
+            else {
+                $("#searchBtn").prop("disabled", true);
+            }
         }
     }
 
@@ -189,6 +172,31 @@ $( function() {
         }
     }
 
+    function onDrop(event, ui) {
+        const $target = $(event.target);
+        $target.append(ui.draggable);
+        $(".ui-state-highlight").removeClass("ui-state-highlight");
+        $(".ui-state-active").removeClass("ui-state-active");
+        addElements();
+        $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
+        $( "li", $gallery ).draggable({
+            cancel: "button", // these elements won't initiate dragging
+            revert: "invalid", // when not dropped, the item will revert back to its initial position
+            containment: "document",
+            helper: "clone",
+            cursor: "move"
+        });
+        const da = createDroppable();
+        $target.after(da);
+        $target.closest(".empty").removeClass("empty");
+        $target.find(".level-empty-label").hide();
+        $target.droppable("destroy");
+        ui.draggable.draggable("destroy");
+        $("#searchBtn").prop("disabled", false);
+        $(".is-toggle-btn").off("click", isToogleText);
+        $(".is-toggle-btn").on("click", isToogleText);
+    }
+
     // Let the gallery items be draggable
     addElements();
 
@@ -208,28 +216,32 @@ $( function() {
             "ui-droppable-active": "ui-state-highlight"
         },
         drop: function( event, ui ) {
-            var $target = $(event.target);
-            $target.append(ui.draggable);
-            $(".ui-state-highlight").removeClass("ui-state-highlight");
-            $(".ui-state-active").removeClass("ui-state-active");
-            addElements();
-            $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
-            $( "li", $gallery ).draggable({
-                cancel: "button", // these elements won't initiate dragging
-                revert: "invalid", // when not dropped, the item will revert back to its initial position
-                containment: "document",
-                helper: "clone",
-                cursor: "move"
-            });
-            var da = createDroppable();
-            $target.after(da);
-            $target.closest(".empty").removeClass("empty");
-            $target.find(".level-empty-label").hide();
-            $target.droppable("destroy");
-            ui.draggable.draggable("destroy");
-            $(".is-toggle-btn").off("click", isToogleText);
-            $(".is-toggle-btn").on("click", isToogleText);
+            onDrop(event, ui)
         }
+        // drop: function( event, ui ) {
+        //     var $target = $(event.target);
+        //     $target.append(ui.draggable);
+        //     $(".ui-state-highlight").removeClass("ui-state-highlight");
+        //     $(".ui-state-active").removeClass("ui-state-active");
+        //     addElements();
+        //     $( ".trash", $gallery ).click( function(event) { deleteItem(event)});
+        //     $( "li", $gallery ).draggable({
+        //         cancel: "button", // these elements won't initiate dragging
+        //         revert: "invalid", // when not dropped, the item will revert back to its initial position
+        //         containment: "document",
+        //         helper: "clone",
+        //         cursor: "move"
+        //     });
+        //     var da = createDroppable();
+        //     $target.after(da);
+        //     $target.closest(".empty").removeClass("empty");
+        //     $target.find(".level-empty-label").hide();
+        //     $target.droppable("destroy");
+        //     ui.draggable.draggable("destroy");
+        //     $("#searchBtn").prop("disabled", false);
+        //     $(".is-toggle-btn").off("click", isToogleText);
+        //     $(".is-toggle-btn").on("click", isToogleText);
+        // }
     });
 
     $(".trash", $gallery ).click( function(event) { deleteItem(event)});
