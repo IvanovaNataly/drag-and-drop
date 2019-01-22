@@ -104,16 +104,23 @@ export class SearchData {
         $(".query-area").hide();
         $(".search-area").show();
         $(".btn-wrapper").show();
+        $(".aside-container-header").show();
+        $(".aside-container").show();
+        $("#main").css("margin-top", "0");
         $("#pillsBar").css("top", "0");
         $("#aside").css("flex-basis", "260px");
+        $("#main").animate({
+            scrollTop: $("#main").offset().top - 30
+        }, 200);
     }
 
     showResults() {
+        $("#main").css("margin-top", "30px");
         $("#pillsBar").css("top", "50px");
         $("#aside").css("flex-basis", "50px");
         $("#main").animate({
-            scrollTop: $("#resultsArea").offset().top - 90
-        }, 500);
+            scrollTop: $("#resultsArea").offset().top - 100
+        }, 200);
         $(".aside-container-header").hide();
         $(".aside-container").hide();
     }
