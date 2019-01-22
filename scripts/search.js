@@ -23,7 +23,7 @@ $( function() {
     const $gallery = $( "#gallery" );
     const $trash = $(".level-empty");
 
-    //Condition type dropdown
+    //Group template
     const $newGroupContainer = $('<div class="group-container">'+
                             '<div class="condition-type-wrapper">'+
                             '<select class="condition-type">'+
@@ -51,6 +51,13 @@ $( function() {
             }
         });
         return $droppableArea;
+    }
+
+    function createConditionType() {
+        return $('<select class="condition">'+
+                    '<option value="and">and</option>'+
+                    '<option value="or">or</option>'+
+                '</select>');
     }
 
     function addElements() {
@@ -186,9 +193,15 @@ $( function() {
             cursor: "move",
             cursorAt: { top: -5, left: -5 }
         });
-        
+
         const da = createDroppable();
         $target.after(da);
+
+        const ct = createConditionType();
+        if($target.closest(".level-droppable").find(".level-empty").length > 2) {
+            $target.before(ct);
+        }
+
         $target.closest(".empty").removeClass("empty");
         $target.find(".level-empty-label").hide();
         $target.droppable("destroy");
@@ -196,6 +209,11 @@ $( function() {
         $("#searchBtn").prop("disabled", false);
         $(".is-toggle-btn").off("click", isToogleText);
         $(".is-toggle-btn").on("click", isToogleText);
+    }
+
+    function addDroppable ($target) {
+        const da = createDroppable();
+        $target.after(da);
     }
 
     //Append filters

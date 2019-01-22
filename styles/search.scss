@@ -402,18 +402,36 @@ h1, h2, h3, p {
     display: flex;
     align-items: center;
     margin: 20px 0;
-    &:after {
-        content: '';
-        display: block;
-        border-top: 1px solid $border-color;
-        flex: 1 1;
-    }
 }
 
 .condition-type {
     width: auto;
     flex: 0 0;
 }
+
+.condition {
+    font-family: "Open Sans", sans-serif;
+    font-size: 9px;
+    width: 50px;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 5px;
+    margin-bottom: 10px;
+    border: 1px solid $border-color;
+    border-radius: $input-border-radius;
+    &::placeholder {
+        color: $text-light;
+        font-style: italic;
+    }
+    &:focus {
+        border-color: $input-focus;
+        outline: none;
+    }
+    &:hover {
+        border-color: $input-hover;
+    }
+}
+
 
 .is-toggle-btn {
     @include resetBtn;
