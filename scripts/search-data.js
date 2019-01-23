@@ -18,11 +18,15 @@ export class SearchData {
     }
 
     postGroups() {
-        const $filters = $(".level-pageview").find(".level-group .ui-widget-content, .level-group .condition");
-        return {
-            name: "Group",
-            content: $.map($filters, this.postFilter)
-        };
+        var that = this;
+        const $groups = $(".level-pageview").find(".level-group");
+        return $.map($groups, function(group) {
+            const $groupFilters = $(group).find(".ui-widget-content, .condition");
+            return {
+                name: "Group",
+                content: $.map($groupFilters, that.postFilter)
+            }}
+        );
     }
 
     postFilter(filter) {
@@ -64,6 +68,7 @@ export class SearchData {
             Visit: this.postData("level-visit"),
             Pageview: this.postData("level-pageview").concat(this.postGroups())
         };
+        this.postGroups();
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         console.log(this.data);
@@ -90,7 +95,11 @@ export class SearchData {
         var $query = "";
         for (let query of queries) {
             if (query.name === "Group") {
-                $query += this.renderQueries(query.content);
+                    $query += (
+                        '<div class="query-group">'+
+                        this.renderQueries(query.content)+
+                        '</div>'
+                    )
             }
             else {
                 $query += this.queryRenderer.render(query);
