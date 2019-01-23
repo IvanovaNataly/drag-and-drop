@@ -19,8 +19,10 @@ export class SearchData {
 
     postGroups() {
         const $filters = $(".level-pageview").find(".level-group .ui-widget-content, .level-group .condition");
-        var res = $.map($filters, this.postFilter);
-        console.log(res);
+        return {
+            name: "Group",
+            content: $.map($filters, this.postFilter)
+        };
     }
 
     postFilter(filter) {
@@ -60,9 +62,8 @@ export class SearchData {
     onSearch() {
         const dataObject = {
             Visit: this.postData("level-visit"),
-            Pageview: this.postData("level-pageview"),
+            Pageview: this.postData("level-pageview").concat(this.postGroups())
         };
-        this.postGroups();
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         console.log(this.data);
@@ -85,6 +86,19 @@ export class SearchData {
         }
     }
 
+    renderQueries(queries) {
+        var $query = "";
+        for (let query of queries) {
+            if (query.name === "Group") {
+                $query += this.renderQueries(query.content);
+            }
+            else {
+                $query += this.queryRenderer.render(query);
+            }
+        }
+        return $query;
+    }
+
     renderLevel(level, key) {
         const $level = $('<div class="query-area-'+ key.toLowerCase() +'">'+
             '<h2 class="query-area-title">'+ key +' level</h2>'+
@@ -93,12 +107,8 @@ export class SearchData {
             '</div></div>'
         );
         const $queriesContainer = $level.find(".query-area-queries");
-        for (const [index, query] of level.entries()) {
-            if(!(index === level.length - 1 && query.hasOwnProperty("condition"))) {
-                let $query = this.queryRenderer.render(query);
-                $queriesContainer.append($query);
-            }
-        }
+        const queries = this.renderQueries(level);
+        $queriesContainer.append(queries);
         $(".query-area").append($level);
         $(".query-area").show();
         $(".open-search").off("click", this.openSearch);
