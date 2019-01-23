@@ -12,8 +12,8 @@ export class SearchData {
     }
 
     postData(level) {
-        const $level = $("." + level);
-        const $filters = $level.find(".ui-widget-content");
+        const filterSelector = "." + level + " > .level-empty > .ui-widget-content, ." + level + " .condition";
+        const $filters = $("#main").find(filterSelector);
         return $.map($filters, this.postFilter);
     }
 
@@ -51,6 +51,7 @@ export class SearchData {
         };
         this.storeData(dataObject);
         this.data = this.getData(this.key);
+        console.log(this.data);
         this.renderData();
         this.showResults();
     }
