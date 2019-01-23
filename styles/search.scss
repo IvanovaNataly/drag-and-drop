@@ -110,35 +110,6 @@ h1, h2, h3, p {
     }
 }
 
-//.pill {
-//    text-align: center;
-//    font-size: 14px;
-//    height: 30px;
-//    line-height: 27px;
-//    padding-right: 10px;
-//    padding-left: 10px;
-//    margin: 0 auto 0 15px;
-//    background-color: #F2F2F2;
-//    border: 1px solid black;
-//    border-radius: 523px;
-//}
-
-//.menu {
-//    display: flex;
-//    align-items: center;
-//}
-//
-//.hamburger {
-//    display: inline-block;
-//    width: 20px;
-//    height: 20px;
-//    margin-right: 10px;
-//    background: url("../assets/img/hamburger.svg") center no-repeat;
-//    background-size: 100%;
-//}
-
-
-
 //main
 .aside {
     color: $white;
@@ -269,8 +240,12 @@ h1, h2, h3, p {
     overflow-y: auto;
     .level-title {
         font-size: 14px;
-        margin: 0 0 10px 0;
+        font-weight: 700;
         padding: 0;
+    }
+    .level-subtitle {
+        font-size: 11px;
+        margin-bottom: 10px;
     }
 }
 
@@ -311,25 +286,21 @@ h1, h2, h3, p {
     display: flex;
     text-align: center;
     font-size: 12px;
-    color: $system-alert;
+    font-weight: 600;
+    color: $text-light;
     min-height: 75px;
-    border: 2px dashed $system-alert;
+    border: 2px dashed $text-light;
     justify-content: center;
     align-items: center;
 }
 
 .empty {
     padding: 0;
-    .level-title, .level-subtitle {
-        display: none;
-    }
 }
 
 .ui-widget-content {
     min-width: 170px;
     min-height: 40px;
-    //padding-right: 20px;
-    //padding-left: 20px;
     background-color: $white;
     border-radius: $dd-border-radius;
     box-shadow: 0 1px 3px 0 rgba(48, 53, 66, 0.3);
@@ -528,8 +499,9 @@ h1, h2, h3, p {
 }
 
 .ui-state-highlight {
-    color: initial;
-    border: 1px dashed black;
+    color: $system-alert;
+    background-color: transparent;
+    border: 1px dashed $system-alert;
 }
 
 .filter-note {
