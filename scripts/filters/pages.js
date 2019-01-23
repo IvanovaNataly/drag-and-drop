@@ -11,14 +11,10 @@ export class Pages {
                 '<option value="Query string">Query string</option>'+
             '</select>'+
             '<select class="condition-type">'+
-                '<option value="equals">equals</option>'+
                 '<option value="contains">contains</option>'+
+                '<option value="equals">equals</option>'+
                 '<option value="starts with">starts with</option>'+
                 '<option value="ends with">ends with</option>'+
-                '<option value="is NOT">is NOT</option>'+
-                '<option value="does not contain">does not contain</option>'+
-                '<option value="does not starts with">does not starts with</option>'+
-                '<option value="does not ends with">does not ends with</option>'+
             '</select>'+
             '<input type="text" placeholder="Type" class="filter-input">'+
             '<span class="iconFont trash"></span>'+

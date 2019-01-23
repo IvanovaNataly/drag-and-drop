@@ -222,7 +222,8 @@ h1, h2, h3, p {
     .location-select,
     .filter-input,
     .trash,
-    .ui-widget-content .condition-type {
+    .ui-widget-content .condition-type,
+    .filter-note {
         display: none;
     }
 
@@ -529,6 +530,12 @@ h1, h2, h3, p {
 .ui-state-highlight {
     color: initial;
     border: 1px dashed black;
+}
+
+.filter-note {
+    font-size: 10px;
+    color: $text-medium;
+    margin-top: 10px;
 }
 
 .iconFont {
