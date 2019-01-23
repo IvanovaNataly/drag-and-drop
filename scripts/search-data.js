@@ -18,7 +18,7 @@ export class SearchData {
     }
 
     postGroups() {
-        var that = this;
+        const that = this;
         const $groups = $(".level-pageview").find(".level-group");
         return $.map($groups, function(group) {
             const $groupFilters = $(group).find(".ui-widget-content, .condition");
@@ -68,7 +68,6 @@ export class SearchData {
             Visit: this.postData("level-visit"),
             Pageview: this.postData("level-pageview").concat(this.postGroups())
         };
-        this.postGroups();
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         console.log(this.data);
