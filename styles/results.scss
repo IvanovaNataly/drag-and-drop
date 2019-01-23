@@ -47,6 +47,17 @@ $pill-height: 31px;
         padding-left: 15px;
         float: left;
     }
+    &-group {
+        .query-condition {
+            margin-top: 0;
+        }
+        .query-condition:not(:first-child),
+        .query:not(:nth-child(2)){
+            margin-left: 106px;
+            margin-top: 0;
+            float: none;
+        }
+    }
 }
 
 .pills-bar {
