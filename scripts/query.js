@@ -9,14 +9,19 @@ export class QueryRenderer {
     }
 
     render(query) {
+        if(query.hasOwnProperty("condition")) {
+            return ('<div class="query-condition">'+
+                        query.condition +
+                   '</div>'
+            );
+        }
         return ('<div class="query">'+
-            '<h3 class="query-name">'+
-            query.name +
-            '<button class="iconFont pencil open-search"></button>'+
-            '</h3>'+
-            '<p class="query-content">'+
-            this.renderContent(query.content) +
-            '</p>'+
+                '<h3 class="query-name">'+
+                query.name + ":" +
+                '</h3>'+
+                '<p class="query-content">'+
+                this.renderContent(query.content) +
+                '</p>'+
             '</div>'
         );
     }

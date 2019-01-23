@@ -18,19 +18,26 @@ export class SearchData {
     }
 
     postFilter(filter) {
-        const name = $(filter).find(".filter-name").text();
-        const inputs = $(filter).find("select, input, button");
-        const sum = $.map( inputs, function(input) {
-            if(input.tagName === 'BUTTON') {
-                return input.textContent ;
+        if($(filter).hasClass("condition")) {
+            return {
+                condition: filter.value
             }
-            else {
-                return input.value;
+        }
+        else {
+            const name = $(filter).find(".filter-name").text();
+            const inputs = $(filter).find("select, input, button");
+            const sum = $.map( inputs, function(input) {
+                if(input.tagName === 'BUTTON') {
+                    return input.textContent ;
+                }
+                else {
+                    return input.value;
+                }
+            });
+            return {
+                name: name,
+                content: sum
             }
-        });
-        return {
-            name: name,
-            content: sum
         }
     }
 
@@ -74,10 +81,11 @@ export class SearchData {
     renderLevel(level, key) {
         const $level = $('<div class="query-area-'+ key.toLowerCase() +'">'+
             '<h2 class="query-area-title">'+ key +' level</h2>'+
-            '<div class="query-area-visit-queries">'+
+            '<div class="query-area-queries">'+
+            '<button class="iconFont pencil open-search"></button>'+
             '</div></div>'
         );
-        const $queriesContainer = $level.find(".query-area-visit-queries");
+        const $queriesContainer = $level.find(".query-area-queries");
         for (let query of level) {
             let $query = this.queryRenderer.render(query);
             $queriesContainer.append($query);
