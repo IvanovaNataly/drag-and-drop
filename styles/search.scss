@@ -281,6 +281,26 @@ h1, h2, h3, p {
     //box-shadow: $box-shadow;
 }
 
+.level-group {
+    margin-bottom: 10px;
+    padding: 20px;
+    border-top: 1px solid $border-color;
+    border-right: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+    border-left: 3px solid $text-dark;
+    border-radius: 9px;
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    }
+}
+
+.level-empty {
+    margin-bottom: 10px;
+}
+
 .add-level {
     margin-left: 15px;
     float: right;
@@ -432,6 +452,14 @@ h1, h2, h3, p {
     }
 }
 
+.condition-include {
+    color: $text-darkest;
+    font-size: 11px;
+    width: auto;
+    background-color: transparent;
+;
+    border: none;
+}
 
 .is-toggle-btn {
     @include resetBtn;

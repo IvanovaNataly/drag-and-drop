@@ -24,16 +24,23 @@ $( function() {
     const $trash = $(".level-empty");
 
     //Group template
-    const $newGroupContainer = $('<div class="group-container">'+
-                            '<div class="condition-type-wrapper">'+
-                            '<select class="condition-type">'+
-                            '<option value="and">and</option>'+
-                            '<option value="andNot">and NOT</option>'+
-                            '<option value="or">or</option>'+
-                            '<option value="orNot">or NOT</option>'+
+    const $newGroupContainer = $('<div class="level-group level-droppable">'+
+                            '<div class="level-group-top">'+
+                            '<select class="condition-include">'+
+                            '<option value="include">Include</option>'+
+                            '<option value="exclude">Exclude</option>'+
                             '</select>'+
+                            '<span class="iconFont closeX"></span>'+
                             '</div>'+
                             '</div>');
+
+    //And/or select
+    const $conditionType = $(
+        '<select class="condition">'+
+        '<option value="and">and</option>'+
+        '<option value="or">or</option>'+
+        '</select>'
+    );
 
     //Droppable area
     function createDroppable() {
@@ -51,13 +58,6 @@ $( function() {
             }
         });
         return $droppableArea;
-    }
-
-    function createConditionType() {
-        return $('<select class="condition">'+
-                    '<option value="and">and</option>'+
-                    '<option value="or">or</option>'+
-                '</select>');
     }
 
     function addElements() {
@@ -159,9 +159,11 @@ $( function() {
     function addGroup(event) {
         const $target = $(event.target);
         const $targetClosest = $target.closest(".level-pageview");
+        const $newConditionType = $conditionType.clone();
         const $newGroup = $newGroupContainer.clone();
         const $droppableArea = createDroppable();
         $newGroup.append($droppableArea);
+        $targetClosest.append($newConditionType);
         $targetClosest.append($newGroup);
     }
 
@@ -197,7 +199,7 @@ $( function() {
         const da = createDroppable();
         $target.after(da);
 
-        const ct = createConditionType();
+        const ct = $conditionType.clone();
         if($target.closest(".level-droppable").find(".level-empty").length > 2) {
             $target.before(ct);
         }
