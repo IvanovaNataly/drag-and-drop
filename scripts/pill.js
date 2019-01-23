@@ -10,10 +10,9 @@ export class PillRenderer {
                     '</div>'
                 );
             else if(pill.name === "Group") {
-                return ('<div class="pills-bar-level '+ pill.name.toLowerCase() +'">'+
-                    pill.name + ' level'+
-                        that.render(pill.content) +
-                    '</div>'
+                return ('<span class="pills-bar-group-indicator">[</span>'+
+                            that.render(pill.content) +
+                        '<span class="pills-bar-group-indicator">]</span>'
                 );
             }
             else return ('<div class="pill">'+
