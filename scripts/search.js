@@ -152,8 +152,11 @@ $( function() {
 
     function addLevel(event) {
         const $target = $(event.target);
+        const $searchArea = $target.closest(".search-area");
         $target.hide();
-        $target.closest(".search-area").find(".level-visit").removeClass("hidden empty");
+        $searchArea.addClass("multilevel");
+        $searchArea.find(".level-visit").removeClass("hidden empty");
+        $searchArea.closest(".search-area").find(".level-pageview").addClass("inside-visit-level");
     }
 
     function addGroup(event) {

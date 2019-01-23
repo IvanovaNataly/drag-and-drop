@@ -249,12 +249,18 @@ h1, h2, h3, p {
     }
 }
 
+.search-area.multilevel {
+    padding: 20px;
+    border: 1px solid $border-color;
+}
+
 .level-pageview {
-    //margin: 20px 0;
-    //padding: 20px;
-    //background-color: $white;
-    //border-radius: $dd-border-radius;
-    //box-shadow: $box-shadow;
+    &.inside-visit-level {
+        padding: 20px;
+        background-color: #e1e7ec;
+        border: 1px solid $text-light;
+        border-radius: 2px;
+    }
 }
 
 .level-group {
@@ -289,7 +295,7 @@ h1, h2, h3, p {
     font-weight: 600;
     color: $text-light;
     min-height: 75px;
-    border: 2px dashed $text-light;
+    border: 2px dashed $text-medium;
     justify-content: center;
     align-items: center;
 }
