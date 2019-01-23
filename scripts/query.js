@@ -15,7 +15,7 @@ export class QueryRenderer {
                    '</div>'
             );
         }
-        return ('<div class="query">'+
+        else return ('<div class="query">'+
                 '<h3 class="query-name">'+
                 query.name + ":" +
                 '</h3>'+

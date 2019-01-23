@@ -26,7 +26,7 @@ $( function() {
     //Group template
     const $newGroupContainer = $('<div class="level-group level-droppable">'+
                             '<div class="level-group-top">'+
-                            '<select class="condition-include">'+
+                            '<select class="condition condition-include">'+
                             '<option value="include">Include</option>'+
                             '<option value="exclude">Exclude</option>'+
                             '</select>'+

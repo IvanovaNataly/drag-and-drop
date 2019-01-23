@@ -12,9 +12,15 @@ export class SearchData {
     }
 
     postData(level) {
-        const filterSelector = "." + level + " > .level-empty > .ui-widget-content, ." + level + " .condition";
+        const filterSelector = "." + level + " > .level-empty > .ui-widget-content, ." + level + " > .condition";
         const $filters = $("#main").find(filterSelector);
         return $.map($filters, this.postFilter);
+    }
+
+    postGroups() {
+        const $filters = $(".level-pageview").find(".level-group .ui-widget-content, .level-group .condition");
+        var res = $.map($filters, this.postFilter);
+        console.log(res);
     }
 
     postFilter(filter) {
@@ -56,6 +62,7 @@ export class SearchData {
             Visit: this.postData("level-visit"),
             Pageview: this.postData("level-pageview"),
         };
+        this.postGroups();
         this.storeData(dataObject);
         this.data = this.getData(this.key);
         console.log(this.data);
@@ -86,9 +93,11 @@ export class SearchData {
             '</div></div>'
         );
         const $queriesContainer = $level.find(".query-area-queries");
-        for (let query of level) {
-            let $query = this.queryRenderer.render(query);
-            $queriesContainer.append($query);
+        for (const [index, query] of level.entries()) {
+            if(!(index === level.length - 1 && query.hasOwnProperty("condition"))) {
+                let $query = this.queryRenderer.render(query);
+                $queriesContainer.append($query);
+            }
         }
         $(".query-area").append($level);
         $(".query-area").show();
