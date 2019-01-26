@@ -169,6 +169,28 @@ $pill-height: 31px;
         border-radius: $button-border-radius;
         background-repeat: no-repeat;
         background-position: top left;
+        &.countries {
+            width: 315px;
+            height: 274px;
+            background-color: $white;
+        }
+        &-header {
+            font-size: 14px;
+            color: $text-dark;
+            height: 40px;
+            border-bottom: 1px solid $silver-border;
+        }
+        &-body {
+            display: flex;
+            flex-direction: column;
+            align-items: stretch;
+            height: calc(100% - 40px);
+            &-btn {
+                @include resetBtn;
+                flex: 1 1;
+            }
+        }
+
         &.recordings {
             width: 1308px;
             height: 335px;
@@ -183,11 +205,11 @@ $pill-height: 31px;
             width: 315px;
             height: 274px;
             background-image: url("../assets/img/JSerrors.png");       }
-        &.countries {
-            width: 315px;
-            height: 274px;
-            background-image: url("../assets/img/trend.png");
-        }
+        //&.countries {
+        //    width: 315px;
+        //    height: 274px;
+        //    background-image: url("../assets/img/trend.png");
+        //}
         &.browsers {
             width: 424px;
             height: 274px;

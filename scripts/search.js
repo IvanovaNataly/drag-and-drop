@@ -256,9 +256,13 @@ $( function() {
         jsErrors.changeFilterContent( this );
     });
 
-    $('.sequence-select').change(function() {
+    $('.sequence-select').change( function() {
         sequence.changeFilterContent( this );
     });
 
-    $( "#searchBtn").click( function() { searchData.onSearch()});
+    $('#searchBtn').click( function() { searchData.onSearch()});
+
+    $('.results-card-body-btn').click( function(event) {
+    	searchData.onCounryClicked(event);
+	})
 } );

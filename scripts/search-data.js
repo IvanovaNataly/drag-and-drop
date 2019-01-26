@@ -160,4 +160,23 @@ export class SearchData {
         $(".aside-container-header").hide();
         $(".aside-container").hide();
     }
+
+	onCounryClicked(event) {
+		const $target = $(event.target);
+		const $newCountryFilter = $(
+			'<div class="level-empty">'+
+			'<li class="ui-widget-content category-filter">'+
+			'<h3 class="filter-name">Country and region</h3>'+
+			'<div class="filter-content">'+
+			'<button class="is-toggle-btn">is</button>'+
+			'<select class="condition-type">'+
+			'<option value="is one of">is one of</option>'+
+			'</select>'+
+			'<input type="text" placeholder="Type" class="filter-input" value=" '+ $target.text() +' ">'+
+			'<span class="iconFont trash"></span>'+
+			'</div></li></div>'
+		)
+		$(".level-pageview > .ui-droppable").before($newCountryFilter);
+		this.onSearch();
+	}
 }
