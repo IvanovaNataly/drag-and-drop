@@ -260,9 +260,14 @@ $( function() {
         sequence.changeFilterContent( this );
     });
 
+	$('.and-then-btn').click( function(event) {
+		sequence.onAddLine(event);
+	});
+
     $('#searchBtn').click( function() { searchData.onSearch()});
 
     $('.results-card-body-btn').click( function(event) {
     	searchData.onCounryClicked(event);
-	})
+	});
+
 } );
