@@ -196,6 +196,7 @@ $pill-height: 31px;
             width: 424px;
             height: 274px;
             background-color: $white;
+            box-shadow: $shadow-pageset-box;
         }
         &-header {
             font-size: 16px;
@@ -223,7 +224,8 @@ $pill-height: 31px;
                 }
                 &-name {
                     display: block;
-                    font-size: 10px;
+                    font-size: 11px;
+                    color: $text-medium;
                     text-align: left;
                     margin-right: 60px;
                 }
@@ -233,16 +235,17 @@ $pill-height: 31px;
                     height: 5px;
                     margin-top: 10px;
                     margin-right: 60px;
-                    background-image: url("../assets/img/contry_bar.png");
                     background-repeat: no-repeat;
-                }
-                &:hover {
-                    .results-card-body-btn-graph {
-                        background-image: url("../assets/img/contry_bar_hover.png");
+                    .results-card-body-btn:first-child & {
+                        background-image: url("../assets/img/contry_bar.png");
+                    }
+                    .results-card-body-btn:not(:first-child) & {
+                        background-image: url("../assets/img/contry_bar_small.png");
                     }
                 }
                 &-percent {
                     display: flex;
+                    color: $text-medium;
                     width: 60px;
                     height: 100%;
                     justify-content: center;
@@ -250,6 +253,18 @@ $pill-height: 31px;
                     position: absolute;
                     top: 0;
                     right: 0;
+                }
+                &:hover {
+                    .results-card-body-btn-name,
+                    .results-card-body-btn-percent {
+                        color: $text-darkest;
+                    }
+                }
+                &:first-child:hover .results-card-body-btn-graph {
+                    background-image: url("../assets/img/contry_bar_hover.png");
+                }
+                &:not(:first-child):hover .results-card-body-btn-graph {
+                    background-image: url("../assets/img/contry_bar_small_hover.png");
                 }
             }
         }
@@ -275,12 +290,8 @@ $pill-height: 31px;
         &.errors {
             width: 315px;
             height: 274px;
-            background-image: url("../assets/img/JSerrors.png");       }
-        //&.countries {
-        //    width: 315px;
-        //    height: 274px;
-        //    background-image: url("../assets/img/trend.png");
-        //}
+            background-image: url("../assets/img/JSerrors.png");
+        }
         &.browsers {
             width: 424px;
             height: 274px;
