@@ -276,6 +276,5 @@ $( function() {
 
     $('#clearAll').click( function() {
         location.reload();
-    })
-
+    });
 } );

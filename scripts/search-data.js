@@ -9,6 +9,7 @@ export class SearchData {
         this.key = "search";
         this.queryRenderer = new QueryRenderer();
         this.pillRenderer = new PillRenderer();
+        this.lastScollTop = 0;
         this.addFilter = ('<div class="pill pill-to-add">'+
                             '<div class="pill-plus iconPlus plus-rounded"></div>'+
                             'Add Filter'+
@@ -144,6 +145,8 @@ export class SearchData {
     }
 
     openSearch() {
+        const offset = $(".query-area").height();
+        console.log(offset);
         $(".query-area").hide();
         $(".search-area").show();
         $(".btn-wrapper").show();
@@ -153,20 +156,41 @@ export class SearchData {
         $("#pillsBar").css("top", "0");
         $("#aside").css("flex-basis", "260px");
         $("#main").animate({
-            scrollTop: $("#main").offset().top - 30
+            scrollTop: offset - 100
         }, 200);
+        // $('#main').off('scroll', function() {
+        //     that.hidePillsBar();
+        // });
     }
 
     showResults() {
+        const that = this;
+        const offset = $(".query-area").height();
+        console.log(offset);
         $("#main").css("margin-top", "30px");
         $("#pillsBar").css("top", "50px");
         $("#aside").css("flex-basis", "50px");
         $("#main").animate({
-            scrollTop: $("#resultsArea").offset().top - 100
+            scrollTop: offset + 30
         }, 200);
+        // $('#main').on('scroll', function() {
+        //     that.hidePillsBar();
+        // });
         $(".aside-container-header").hide();
         $(".aside-container").hide();
     }
+
+    // hidePillsBar() {
+    //     const st =  $("#main").offset().top;
+    //     console.log(st);
+    //     if (st > this.lastScrollTop){
+    //         // $("#pillsBar").css("top", "50px");
+    //         // console.log()
+    //     } else {
+    //         // $("#pillsBar").css("top", "0");
+    //     }
+    //     this.lastScrollTop = st;
+    // }
 
 	onCounryClicked(event) {
 		const $target = $(event.currentTarget);
