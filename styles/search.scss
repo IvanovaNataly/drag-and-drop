@@ -2,6 +2,7 @@
 @import "variables";
 @import "fonts";
 @import "buttons";
+@import "iconFont";
 
 $aside-header-height: 104px;
 
@@ -169,6 +170,10 @@ h1, h2, h3, p {
             border: 1px solid $text-dark;
             outline: none;
         }
+        .magnifying-glass {
+            font-size: 16px;
+            color: $white;
+        }
     }
 
     &-search {
@@ -325,6 +330,9 @@ h1, h2, h3, p {
         font-size: 11px;
         min-height: 34px;
         padding: 10px 15px;
+        .trash {
+            margin-left: 10px;
+        }
     }
     &:not(.ui-draggable-dragging) {
         margin-bottom: 10px;
@@ -526,91 +534,8 @@ h1, h2, h3, p {
     margin-bottom: 10px;
 }
 
-.iconFont {
-    font-family: 'ctIcon' !important;
-    cursor: pointer;
-    font-weight: 400;
-    &.closeX {
-        @include resetBtn;
-        font-size: 16px;
-        color: $text-medium;
-        &:after {
-            content: 'U';
-        }
-        &:hover,
-            //&:active {
-            //    color: $text-dark;
-            //}
-        &.white {
-            color: $white;
-        }
-    }
-    &.magnifying-glass {
-        font-size: 16px;
-        color: $white;
-        &:after {
-            content: "N";
-        }
-    }
-    &.trash {
-        font-size: 14px;
-        color: $text-light;
-        margin-left: 10px;
-        &:after {
-            content: 'R';
-            display: inline-block;
-            vertical-align: top;
-        }
-        &:hover {
-            color: $text-medium;
-        }
-    }
-    &.path-analysis:after {
-        content: '{';
-    }
-    &.pencil {
-        @include resetBtn;
-        font-size: 16px;
-        color: $text-medium;
-        &:after {
-            content: '-';
-        }
-    }
-    &.plus:after {
-        content: 'p';
-    }
-    &.question {
-        display: inline-block;
-        width: 13px;
-        height: 13px;
-        font-size: 13px;
-        line-height: 1;
-        font-weight: normal;
-        color: $text-light;
-        margin-left: 5px;
-        cursor: default;
-
-        &:after {
-            content: 'C';
-        }
-
-        &:hover {
-            color: $text-medium;
-        }
-    }
-}
-
-.iconPlus {
-    font-family: 'ctIconPlus' !important;
-    cursor: pointer;
-    font-weight: 400;
-    &.action:after {
-        content: "A";
-    }
-    &.location:after {
-        content: "N";
-    }
-    &.shared:after {
-        content: 'S';
-    }
+.pencil {
+    @include resetBtn;
+    font-size: 16px;
+    color: $text-medium;
 }

@@ -128,6 +128,29 @@ $pill-height: 31px;
         border-radius: 15.5px;
         background: url("../assets/img/action.svg") no-repeat center;
     }
+
+    &-to-add {
+        margin-left: 0;
+        border-style: dashed;
+    }
+    &-plus {
+        display: flex;
+        font-size: 13px;
+        color: $system-regular;
+        width: $pill-height - 2px;
+        height: $pill-height - 2px;
+        margin-right: 5px;
+        background-color: $hover-bg;
+        border-radius: 50%;
+        justify-content: center;
+        align-items: center;
+        transition: all 200ms;
+
+        .pill:hover & {
+            color: $white;
+            background-color: $system-regular;
+        }
+    }
 }
 
 .results {

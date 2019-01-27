@@ -9,6 +9,11 @@ export class SearchData {
         this.key = "search";
         this.queryRenderer = new QueryRenderer();
         this.pillRenderer = new PillRenderer();
+        this.addFilter = ('<div class="pill pill-to-add">'+
+                            '<div class="pill-plus iconPlus plus-rounded"></div>'+
+                            'Add Filter'+
+                            '</div>'
+                        );
     }
 
     postData(level) {
@@ -88,6 +93,8 @@ export class SearchData {
                 this.renderLevel(level, key);
             }
         }
+        $(".pills-bar-container").append(this.addFilter);
+        $(".pill-to-add").on("click", this.openSearch);
     }
 
     renderQueries(queries) {
