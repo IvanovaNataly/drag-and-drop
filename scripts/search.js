@@ -264,6 +264,10 @@ $( function() {
 		sequence.onAddLine(event);
 	});
 
+    $('.location-select').change( function() {
+        pages.changeFilterContent( this );
+    });
+
     $('#searchBtn').click( function() { searchData.onSearch()});
 
     $('.results-card-body-btn').click( function(event) {
