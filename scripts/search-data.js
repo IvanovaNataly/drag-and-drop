@@ -145,6 +145,7 @@ export class SearchData {
     }
 
     openSearch() {
+        const that = this;
         const offset = $(".query-area").height() < 0 ? $(".query-area").height() : 0;
         $('#main').off('scroll', function() {
             that.hidePillsBar();
@@ -177,13 +178,20 @@ export class SearchData {
     }
 
     hidePillsBar() {
-        const st =  $(".query-area").offset().top;
-        if (st < this.lastScrollTop){
+        const that = this;
+        const st = $("#main").scrollTop();
+        const queryArea = $(".query-area").is(":visible");
+        console.log(queryArea);
+        if (queryArea && st >= this.lastScrollTop){
             $("#pillsBar").css("top", "50px");
-        } else {
+        } else if(queryArea) {
             $("#pillsBar").css("top", "0");
         }
         this.lastScrollTop = st;
+        $('#main').off('scroll', function() {
+            that.hidePillsBar();
+            this.lastScrollTop = 0;
+        });
     }
 
 	onCounryClicked(event) {
