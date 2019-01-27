@@ -85,9 +85,28 @@ $pill-height: 31px;
         background-image: linear-gradient(to left, rgba(255, 255, 255, 0.25), rgba(197, 208, 222, 0.33));
         align-items: center;
     }
-    &-edit {
+    &-edit,
+    &-clear {
         @include resetBtn;
+        color: $text-dark;
+        .iconFont.trash,
+        .iconFont.pencil {
+            font-family: $font-icon;
+            color: $text-medium;
+        }
+        &:hover {
+            color: $text-darkest;
+            .iconFont.trash,
+            .iconFont.pencil {
+                color: $text-dark;
+            }
+        }
+    }
+    &-edit {
         margin-left: auto;
+    }
+    &-clear {
+        margin-left: 30px;
     }
     &-group-indicator {
         font-size: 16px;

@@ -274,4 +274,8 @@ $( function() {
     	searchData.onCounryClicked(event);
 	});
 
+    $('#clearAll').click( function() {
+        location.reload();
+    })
+
 } );
