@@ -535,7 +535,9 @@ h1, h2, h3, p {
 }
 
 .pencil {
-    @include resetBtn;
     font-size: 16px;
     color: $text-medium;
+    &:hover {
+        color: $text-dark;
+    }
 }
