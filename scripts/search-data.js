@@ -181,7 +181,6 @@ export class SearchData {
         const that = this;
         const st = $("#main").scrollTop();
         const queryArea = $(".query-area").is(":visible");
-        console.log(queryArea);
         if (queryArea && st >= this.lastScrollTop){
             $("#pillsBar").css("top", "50px");
         } else if(queryArea) {
@@ -190,7 +189,6 @@ export class SearchData {
         this.lastScrollTop = st;
         $('#main').off('scroll', function() {
             that.hidePillsBar();
-            this.lastScrollTop = 0;
         });
     }
 
