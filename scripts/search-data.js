@@ -145,52 +145,46 @@ export class SearchData {
     }
 
     openSearch() {
-        const offset = $(".query-area").height();
-        console.log(offset);
+        const offset = $(".query-area").height() < 0 ? $(".query-area").height() : 0;
+        $('#main').off('scroll', function() {
+            that.hidePillsBar();
+        });
         $(".query-area").hide();
         $(".search-area").show();
         $(".btn-wrapper").show();
         $(".aside-container-header").show();
         $(".aside-container").show();
-        $("#main").css("margin-top", "0");
         $("#pillsBar").css("top", "0");
         $("#aside").css("flex-basis", "260px");
         $("#main").animate({
-            scrollTop: offset - 100
+            scrollTop: offset
         }, 200);
-        // $('#main').off('scroll', function() {
-        //     that.hidePillsBar();
-        // });
     }
 
     showResults() {
         const that = this;
         const offset = $(".query-area").height();
-        console.log(offset);
-        $("#main").css("margin-top", "30px");
         $("#pillsBar").css("top", "50px");
         $("#aside").css("flex-basis", "50px");
         $("#main").animate({
-            scrollTop: offset + 30
+            scrollTop: offset
         }, 200);
-        // $('#main').on('scroll', function() {
-        //     that.hidePillsBar();
-        // });
+        $('#main').on('scroll', function() {
+            that.hidePillsBar();
+        });
         $(".aside-container-header").hide();
         $(".aside-container").hide();
     }
 
-    // hidePillsBar() {
-    //     const st =  $("#main").offset().top;
-    //     console.log(st);
-    //     if (st > this.lastScrollTop){
-    //         // $("#pillsBar").css("top", "50px");
-    //         // console.log()
-    //     } else {
-    //         // $("#pillsBar").css("top", "0");
-    //     }
-    //     this.lastScrollTop = st;
-    // }
+    hidePillsBar() {
+        const st =  $(".query-area").offset().top;
+        if (st < this.lastScrollTop){
+            $("#pillsBar").css("top", "50px");
+        } else {
+            $("#pillsBar").css("top", "0");
+        }
+        this.lastScrollTop = st;
+    }
 
 	onCounryClicked(event) {
 		const $target = $(event.currentTarget);
