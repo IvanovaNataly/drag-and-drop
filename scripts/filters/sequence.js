@@ -30,13 +30,15 @@ export class Sequence {
                                 '</div>'+
                                 '<span class="iconFont trash"></span>'+
                             '</div>'+
-							'<button class="and-then-btn">and then</button>' +
+							'<button class="and-then-btn ct-btn-linked">'+
+								'<span class="iconFont plus"></span>'+
+								'add interaction</button>' +
 							'</li>');
     }
 
     changeFilterContent(select) {
     	const that = this;
-        const $filterWrapper = $(select).closest(".sequence-filter filter-content");
+        const $filterWrapper = $(select).closest(".sequence-filter .filter-content");
         if (select.value === "Clicktale event") {
             $filterWrapper.find(".sequence-event").removeClass("hidden");
             $filterWrapper.find(".sequence-element").addClass("hidden");

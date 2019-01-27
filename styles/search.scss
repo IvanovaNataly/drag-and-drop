@@ -194,7 +194,8 @@ h1, h2, h3, p {
     .filter-input,
     .trash,
     .ui-widget-content .condition-type,
-    .filter-note {
+    .filter-note,
+    .and-then-btn{
         display: none;
     }
 
@@ -295,7 +296,7 @@ h1, h2, h3, p {
     font-weight: 600;
     color: $text-light;
     min-height: 75px;
-    border: 2px dashed $text-medium;
+    border: 2px dashed $text-light;
     justify-content: center;
     align-items: center;
 }
@@ -428,6 +429,10 @@ h1, h2, h3, p {
     &:hover {
         border-color: $input-hover;
     }
+    .sequence-filter & {
+        margin-left: 13px;
+        margin-bottom: 0;
+    }
 }
 
 .condition-include {
@@ -505,15 +510,20 @@ h1, h2, h3, p {
 }
 
 .ui-state-highlight {
-    color: $system-alert;
+    color: $drag-drop;
     background-color: transparent;
-    border: 1px dashed $system-alert;
+    border: 1px dashed $drag-drop;
 }
 
 .filter-note {
     font-size: 10px;
     color: $text-medium;
     margin-top: 10px;
+}
+
+.and-then-btn {
+    margin-left: 15px;
+    margin-bottom: 10px;
 }
 
 .iconFont {
