@@ -23,6 +23,7 @@ export class JsErrors {
     }
 
     changeFilterContent(select) {
+        const that = this;
         const $filterWrapper = $(select).closest(".js-errors-filter");
         if (select.value !== "text") {
             $filterWrapper.find(".js-errors-text").addClass("hidden");
@@ -32,6 +33,12 @@ export class JsErrors {
             $filterWrapper.find(".js-errors-text").removeClass("hidden");
             $filterWrapper.find(".js-errors-count").addClass("hidden");
         }
+        $('.js-errors-select').off("change", function() {
+            that.changeFilterContent( this );
+        });
+        $('.js-errors-select').on("change", function() {
+            that.changeFilterContent( this );
+        });
     }
 
     render() {
