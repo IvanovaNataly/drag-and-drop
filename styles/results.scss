@@ -170,25 +170,73 @@ $pill-height: 31px;
         background-repeat: no-repeat;
         background-position: top left;
         &.countries {
-            width: 315px;
+            width: 424px;
             height: 274px;
             background-color: $white;
         }
         &-header {
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: 600;
             color: $text-dark;
             height: 40px;
+            line-height: 40px;
+            padding-left: 20px;
+            padding-right: 20px;
             border-bottom: 1px solid $silver-border;
         }
         &-body {
             display: flex;
             flex-direction: column;
             align-items: stretch;
-            height: calc(100% - 40px);
+            height: calc(100% - 40px - 30px);
             &-btn {
                 @include resetBtn;
+                margin-right: 20px;
+                margin-left: 20px;
                 flex: 1 1;
+                position: relative;
+                &:not(:last-child) {
+                    border-bottom: 1px solid $silver-border;
+                }
+                &-name {
+                    display: block;
+                    font-size: 10px;
+                    text-align: left;
+                    margin-right: 60px;
+                }
+                &-graph {
+                    display: block;
+                    width: 100%;
+                    height: 5px;
+                    margin-top: 10px;
+                    margin-right: 60px;
+                    background-image: url("../assets/img/contry_bar.png");
+                    background-repeat: no-repeat;
+                }
+                &:hover {
+                    .results-card-body-btn-graph {
+                        background-image: url("../assets/img/contry_bar_hover.png");
+                    }
+                }
+                &-percent {
+                    display: flex;
+                    width: 60px;
+                    height: 100%;
+                    justify-content: center;
+                    align-items: center;
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                }
             }
+        }
+        &-footer {
+            font-size: 10px;
+            height: 30px;
+            line-height: 30px;
+            margin-left: 20px;
+            margin-right: 20px;
+            border-top: 1px solid $silver-border;
         }
 
         &.recordings {

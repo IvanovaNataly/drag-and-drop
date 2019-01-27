@@ -70,7 +70,7 @@ export class SearchData {
         };
         this.storeData(dataObject);
         this.data = this.getData(this.key);
-        console.log(this.data);
+        // console.log(this.data);
         this.renderData();
         this.showResults();
     }
@@ -162,7 +162,8 @@ export class SearchData {
     }
 
 	onCounryClicked(event) {
-		const $target = $(event.target);
+		const $target = $(event.currentTarget);
+		const countryName = $target.find(".results-card-body-btn-name").text();
 		const $newCountryFilter = $(
 			'<div class="level-empty">'+
 			'<li class="ui-widget-content category-filter">'+
@@ -172,7 +173,7 @@ export class SearchData {
 			'<select class="condition-type">'+
 			'<option value="is one of">is one of</option>'+
 			'</select>'+
-			'<input type="text" placeholder="Type" class="filter-input" value=" '+ $target.text() +' ">'+
+			'<input type="text" placeholder="Type" class="filter-input" value=" '+ countryName +' ">'+
 			'<span class="iconFont trash"></span>'+
 			'</div></li></div>'
 		)
