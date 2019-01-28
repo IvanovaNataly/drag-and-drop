@@ -142,6 +142,8 @@ $( function() {
             $levelDroppable.addClass("empty");
             if($levelDroppable.hasClass("level-visit")) {
                 $levelDroppable.addClass("hidden");
+                $levelDroppable.closest(".multilevel").find(".level-pageview").removeClass("inside-visit-level");
+                $levelDroppable.closest(".multilevel").removeClass("multilevel");
                 $(".add-level").show();
             }
             else {
