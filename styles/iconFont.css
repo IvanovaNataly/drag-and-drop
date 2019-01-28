@@ -1,0 +1,934 @@
+@charset "UTF-8";
+@font-face {
+  font-family: 'ctIcon';
+  src: url("../assets/fonts/ClicktalePlus.woff") format("woff"), url("../assets/fonts/ClicktalePlus.eot") format("embedded-opentype"), url("../assets/fonts/ClicktalePlus.ttf") format("truetype");
+  font-style: normal; }
+@font-face {
+  font-family: 'ctIconPlus';
+  src: url("../assets/fonts/ClicktalePlus2.woff") format("woff"), url("../assets/fonts/ClicktalePlus2.eot") format("embedded-opentype"), url("../assets/fonts/ClicktalePlus2.ttf") format("truetype");
+  font-style: normal; }
+/* open-sans-300 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 300;
+  src: url("../assets/fonts/open-sans-v15-latin-300.ttf"); }
+/* open-sans-300italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 300;
+  src: url("../assets/fonts/open-sans-v15-latin-300italic.ttf"); }
+/* open-sans-regular - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: url("../assets/fonts/open-sans-v15-latin-regular.ttf"); }
+/* open-sans-italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: url("../assets/fonts/open-sans-v15-latin-italic.ttf"); }
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: url("../assets/fonts/open-sans-v15-latin-600.ttf"); }
+/* open-sans-600italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: url("../assets/fonts/open-sans-v15-latin-600italic.ttf"); }
+/* open-sans-700 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: url("../assets/fonts/open-sans-v15-latin-700.ttf"); }
+/* open-sans-700italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: url("../assets/fonts/open-sans-v15-latin-700italic.ttf"); }
+/* open-sans-800italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: url("../assets/fonts/open-sans-v15-latin-800italic.ttf"); }
+/* open-sans-800 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: url("../assets/fonts/open-sans-v15-latin-800.ttf"); }
+.icon-font,
+.iconFont {
+  font-family: 'ctIcon';
+  cursor: pointer;
+  font-weight: normal; }
+  .icon-font.icon-more-option-hollow,
+  .iconFont.icon-more-option-hollow {
+    color: inherit; }
+    .icon-font.icon-more-option-hollow:before,
+    .iconFont.icon-more-option-hollow:before {
+      content: "\3b"; }
+  .icon-font.disabled,
+  .iconFont.disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.3; }
+  .icon-font.arrow-upico,
+  .iconFont.arrow-upico {
+    color: #66cc99;
+    font-size: 7px;
+    font-weight: normal; }
+    .icon-font.arrow-upico:after,
+    .iconFont.arrow-upico:after {
+      content: '!'; }
+    .icon-font.arrow-upico:hover,
+    .iconFont.arrow-upico:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-upico:active,
+    .iconFont.arrow-upico:active {
+      color: #36226b; }
+    .icon-font.arrow-upico.sm,
+    .iconFont.arrow-upico.sm {
+      font-size: 5px;
+      color: #403a74; }
+    .icon-font.arrow-upico.green,
+    .iconFont.arrow-upico.green {
+      color: #00cc66; }
+    .icon-font.arrow-upico.red,
+    .iconFont.arrow-upico.red {
+      color: #ff3333; }
+    .icon-font.arrow-upico.gray,
+    .iconFont.arrow-upico.gray {
+      color: #999999; }
+  .icon-font.settings,
+  .iconFont.settings {
+    font-size: 14px;
+    color: #414042; }
+    .icon-font.settings::after,
+    .iconFont.settings::after {
+      content: '`'; }
+  .icon-font.arrow-downico,
+  .iconFont.arrow-downico {
+    color: #5F6981;
+    font-size: 5px;
+    font-weight: normal; }
+    .icon-font.arrow-downico:after,
+    .iconFont.arrow-downico:after {
+      content: '\0022'; }
+    .icon-font.arrow-downico:hover,
+    .iconFont.arrow-downico:hover {
+      color: #303542; }
+    .icon-font.arrow-downico:active,
+    .iconFont.arrow-downico:active {
+      color: #8968d0; }
+    .icon-font.arrow-downico.black,
+    .iconFont.arrow-downico.black {
+      color: #000000; }
+    .icon-font.arrow-downico.green,
+    .iconFont.arrow-downico.green {
+      color: #00cc66; }
+    .icon-font.arrow-downico.red,
+    .iconFont.arrow-downico.red {
+      color: #ff3333; }
+    .icon-font.arrow-downico.gray,
+    .iconFont.arrow-downico.gray {
+      color: #999999; }
+  .icon-font.down-arrow,
+  .iconFont.down-arrow {
+    color: #5F6981;
+    font-size: 5px;
+    font-weight: normal; }
+    .icon-font.down-arrow:after,
+    .iconFont.down-arrow:after {
+      content: '`'; }
+    .icon-font.down-arrow:hover,
+    .iconFont.down-arrow:hover {
+      color: #303542; }
+    .icon-font.down-arrow:active,
+    .iconFont.down-arrow:active {
+      color: #8968d0; }
+    .icon-font.down-arrow.black,
+    .iconFont.down-arrow.black {
+      color: #000000; }
+    .icon-font.down-arrow.green,
+    .iconFont.down-arrow.green {
+      color: #00cc66; }
+    .icon-font.down-arrow.red,
+    .iconFont.down-arrow.red {
+      color: #ff3333; }
+    .icon-font.down-arrow.gray,
+    .iconFont.down-arrow.gray {
+      color: #999999; }
+  .icon-font.multiply-devices:after, .icon-font.all:after,
+  .iconFont.multiply-devices:after,
+  .iconFont.all:after {
+    content: '='; }
+  .icon-font.desktop:after, .icon-font.personalcomputer:after,
+  .iconFont.desktop:after,
+  .iconFont.personalcomputer:after {
+    content: ','; }
+  .icon-font.mobile:after, .icon-font.smartphone:after,
+  .iconFont.mobile:after,
+  .iconFont.smartphone:after {
+    content: ':'; }
+  .icon-font.tablet:after,
+  .iconFont.tablet:after {
+    content: 'j'; }
+  .icon-font.check,
+  .iconFont.check {
+    font-size: 13px;
+    color: #000; }
+    .icon-font.check:after,
+    .iconFont.check:after {
+      content: "S"; }
+    .icon-font.check:hover,
+    .iconFont.check:hover {
+      color: #28d2ab; }
+  .icon-font.checkbox-off,
+  .iconFont.checkbox-off {
+    color: #999;
+    font-size: 13px; }
+    .icon-font.checkbox-off:after,
+    .iconFont.checkbox-off:after {
+      content: '*';
+      background-color: #ffffff; }
+    .icon-font.checkbox-off.secondary,
+    .iconFont.checkbox-off.secondary {
+      font-size: 10px; }
+  .icon-font.checkbox-on,
+  .iconFont.checkbox-on {
+    color: #8e73fb;
+    font-size: 13px; }
+    .icon-font.checkbox-on:after,
+    .iconFont.checkbox-on:after {
+      content: ')';
+      background-color: #ffffff; }
+    .icon-font.checkbox-on.secondary,
+    .iconFont.checkbox-on.secondary {
+      color: #5F6981;
+      font-size: 10px; }
+  .icon-font.search,
+  .iconFont.search {
+    color: #999;
+    font-size: 13px; }
+    .icon-font.search:after,
+    .iconFont.search:after {
+      content: 'N'; }
+  .icon-font.undo,
+  .iconFont.undo {
+    font-size: 13px;
+    color: #000; }
+    .icon-font.undo:after,
+    .iconFont.undo:after {
+      content: "u"; }
+    .icon-font.undo:hover,
+    .iconFont.undo:hover {
+      color: #414042; }
+  .icon-font.icon-trash,
+  .iconFont.icon-trash {
+    font-size: 14px;
+    color: #CACDD1; }
+    .icon-font.icon-trash:after,
+    .iconFont.icon-trash:after {
+      content: 'R';
+      display: inline-block;
+      vertical-align: top; }
+    .icon-font.icon-trash:hover,
+    .iconFont.icon-trash:hover {
+      color: #959FB2; }
+  .icon-font.error,
+  .iconFont.error {
+    font-size: 13px;
+    color: #10d36a; }
+    .icon-font.error:after,
+    .iconFont.error:after {
+      content: "."; }
+  .icon-font.big-info,
+  .iconFont.big-info {
+    font-size: 13px;
+    color: #337ab7; }
+    .icon-font.big-info:after,
+    .iconFont.big-info:after {
+      content: "b"; }
+  .icon-font.exit,
+  .iconFont.exit {
+    font-size: 24px;
+    color: #5F6981; }
+    .icon-font.exit:after,
+    .iconFont.exit:after {
+      content: "/"; }
+  .icon-font.edit-user,
+  .iconFont.edit-user {
+    font-size: 24px;
+    color: #5F6981; }
+    .icon-font.edit-user:after,
+    .iconFont.edit-user:after {
+      content: "e"; }
+  .icon-font.help-center,
+  .iconFont.help-center {
+    font-size: 24px;
+    color: #5F6981; }
+    .icon-font.help-center:after,
+    .iconFont.help-center:after {
+      content: "}"; }
+  .icon-font.clicktale,
+  .iconFont.clicktale {
+    font-size: 24px;
+    color: #5F6981; }
+    .icon-font.clicktale:after,
+    .iconFont.clicktale:after {
+      content: "?"; }
+  .icon-font.radio-btn-on,
+  .iconFont.radio-btn-on {
+    font-size: 13px;
+    color: #8e73fb; }
+    .icon-font.radio-btn-on:after,
+    .iconFont.radio-btn-on:after {
+      content: "D"; }
+  .icon-font.radio-btn-off,
+  .iconFont.radio-btn-off {
+    font-size: 13px;
+    color: #999999; }
+    .icon-font.radio-btn-off:after,
+    .iconFont.radio-btn-off:after {
+      content: "E"; }
+  .icon-font.plus-btn-hollow:after,
+  .iconFont.plus-btn-hollow:after {
+    content: 'A'; }
+  .icon-font.plus-btn,
+  .iconFont.plus-btn {
+    font-size: 30px;
+    color: #fff; }
+    .icon-font.plus-btn:after,
+    .iconFont.plus-btn:after {
+      content: '@'; }
+    .icon-font.plus-btn:hover:after,
+    .iconFont.plus-btn:hover:after {
+      content: 'A'; }
+  .icon-font.minus,
+  .iconFont.minus {
+    font-size: 30px;
+    color: #333;
+    text-transform: none; }
+    .icon-font.minus:after,
+    .iconFont.minus:after {
+      content: 'm'; }
+  .icon-font.pencil:after,
+  .iconFont.pencil:after {
+    content: '-'; }
+  .icon-font.duplicate,
+  .iconFont.duplicate {
+    font-size: 14px;
+    color: #414042; }
+    .icon-font.duplicate:after,
+    .iconFont.duplicate:after {
+      content: '>'; }
+  .icon-font.clone,
+  .iconFont.clone {
+    font-size: 14px;
+    color: #414042; }
+    .icon-font.clone:after,
+    .iconFont.clone:after {
+      content: '+'; }
+  .icon-font.wrench,
+  .iconFont.wrench {
+    font-size: 14px; }
+    .icon-font.wrench:after,
+    .iconFont.wrench:after {
+      content: 'z'; }
+  .icon-font.smallClose,
+  .iconFont.smallClose {
+    font-size: 8px;
+    color: #e21313; }
+    .icon-font.smallClose:hover,
+    .iconFont.smallClose:hover {
+      color: #ff6666; }
+    .icon-font.smallClose:active,
+    .iconFont.smallClose:active {
+      color: #9e0b0b; }
+    .icon-font.smallClose:after,
+    .iconFont.smallClose:after {
+      content: 'U'; }
+  .icon-font.closeX,
+  .iconFont.closeX {
+    font-size: 16px;
+    text-align: center;
+    color: #959FB2;
+    padding: 0;
+    margin: 0;
+    border: none;
+    background-color: transparent;
+    background-image: none;
+    box-shadow: none;
+    text-shadow: none;
+    cursor: pointer; }
+    .icon-font.closeX:hover, .icon-font.closeX:active,
+    .iconFont.closeX:hover,
+    .iconFont.closeX:active {
+      color: #5F6981; }
+    .icon-font.closeX:after,
+    .iconFont.closeX:after {
+      content: 'U'; }
+    .icon-font.closeX.small,
+    .iconFont.closeX.small {
+      font-size: 10px; }
+    .icon-font.closeX.white,
+    .iconFont.closeX.white {
+      color: #ffffff; }
+  .icon-font.plus,
+  .iconFont.plus {
+    font-size: 10px; }
+    .icon-font.plus:after,
+    .iconFont.plus:after {
+      content: 'p'; }
+  .icon-font.arrow-left,
+  .iconFont.arrow-left {
+    font-size: 25px; }
+    .icon-font.arrow-left:after,
+    .iconFont.arrow-left:after {
+      content: '6'; }
+  .icon-font.arrow-right,
+  .iconFont.arrow-right {
+    font-size: 25px; }
+    .icon-font.arrow-right:after,
+    .iconFont.arrow-right:after {
+      content: '\''; }
+  .icon-font.logo-name,
+  .iconFont.logo-name {
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: normal; }
+    .icon-font.logo-name:after,
+    .iconFont.logo-name:after {
+      content: '6'; }
+  .icon-font.calendar,
+  .iconFont.calendar {
+    color: #414042;
+    font-size: 19px;
+    font-weight: normal; }
+    .icon-font.calendar:after,
+    .iconFont.calendar:after {
+      content: '('; }
+    .icon-font.calendar:hover,
+    .iconFont.calendar:hover {
+      color: #8e73fb; }
+    .icon-font.calendar:active,
+    .iconFont.calendar:active {
+      color: #54358d; }
+  .icon-font.pathfinderico,
+  .iconFont.pathfinderico {
+    font-size: 18px;
+    color: #5F6981; }
+    .icon-font.pathfinderico:after,
+    .iconFont.pathfinderico:after {
+      content: '{'; }
+  .icon-font.heatmapico, .iconFont.heatmapico {
+    font-size: 16px;
+    color: #5F6981; }
+    .icon-font.heatmapico:after,
+    .iconFont.heatmapico:after {
+      content: 'h'; }
+    .icon-font.heatmapico:hover,
+    .iconFont.heatmapico:hover {
+      color: #303542; }
+    .behavioral-metric-icons-item .icon-font.heatmapico,
+    .behavioral-metric-icons-item .iconFont.heatmapico {
+      color: #959FB2; }
+      .behavioral-metric-icons-item .icon-font.heatmapico:hover,
+      .behavioral-metric-icons-item .iconFont.heatmapico:hover {
+        color: #5F6981; }
+    .dd-mobile-playback-influential-segments .icon-font.heatmapico, .dd-mobile-playback-influential-segments .iconFont.heatmapico {
+      font-size: 18px; }
+  .icon-font.recording, .iconFont.recording {
+    font-size: 16px;
+    color: #5F6981; }
+    .icon-font.recording:after,
+    .iconFont.recording:after {
+      content: "L"; }
+    .icon-font.recording:hover,
+    .iconFont.recording:hover {
+      color: #303542; }
+    .behavioral-metric-icons-item .icon-font.recording,
+    .behavioral-metric-icons-item .iconFont.recording {
+      color: #959FB2; }
+      .behavioral-metric-icons-item .icon-font.recording:hover,
+      .behavioral-metric-icons-item .iconFont.recording:hover {
+        color: #5F6981; }
+    .dd-mobile-playback-influential-segments .icon-font.recording, .dd-mobile-playback-influential-segments .iconFont.recording {
+      font-size: 18px;
+      margin-left: 10px; }
+      .dd-mobile-playback-influential-segments .icon-font.recording.active, .dd-mobile-playback-influential-segments .iconFont.recording.active {
+        color: #8968d0; }
+    .have-looping-data .icon-font.recording, .have-looping-data .iconFont.recording {
+      font-size: 18px;
+      color: #959FB2; }
+      .have-looping-data .icon-font.recording:hover, .have-looping-data .iconFont.recording:hover {
+        color: #5F6981;
+        padding-right: 15px;
+        cursor: pointer; }
+    .apps-replays .icon-font.recording, .apps-replays .iconFont.recording {
+      color: #959FB2;
+      margin-right: 32px; }
+      .apps-replays .icon-font.recording:hover, .apps-replays .iconFont.recording:hover {
+        color: #5F6981; }
+  .icon-font.small-filter, .iconFont.small-filter {
+    font-size: 18px;
+    color: #5F6981; }
+    .icon-font.small-filter:after,
+    .iconFont.small-filter:after {
+      content: "t"; }
+    .icon-font.small-filter:hover,
+    .iconFont.small-filter:hover {
+      color: #303542; }
+    .filter-icon-space .icon-font.small-filter, .have-looping-data .icon-font.small-filter,
+    .filter-icon-space .iconFont.small-filter, .have-looping-data .iconFont.small-filter {
+      color: #959FB2; }
+      .filter-icon-space .icon-font.small-filter:hover, .have-looping-data .icon-font.small-filter:hover,
+      .filter-icon-space .iconFont.small-filter:hover, .have-looping-data .iconFont.small-filter:hover {
+        color: #5F6981; }
+  .icon-font.filter,
+  .iconFont.filter {
+    color: #414042;
+    font-size: 18px;
+    font-weight: normal; }
+    .icon-font.filter:after,
+    .iconFont.filter:after {
+      content: '0'; }
+    .icon-font.filter:hover,
+    .iconFont.filter:hover {
+      color: #8e73fb; }
+    .icon-font.filter:active,
+    .iconFont.filter:active {
+      color: #54358d; }
+  .icon-font.funnel,
+  .iconFont.funnel {
+    color: #959FB2;
+    font-size: 24px;
+    font-weight: normal; }
+    .icon-font.funnel:after,
+    .iconFont.funnel:after {
+      content: '0'; }
+  .icon-font.funnel-purple,
+  .iconFont.funnel-purple {
+    color: #8e73fb;
+    font-size: 18px;
+    font-weight: normal; }
+    .icon-font.funnel-purple:after,
+    .iconFont.funnel-purple:after {
+      content: '0'; }
+    .icon-font.funnel-purple:hover,
+    .iconFont.funnel-purple:hover {
+      color: #8e73fb; }
+    .icon-font.funnel-purple:active,
+    .iconFont.funnel-purple:active {
+      color: #54358d; }
+  .icon-font.arrow-hollow-right,
+  .iconFont.arrow-hollow-right {
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff; }
+    .icon-font.arrow-hollow-right:after,
+    .iconFont.arrow-hollow-right:after {
+      content: "'"; }
+    .icon-font.arrow-hollow-right:hover,
+    .iconFont.arrow-hollow-right:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-hollow-right:active,
+    .iconFont.arrow-hollow-right:active {
+      color: #36226b; }
+    .icon-font.arrow-hollow-right.big,
+    .iconFont.arrow-hollow-right.big {
+      font-size: 24px; }
+  .icon-font.arrow-hollow-left,
+  .iconFont.arrow-hollow-left {
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff; }
+    .icon-font.arrow-hollow-left:after,
+    .iconFont.arrow-hollow-left:after {
+      content: '&'; }
+    .icon-font.arrow-hollow-left:hover,
+    .iconFont.arrow-hollow-left:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-hollow-left:active,
+    .iconFont.arrow-hollow-left:active {
+      color: #36226b; }
+    .icon-font.arrow-hollow-left.big,
+    .iconFont.arrow-hollow-left.big {
+      font-size: 24px; }
+  .icon-font.arrow-hollow-up,
+  .iconFont.arrow-hollow-up {
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff; }
+    .icon-font.arrow-hollow-up:after,
+    .iconFont.arrow-hollow-up:after {
+      content: "V"; }
+    .icon-font.arrow-hollow-up:hover,
+    .iconFont.arrow-hollow-up:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-hollow-up:active,
+    .iconFont.arrow-hollow-up:active {
+      color: #36226b; }
+    .icon-font.arrow-hollow-up.big,
+    .iconFont.arrow-hollow-up.big {
+      font-size: 26px; }
+  .icon-font.arrow-hollow-down,
+  .iconFont.arrow-hollow-down {
+    font-size: 12px;
+    font-weight: normal;
+    color: #fff; }
+    .icon-font.arrow-hollow-down:after,
+    .iconFont.arrow-hollow-down:after {
+      content: 'Z'; }
+    .icon-font.arrow-hollow-down:hover,
+    .iconFont.arrow-hollow-down:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-hollow-down:active,
+    .iconFont.arrow-hollow-down:active {
+      color: #36226b; }
+    .icon-font.arrow-hollow-down.big,
+    .iconFont.arrow-hollow-down.big {
+      font-size: 26px; }
+  .icon-font.arrow-left,
+  .iconFont.arrow-left {
+    font-size: 12px;
+    font-weight: normal;
+    color: #333333; }
+    .icon-font.arrow-left:after,
+    .iconFont.arrow-left:after {
+      content: '&'; }
+    .icon-font.arrow-left:hover,
+    .iconFont.arrow-left:hover {
+      color: #8e73fb; }
+    .icon-font.arrow-left:active,
+    .iconFont.arrow-left:active {
+      color: #36226b; }
+  .icon-font.heatmap-menu:after,
+  .iconFont.heatmap-menu:after {
+    content: '1'; }
+  .icon-font.closeico,
+  .iconFont.closeico {
+    font-size: 14px;
+    font-weight: normal;
+    color: #ffffff;
+    opacity: 0.8; }
+    .icon-font.closeico:after,
+    .iconFont.closeico:after {
+      content: 'U'; }
+    .icon-font.closeico:hover,
+    .iconFont.closeico:hover {
+      opacity: 1; }
+    .icon-font.closeico.smaller,
+    .iconFont.closeico.smaller {
+      font-size: 13px; }
+  .icon-font.regenerate,
+  .iconFont.regenerate {
+    font-size: 16px;
+    font-weight: normal;
+    color: #ffffff; }
+    .icon-font.regenerate:after,
+    .iconFont.regenerate:after {
+      content: 'M'; }
+  .icon-font.move-icon, .iconFont.move-icon {
+    font-size: 11px;
+    font-style: normal;
+    color: #CACDD1;
+    margin-right: 5px;
+    cursor: move;
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    cursor: grab;
+    opacity: 0.7; }
+    .icon-font.move-icon:after,
+    .iconFont.move-icon:after {
+      content: 'q'; }
+    .list-item:hover .icon-font.move-icon, .as-sortable-drag .icon-font.move-icon,
+    .list-item:hover .iconFont.move-icon, .as-sortable-drag .iconFont.move-icon {
+      color: inherit;
+      opacity: 1; }
+    .list-item.active:hover .icon-font.move-icon, .list-item.active:hover .iconFont.move-icon {
+      color: #5F6981; }
+  .icon-font.more-options-hollow:after,
+  .iconFont.more-options-hollow:after {
+    content: ";"; }
+  .icon-font.more-options,
+  .iconFont.more-options {
+    color: #999999;
+    font-size: 17px; }
+    .icon-font.more-options:hover,
+    .iconFont.more-options:hover {
+      color: #414042; }
+    .icon-font.more-options:active,
+    .iconFont.more-options:active {
+      color: #414042; }
+    .icon-font.more-options:after,
+    .iconFont.more-options:after {
+      content: "<"; }
+  .icon-font.mobile-playback-desktop-ico:hover,
+  .iconFont.mobile-playback-desktop-ico:hover {
+    color: #ffffff; }
+  .icon-font.mobile-playback-desktop-ico:active,
+  .iconFont.mobile-playback-desktop-ico:active {
+    color: #ffffff; }
+  .icon-font.mobile-playback-desktop-ico:after,
+  .iconFont.mobile-playback-desktop-ico:after {
+    content: "H"; }
+  .icon-font.mobile-playback-mobile-ico:hover,
+  .iconFont.mobile-playback-mobile-ico:hover {
+    color: #ffffff; }
+  .icon-font.mobile-playback-mobile-ico:active,
+  .iconFont.mobile-playback-mobile-ico:active {
+    color: #ffffff; }
+  .icon-font.mobile-playback-mobile-ico:after,
+  .iconFont.mobile-playback-mobile-ico:after {
+    content: "K"; }
+  .icon-font.arrow-visits-to-out:after,
+  .iconFont.arrow-visits-to-out:after {
+    content: "d"; }
+  .icon-font.arrow-visits-from-out:after,
+  .iconFont.arrow-visits-from-out:after {
+    content: "k"; }
+  .icon-font.arrow-visits-in:after,
+  .iconFont.arrow-visits-in:after {
+    content: "^"; }
+  .icon-font.hm-bg-page,
+  .iconFont.hm-bg-page {
+    color: #d3d2d2;
+    font-size: 35px; }
+    .icon-font.hm-bg-page:after,
+    .iconFont.hm-bg-page:after {
+      content: "W"; }
+  .icon-font.hm-bg-apply-both-heatmap, .icon-font.hm-bg-apply-left-heatmap, .icon-font.hm-bg-apply-right-heatmap, .iconFont.hm-bg-apply-both-heatmap, .iconFont.hm-bg-apply-left-heatmap, .iconFont.hm-bg-apply-right-heatmap {
+    color: #CACDD1;
+    font-size: 11px; }
+    .ct-btn-primary .icon-font.hm-bg-apply-both-heatmap, .ct-btn-primary .icon-font.hm-bg-apply-left-heatmap, .ct-btn-primary .icon-font.hm-bg-apply-right-heatmap,
+    .ct-btn-primary .iconFont.hm-bg-apply-both-heatmap,
+    .ct-btn-primary .iconFont.hm-bg-apply-left-heatmap,
+    .ct-btn-primary .iconFont.hm-bg-apply-right-heatmap {
+      color: #ffffff; }
+  .icon-font.hm-bg-apply-both-heatmap:after,
+  .iconFont.hm-bg-apply-both-heatmap:after {
+    content: '|'; }
+  .icon-font.hm-bg-apply-left-heatmap:after,
+  .iconFont.hm-bg-apply-left-heatmap:after {
+    content: '_'; }
+  .icon-font.hm-bg-apply-right-heatmap:after,
+  .iconFont.hm-bg-apply-right-heatmap:after {
+    content: '8'; }
+  .icon-font.hm-bg-eye:after,
+  .iconFont.hm-bg-eye:after {
+    content: "Y"; }
+  .icon-font.arrow-right-full,
+  .iconFont.arrow-right-full {
+    font-size: 11px; }
+    .icon-font.arrow-right-full:after,
+    .iconFont.arrow-right-full:after {
+      content: "$"; }
+  .icon-font.arrow-left-full,
+  .iconFont.arrow-left-full {
+    font-size: 11px; }
+    .icon-font.arrow-left-full:after,
+    .iconFont.arrow-left-full:after {
+      content: "#"; }
+  .icon-font.magnifying-glass:after,
+  .iconFont.magnifying-glass:after {
+    content: "N"; }
+  .icon-font.arrow-right-big,
+  .iconFont.arrow-right-big {
+    font-size: 11px; }
+    .icon-font.arrow-right-big:after,
+    .iconFont.arrow-right-big:after {
+      content: "%"; }
+  .icon-font.change-bg,
+  .iconFont.change-bg {
+    font-size: 11px; }
+    .icon-font.change-bg:after,
+    .iconFont.change-bg:after {
+      content: "~"; }
+  .icon-font.bug,
+  .iconFont.bug {
+    font-size: 16px;
+    color: #959FB2;
+    cursor: default; }
+    .icon-font.bug:after,
+    .iconFont.bug:after {
+      content: "c"; }
+  .icon-font.android-icon,
+  .iconFont.android-icon {
+    font-size: 12px;
+    color: #a7b859;
+    cursor: default; }
+    .icon-font.android-icon:after,
+    .iconFont.android-icon:after {
+      content: "]"; }
+  .icon-font.apple-icon,
+  .iconFont.apple-icon {
+    font-size: 12px;
+    cursor: default; }
+    .icon-font.apple-icon:after,
+    .iconFont.apple-icon:after {
+      content: "["; }
+  .icon-font.sharing-link,
+  .iconFont.sharing-link {
+    font-size: 17px; }
+    .icon-font.sharing-link:after,
+    .iconFont.sharing-link:after {
+      content: "O"; }
+  .icon-font.info,
+  .iconFont.info {
+    font-size: 11px; }
+    .icon-font.info:after,
+    .iconFont.info:after {
+      content: "3"; }
+  .icon-font.info-hollow,
+  .iconFont.info-hollow {
+    font-size: 11px; }
+    .icon-font.info-hollow:after,
+    .iconFont.info-hollow:after {
+      content: "2"; }
+  .icon-font.kpi:after,
+  .iconFont.kpi:after {
+    content: "4"; }
+  .icon-font.visit-level:after,
+  .iconFont.visit-level:after {
+    content: "\\"; }
+  .icon-font.pnq:after,
+  .iconFont.pnq:after {
+    content: "X"; }
+  .icon-font.apply-segment-loop,
+  .iconFont.apply-segment-loop {
+    color: #414042;
+    width: 21px;
+    height: 15px; }
+    .icon-font.apply-segment-loop:after,
+    .iconFont.apply-segment-loop:after {
+      content: "┬º"; }
+  .icon-font.refresh,
+  .iconFont.refresh {
+    font-size: 16px;
+    color: #959FB2; }
+    .icon-font.refresh:after,
+    .iconFont.refresh:after {
+      content: "r"; }
+  .icon-font.loop,
+  .iconFont.loop {
+    font-size: 16px;
+    color: #959FB2; }
+    .icon-font.loop:after,
+    .iconFont.loop:after {
+      content: "l"; }
+  .icon-font.question,
+  .iconFont.question {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: normal;
+    color: #CACDD1;
+    margin-left: 5px;
+    cursor: default; }
+    .icon-font.question:after,
+    .iconFont.question:after {
+      content: 'C'; }
+    .icon-font.question:hover,
+    .iconFont.question:hover {
+      color: #959FB2; }
+
+.iconPlus {
+  font-family: 'ctIconPlus';
+  cursor: pointer;
+  font-weight: normal; }
+  .iconPlus.reload::before {
+    content: "\52"; }
+  .iconPlus.disabled {
+    cursor: default;
+    color: rgba(64, 58, 116, 0.15) !important; }
+  .iconPlus.add-mini {
+    color: inherit;
+    font-size: 15px;
+    font-weight: normal; }
+    .iconPlus.add-mini:after {
+      content: 'a'; }
+  .iconPlus.background:after {
+    content: 'O'; }
+  .iconPlus.download:after {
+    content: 'D'; }
+  .iconPlus.mobile-playback-desktop, .iconPlus.mobile-playback-mobile {
+    color: inherit;
+    text-align: center;
+    font-size: 18px;
+    font-weight: normal;
+    width: 26px;
+    height: 26px;
+    line-height: 26px; }
+    .iconPlus.mobile-playback-desktop:not(:first-child), .iconPlus.mobile-playback-mobile:not(:first-child) {
+      margin-left: 2px; }
+  .iconPlus.mobile-playback-desktop:after {
+    content: 'c'; }
+  .iconPlus.mobile-playback-mobile:after {
+    content: 'f'; }
+  .iconPlus.zoom-in, .iconPlus.zoom-out {
+    font-size: 15px;
+    color: #959FB2; }
+    .editMode .iconPlus.zoom-in, .editMode .iconPlus.zoom-out {
+      cursor: default;
+      color: rgba(64, 58, 116, 0.15) !important; }
+  .iconPlus.zoom-in:after {
+    content: 'q'; }
+  .iconPlus.zoom-out:after {
+    content: 'w'; }
+  .iconPlus.puzzle {
+    font-size: 16px;
+    padding-right: 4px; }
+    .iconPlus.puzzle:after {
+      content: 'E'; }
+  .iconPlus.shared-with {
+    font-size: 16px; }
+    .iconPlus.shared-with:after {
+      content: 'S'; }
+  .iconPlus.icon-hamburger_menu {
+    font-size: 20px; }
+    .iconPlus.icon-hamburger_menu:after {
+      content: 'H'; }
+  .iconPlus.icon-sidemenu_mstudio {
+    font-size: 20px; }
+    .iconPlus.icon-sidemenu_mstudio:after {
+      content: 'Y'; }
+  .iconPlus.icon-sidemenu_funnels {
+    font-size: 20px; }
+    .iconPlus.icon-sidemenu_funnels:after {
+      content: ';'; }
+  .iconPlus.icon-sidemenu_hm {
+    font-size: 20px; }
+    .iconPlus.icon-sidemenu_hm:after {
+      content: ']'; }
+  .iconPlus.icon-sidemenu_workspace {
+    font-size: 20px; }
+    .iconPlus.icon-sidemenu_workspace:after {
+      content: '['; }
+  .iconPlus.location:after {
+    content: 'N'; }
+  .iconPlus.calendar:after {
+    content: 'Q'; }
+  .iconPlus.filter-icon:after {
+    content: 'U'; }
+  .iconPlus.filter-complex:after {
+    content: 'T'; }
+  .iconPlus.device:after {
+    content: 'c'; }
+  .iconPlus.plus-rounded:after {
+    content: 'K'; }
+
+/*# sourceMappingURL=iconFont.css.map */
