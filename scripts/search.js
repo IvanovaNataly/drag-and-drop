@@ -1,12 +1,12 @@
-import {Pages} from './pages.js';
-import {Url} from './url.js';
-import {JsErrors} from "./jsErrors.js";
-import {Numeric} from "./numeric.js";
-import {InputClick} from "./inputs-clicks.js";
-import {Category} from "./category.js";
-import {Sequence} from "./sequence.js";
-import {TextValue} from "./text-value.js";
-import {BooleanValue} from "./boolean-value.js";
+import {Pages} from './filters/pages.js';
+import {Url} from './filters/url.js';
+import {JsErrors} from "./filters/jsErrors.js";
+import {Numeric} from "./filters/numeric.js";
+import {InputClick} from "./filters/inputs-clicks.js";
+import {Category} from "./filters/category.js";
+import {Sequence} from "./filters/sequence.js";
+import {TextValue} from "./filters/text-value.js";
+import {BooleanValue} from "./filters/boolean-value.js";
 import {SearchData} from "./search-data.js";
 
 $( function() {
