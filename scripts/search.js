@@ -131,6 +131,30 @@ $( function() {
             return total + filter;
         });
         $gallery.empty().append(filtersElements);
+
+        $('.js-errors-select').off("change", function() {
+            jsErrors.changeFilterContent( this );
+        });
+
+        $('.sequence-select').off("change", function() {
+            sequence.changeFilterContent( this );
+        });
+
+        $('.location-select').off("change", function() {
+            pages.changeFilterContent( this );
+        });
+
+        $('.js-errors-select').on("change", function() {
+            jsErrors.changeFilterContent( this );
+        });
+
+        $('.sequence-select').on("change", function() {
+            sequence.changeFilterContent( this );
+        });
+
+        $('.location-select').on("change", function() {
+            pages.changeFilterContent( this );
+        });
     }
 
     function deleteItem(event) {
@@ -139,7 +163,7 @@ $( function() {
 
         $target.closest(".level-empty").remove();
         if($levelDroppable.find(".level-empty").length <= 1) {
-            $levelDroppable.addClass("empty");
+            if(!$levelDroppable.hasClass("level-group")) $levelDroppable.addClass("empty");
             if($levelDroppable.hasClass("level-visit")) {
                 $levelDroppable.addClass("hidden");
                 $levelDroppable.closest(".multilevel").find(".level-pageview").removeClass("inside-visit-level");
@@ -218,11 +242,6 @@ $( function() {
         $(".is-toggle-btn").on("click", isToogleText);
     }
 
-    function addDroppable ($target) {
-        const da = createDroppable();
-        $target.after(da);
-    }
-
     //Append filters
     addElements();
 
@@ -254,19 +273,19 @@ $( function() {
 
     $("#addGroup").click( function(event) { addGroup(event)});
 
-    $('.js-errors-select').change(function() {
+    $('.js-errors-select').on("change", function() {
         jsErrors.changeFilterContent( this );
     });
 
-    $('.sequence-select').change( function() {
+    $('.sequence-select').on("change", function() {
         sequence.changeFilterContent( this );
     });
 
-	$('.and-then-btn').click( function(event) {
+	$('.and-then-btn').on("click", function(event) {
 		sequence.onAddLine(event);
 	});
 
-    $('.location-select').change( function() {
+    $('.location-select').on("change", function() {
         pages.changeFilterContent( this );
     });
 

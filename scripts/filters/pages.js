@@ -33,7 +33,7 @@ export class Pages {
     changeFilterContent(select) {
         const that = this;
         const $filterWrapper = $(select).closest(".pages-filter");
-        if (select.value !== "text") {
+        if (select.value === "Attribute") {
             $filterWrapper.find(".pages-filter-default").addClass("hidden");
             $filterWrapper.find(".pages-filter-attribute").removeClass("hidden");
         }
