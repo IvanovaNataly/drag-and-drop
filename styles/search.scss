@@ -324,8 +324,15 @@ h1, h2, h3, p {
     min-height: 40px;
     background-color: $white;
     border-radius: $dd-border-radius;
-    box-shadow: 0 1px 3px 0 rgba(48, 53, 66, 0.3);
+    box-shadow: $shadow-pageset-box;
     list-style: none;
+    &:hover {
+        background-color: $white;
+        box-shadow: $box-shadow;
+    }
+    &:not(.ui-draggable-dragging) {
+        margin-bottom: 10px;
+    }
     .filter-name {
         font-size: 14px;
         font-weight: 600;
@@ -343,9 +350,6 @@ h1, h2, h3, p {
             margin-left: 10px;
         }
     }
-    &:not(.ui-draggable-dragging) {
-        margin-bottom: 10px;
-    }
     .aside & {
         color: $white;
         background-color: $bg-search-filter;
@@ -353,6 +357,10 @@ h1, h2, h3, p {
         border-radius: $input-border-radius;
         box-shadow: -1px 1px 1px 0 rgba(40, 52, 77, 0.56), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
         cursor: move;
+        &:hover {
+            background-color: $bg-search-filter-hover;
+            box-shadow: -1px 1px 3px 0 rgba(40, 52, 77, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
+        }
         .filter-name {
             font-size: 12px;
             font-weight: 400;
@@ -543,7 +551,7 @@ h1, h2, h3, p {
 .ui-state-highlight {
     color: $drag-drop;
     background-color: transparent;
-    border: 1px dashed $drag-drop;
+    border: 2px dashed $drag-drop;
 }
 
 .filter-note {

@@ -1439,8 +1439,13 @@ h1, h2, h3, p {
   min-height: 40px;
   background-color: #ffffff;
   border-radius: 2px;
-  box-shadow: 0 1px 3px 0 rgba(48, 53, 66, 0.3);
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16);
   list-style: none; }
+  .ui-widget-content:hover {
+    background-color: #ffffff;
+    box-shadow: 0 2px 6px 0 rgba(0, 0, 0, 0.16); }
+  .ui-widget-content:not(.ui-draggable-dragging) {
+    margin-bottom: 10px; }
   .ui-widget-content .filter-name {
     font-size: 14px;
     font-weight: 600;
@@ -1455,8 +1460,6 @@ h1, h2, h3, p {
     padding: 10px 15px; }
     .ui-widget-content .filter-content .trash {
       margin-left: 10px; }
-  .ui-widget-content:not(.ui-draggable-dragging) {
-    margin-bottom: 10px; }
   .aside .ui-widget-content {
     color: #ffffff;
     background-color: #4a5775;
@@ -1464,6 +1467,9 @@ h1, h2, h3, p {
     border-radius: 4px;
     box-shadow: -1px 1px 1px 0 rgba(40, 52, 77, 0.56), inset 0 1px 0 0 rgba(255, 255, 255, 0.22);
     cursor: move; }
+    .aside .ui-widget-content:hover {
+      background-color: #5f6c8b;
+      box-shadow: -1px 1px 3px 0 rgba(40, 52, 77, 0.8), inset 0 1px 0 0 rgba(255, 255, 255, 0.22); }
     .aside .ui-widget-content .filter-name {
       font-size: 12px;
       font-weight: 400;
@@ -1629,7 +1635,7 @@ h1, h2, h3, p {
 .ui-state-highlight {
   color: #f74f9e;
   background-color: transparent;
-  border: 1px dashed #f74f9e; }
+  border: 2px dashed #f74f9e; }
 
 .filter-note {
   color: #959FB2;
