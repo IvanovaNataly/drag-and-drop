@@ -70,7 +70,7 @@ $( function() {
         let domLoadTime = numeric.render("Dom load time", "ms", "max", "data-title='Web performance' ");
         let timeOnPage = numeric.render("Time on page", "sec", "max");
         let scrollReach = numeric.render("Scroll reach", "%", "100");
-        let engagementTime = numeric.render("Engagement time", "sec", "max", "data-title='Behavior' ");
+        let engagementTime = numeric.render("Engagement time", "sec", "max");
         let inputClickFilter = inputClick.render();
         let windowSize = category.render("Browser window size");
         let resolution = category.render("Screen resolution");
@@ -83,15 +83,17 @@ $( function() {
         let operatingSystem = category.render("Operating System");
         let foldHeight = category.render("Fold height");
         let device = category.render("Device");
-        let sequenceFilter = sequence.render();
+        let actionFilter = sequence.render("Action", "data-title='Behavior' ");
+        let sequenceFilter = sequence.render("Interaction / Sequence");
         let textValueFilter = textValue.render();
         let looping = booleanValue.render("Looping", "looping", "between looping");
         let firstLastPage = booleanValue.render("First/Last page", "first page", "last page");
         let portrateLandscape = booleanValue.render("Portrate/Landscape", "portrate", "ladnscape");
         let filtersArr =  [pagesFilter,
             // behavior group
-            engagementTime,
+            actionFilter,
             sequenceFilter,
+            engagementTime,
             scrollReach,
             timeOnPage,
             inputClickFilter,
