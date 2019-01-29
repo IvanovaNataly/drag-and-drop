@@ -7,7 +7,7 @@ export class TextValue {
             '<input type="text" placeholder="Type" class="filter-input">'+
             '<span class="iconFont trash"></span>'+
         '</div>'+
-        '<p class="filter-note">Please note: This metric is based on rich data and have partial data for your current selected date range</p>'+
+        '<p class="filter-note">Note: this filter is based on Clicktale recordings; search will be limited to your retention period [30 days]</p>'+
         '</li>'
     )}
 }

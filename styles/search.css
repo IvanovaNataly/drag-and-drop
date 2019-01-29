@@ -1615,8 +1615,16 @@ h1, h2, h3, p {
   cursor: default; }
 
 .btn-wrapper {
-  width: fit-content;
-  margin: 40px auto 0 auto; }
+  display: flex;
+  width: 100%;
+  margin: 10px auto 0 auto;
+  flex-direction: column; }
+.btn-search {
+  align-self: center;
+  margin-left: 0;
+  margin-top: 20px; }
+.btn-add-group {
+  align-self: flex-start; }
 
 .ui-state-highlight {
   color: #f74f9e;
@@ -1624,7 +1632,6 @@ h1, h2, h3, p {
   border: 1px dashed #f74f9e; }
 
 .filter-note {
-  font-size: 10px;
   color: #959FB2;
   margin-bottom: 10px;
   margin-left: 15px; }

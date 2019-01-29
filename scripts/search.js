@@ -186,14 +186,13 @@ $( function() {
     }
 
     function addGroup(event) {
-        const $target = $(event.target);
-        const $targetClosest = $target.closest(".level-pageview");
+        const $pageview = $(".level-pageview");
         const $newConditionType = $conditionType.clone();
         const $newGroup = $newGroupContainer.clone();
         const $droppableArea = createDroppable();
         $newGroup.append($droppableArea);
-        $targetClosest.append($newConditionType);
-        $targetClosest.append($newGroup);
+        $pageview.append($newConditionType);
+        $pageview.append($newGroup);
     }
 
     function isToogleText(event) {
