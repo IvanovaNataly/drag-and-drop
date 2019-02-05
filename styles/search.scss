@@ -262,7 +262,7 @@ h1, h2, h3, p {
 
 .level-visit {
     position: relative;
-    .closeX {
+    #removeVisitLevel {
         position: absolute;
         top: 0;
         right: 3px;

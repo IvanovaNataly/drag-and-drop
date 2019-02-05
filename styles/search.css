@@ -1388,7 +1388,7 @@ h1, h2, h3, p {
 
 .level-visit {
   position: relative; }
-  .level-visit .closeX {
+  .level-visit #removeVisitLevel {
     position: absolute;
     top: 0;
     right: 3px; }

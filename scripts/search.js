@@ -30,7 +30,7 @@ $( function() {
                             '<option value="include">Include</option>'+
                             '<option value="exclude">Exclude</option>'+
                             '</select>'+
-                            '<span class="iconFont closeX close-group"></span>'+
+                            '<button class="iconFont closeX close-group"></button>'+
                             '</div>'+
                             '</div>');
 
