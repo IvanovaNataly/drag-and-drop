@@ -30,7 +30,7 @@ $( function() {
                             '<option value="include">Include</option>'+
                             '<option value="exclude">Exclude</option>'+
                             '</select>'+
-                            '<span class="iconFont closeX"></span>'+
+                            '<span class="iconFont closeX close-group"></span>'+
                             '</div>'+
                             '</div>');
 
@@ -185,7 +185,6 @@ $( function() {
         $searchArea.addClass("multilevel");
         $searchArea.find(".level-visit").removeClass("hidden empty");
         $searchArea.closest(".search-area").find(".level-pageview").addClass("inside-visit-level");
-
     }
 
     function hideVisitLevel(event) {
@@ -205,6 +204,15 @@ $( function() {
         $newGroup.append($droppableArea);
         $pageview.append($newConditionType);
         $pageview.append($newGroup);
+        $(".close-group").off("click", removeGroup);
+        $(".close-group").on("click", removeGroup);
+    }
+
+    function removeGroup(event) {
+        const $target = $(event.target);
+        const $group = $target.closest(".level-group");
+        $group.prev().remove();
+        $group.remove();
     }
 
     function isToogleText(event) {
