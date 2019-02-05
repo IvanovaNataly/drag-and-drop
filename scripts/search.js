@@ -185,6 +185,16 @@ $( function() {
         $searchArea.addClass("multilevel");
         $searchArea.find(".level-visit").removeClass("hidden empty");
         $searchArea.closest(".search-area").find(".level-pageview").addClass("inside-visit-level");
+
+    }
+
+    function hideVisitLevel(event) {
+        const $target = $(event.target);
+        const $searchArea = $target.closest(".search-area");
+        $searchArea.removeClass("multilevel");
+        $searchArea.find(".level-visit").addClass("hidden empty");
+        $searchArea.closest(".search-area").find(".level-pageview").removeClass("inside-visit-level");
+        $searchArea.closest(".search-area").find("#addVisit").show();
     }
 
     function addGroup(event) {
@@ -271,6 +281,8 @@ $( function() {
     $(".trash", $gallery ).click( function(event) { deleteItem(event)});
 
     $("#addVisit").click( function(event) { addLevel(event)});
+
+    $('#removeVisitLevel').click( function() { hideVisitLevel(event)});
 
     $("#addGroup").click( function(event) { addGroup(event)});
 
