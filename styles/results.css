@@ -421,6 +421,8 @@
     margin-left: 0; }
 .results-pre-search .after-search {
   display: none; }
+.results-pre-search .pre-search-highlighted {
+  font-size: 30px; }
 .results-graphs {
   display: flex;
   flex-wrap: wrap;

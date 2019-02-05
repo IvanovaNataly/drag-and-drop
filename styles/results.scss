@@ -196,6 +196,7 @@ $pill-height: 31px;
         .shared {
             margin-right: 5px;
         }
+
         .filter-note {
             color: $c-7;
             font-weight: 600;
@@ -206,6 +207,9 @@ $pill-height: 31px;
     &-pre-search {
         .after-search {
             display: none;
+        }
+        .pre-search-highlighted {
+            font-size: 30px;
         }
     }
     &-graphs {
