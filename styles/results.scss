@@ -196,6 +196,12 @@ $pill-height: 31px;
         .shared {
             margin-right: 5px;
         }
+        .filter-note {
+            color: $c-7;
+            font-weight: 600;
+            margin-top: 10px;
+            margin-left: 0;
+        }
     }
     &-graphs {
         display: flex;

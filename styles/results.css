@@ -414,6 +414,11 @@
   .results-summary .path-analysis,
   .results-summary .shared {
     margin-right: 5px; }
+  .results-summary .filter-note {
+    color: #eb4195;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-left: 0; }
 .results-graphs {
   display: flex;
   flex-wrap: wrap;

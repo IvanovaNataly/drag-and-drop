@@ -102,14 +102,17 @@ export class SearchData {
         var $query = "";
         for (let query of queries) {
             if (query.name === "Group") {
-                    $query += (
-                        '<div class="query-group">'+
-                        this.renderQueries(query.content)+
-                        '</div>'
-                    )
+                $query += (
+                    '<div class="query-group">'+
+                    this.renderQueries(query.content)+
+                    '</div>'
+                )
             }
             else {
                 $query += this.queryRenderer.render(query);
+                if (query.name === "Text") {
+                    this.onTextQueryRender();
+                }
             }
         }
         return $query;
@@ -211,4 +214,12 @@ export class SearchData {
 		$(".level-pageview > .ui-droppable").before($newCountryFilter);
 		this.onSearch();
 	}
+
+	onTextQueryRender() {
+        const note = $('<p id="textFilterNote" class="filter-note">Note: text filter is based on Clicktale recordings; search is limited to your retention period [30 days]</p>');
+        const $resultsSummary = $("#resultsSummary");
+        if (!$resultsSummary.find("#textFilterNote").length) {
+            $resultsSummary.append(note);
+        }
+    }
 }
