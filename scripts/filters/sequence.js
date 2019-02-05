@@ -1,7 +1,7 @@
 export class Sequence {
     constructor() {
         this.sequenceFilter = ('<li class="ui-widget-content sequence-filter">'+
-                            '<h3 class="filter-name">Interaction / Sequence</h3>' +
+                            '<h3 class="filter-name">Sequence</h3>' +
                             '<div class="filter-content">' +
                                 '<button class="is-toggle-btn">is</button>' +
                                 '<select class="condition-type sequence-select">' +

@@ -329,10 +329,8 @@
       .pills-bar-edit:hover .iconFont.pencil, .pills-bar-clear:hover .iconFont.trash,
       .pills-bar-clear:hover .iconFont.pencil {
         color: #5F6981; }
-  .pills-bar-edit {
-    margin-left: auto; }
   .pills-bar-clear {
-    margin-left: 30px; }
+    margin-left: auto; }
   .pills-bar-group-indicator {
     font-size: 16px;
     color: #959FB2;
