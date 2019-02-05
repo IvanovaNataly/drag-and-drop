@@ -150,6 +150,7 @@ export class SearchData {
     openSearch() {
         const that = this;
         const offset = $(".query-area").height() < 0 ? $(".query-area").height() : 0;
+        $("#resultsSummary").addClass("results-pre-search");
         $('#main').off('scroll', function() {
             that.hidePillsBar();
         });
@@ -168,6 +169,7 @@ export class SearchData {
     showResults() {
         const that = this;
         const offset = $(".query-area").height();
+        $("#resultsSummary").removeClass("results-pre-search");
         $("#pillsBar").css("top", "50px");
         $("#aside").css("flex-basis", "50px");
         $("#main").animate({
@@ -216,7 +218,7 @@ export class SearchData {
 	}
 
 	onTextQueryRender() {
-        const note = $('<p id="textFilterNote" class="filter-note">Note: text filter is based on Clicktale recordings; search is limited to your retention period [30 days]</p>');
+        const note = $('<p id="textFilterNote" class="filter-note">Note: You used the Text filter which is based on Clicktale recordings; search results are limited to your retention period [30 days]</p>');
         const $resultsSummary = $("#resultsSummary");
         if (!$resultsSummary.find("#textFilterNote").length) {
             $resultsSummary.append(note);

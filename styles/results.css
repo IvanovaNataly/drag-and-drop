@@ -419,6 +419,8 @@
     font-weight: 600;
     margin-top: 10px;
     margin-left: 0; }
+.results-pre-search .after-search {
+  display: none; }
 .results-graphs {
   display: flex;
   flex-wrap: wrap;

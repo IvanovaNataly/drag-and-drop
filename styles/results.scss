@@ -203,6 +203,11 @@ $pill-height: 31px;
             margin-left: 0;
         }
     }
+    &-pre-search {
+        .after-search {
+            display: none;
+        }
+    }
     &-graphs {
         display: flex;
         flex-wrap: wrap;
