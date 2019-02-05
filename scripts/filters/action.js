@@ -12,8 +12,8 @@ export class Action {
                                     '</select>'+
                                     '<div class="sequence-event">'+
                                         '<select class="condition-type">'+
-                                            '<option value="is one of">is one of</option>'+
-                                            '<option value="is all of">is all of</option>'+
+                                            '<option value="one of">one of</option>'+
+                                            '<option value="all of">all of</option>'+
                                         '</select>'+
                                         '<input type="text" placeholder="Type" class="filter-input">'+
                                     '</div>'+

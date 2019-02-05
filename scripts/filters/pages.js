@@ -21,8 +21,8 @@ export class Pages {
                                     '</div>'+
                                     '<div class="pages-filter-attribute hidden">'+
                                         '<select class="condition-type">' +
-                                            '<option value="is one of" selected>is one of</option>' +
-                                            '<option value="is all of">is all of</option>' +
+                                            '<option value="one of" selected>one of</option>' +
+                                            '<option value="all of">all of</option>' +
                                         '</select>'+
                                         '<input type="text" placeholder="Search" class="filter-input">'+
                                     '</div>'+

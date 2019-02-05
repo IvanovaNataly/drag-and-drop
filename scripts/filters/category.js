@@ -5,7 +5,7 @@ export class Category {
         '<div class="filter-content">'+
             '<button class="is-toggle-btn">is</button>'+
             '<select class="condition-type">'+
-                '<option value="is one of">is one of</option>'+
+                '<option value="one of">one of</option>'+
             '</select>'+
             '<input type="text" placeholder="Type" class="filter-input">'+
             '<span class="iconFont trash"></span>'+
