@@ -188,12 +188,11 @@ $( function() {
     }
 
     function hideVisitLevel(event) {
-        const $target = $(event.target);
-        const $searchArea = $target.closest(".search-area");
-        $searchArea.removeClass("multilevel");
-        $searchArea.find(".level-visit").addClass("hidden empty");
-        $searchArea.closest(".search-area").find(".level-pageview").removeClass("inside-visit-level");
-        $searchArea.closest(".search-area").find("#addVisit").show();
+        $(".search-area").removeClass("multilevel");
+        $(".level-visit").addClass("hidden empty");
+        $(".level-visit").find(".level-empty:not(.ui-droppable)").remove();
+        $(".level-pageview").removeClass("inside-visit-level");
+        $("#addVisit").show();
     }
 
     function addGroup(event) {
