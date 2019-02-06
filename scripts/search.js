@@ -227,6 +227,24 @@ $( function() {
         }
     }
 
+    function onChangeCondition(event) {
+        const currentSelect = event.currentTarget;
+        const $levelDroppable = $(currentSelect).closest(".level-droppable");
+        const $conditionSelects = $levelDroppable.find(".condition:not(.condition-include)");
+        for (let $select of $conditionSelects) {
+            $select.value = currentSelect.value;
+        }
+    }
+
+    function setSelectCondition($target, $select) {
+        const $exampleSelect = $target.closest(".level-droppable").find(".condition:not(.condition-include)")[0];
+        if($exampleSelect) { $select[0].value = $exampleSelect.value };
+        $select.on("change", function(event) {
+            onChangeCondition( event );
+        });
+        return $select;
+    }
+
     function onDrop(event, ui) {
         const $target = $(event.target);
         const $draggable = ui.draggable;
@@ -247,8 +265,9 @@ $( function() {
         const da = createDroppable();
         $target.after(da);
 
-        const ct = $conditionType.clone();
         if($target.closest(".level-droppable").find(".level-empty").length > 2) {
+            let ct = $conditionType.clone();
+            ct = setSelectCondition($target, ct);
             $target.before(ct);
         }
 
