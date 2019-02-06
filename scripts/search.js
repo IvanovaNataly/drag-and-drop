@@ -199,9 +199,10 @@ $( function() {
 
     function addGroup(event) {
         const $pageview = $(".level-pageview");
-        const $newConditionType = $conditionType.clone();
         const $newGroup = $newGroupContainer.clone();
         const $droppableArea = createDroppable();
+        let $newConditionType = $conditionType.clone();
+        $newConditionType = setSelectCondition($pageview, $newConditionType);
         $newGroup.append($droppableArea);
         $pageview.append($newConditionType);
         $pageview.append($newGroup);
@@ -237,8 +238,8 @@ $( function() {
         }
     }
 
-    function setSelectCondition($target, $select) {
-        const $exampleSelect = $target.closest(".level-droppable").find(".condition:not(.condition-include)")[0];
+    function setSelectCondition($levelDroppable, $select) {
+        const $exampleSelect = $levelDroppable.find(".condition:not(.condition-include)")[0];
         if($exampleSelect) { $select[0].value = $exampleSelect.value };
         $select.on("change", function(event) {
             onChangeCondition( event );
@@ -268,7 +269,7 @@ $( function() {
 
         if($target.closest(".level-droppable").find(".level-empty").length > 2) {
             let ct = $conditionType.clone();
-            ct = setSelectCondition($target, ct);
+            ct = setSelectCondition($target.closest(".level-droppable"), ct);
             $target.before(ct);
         }
 
