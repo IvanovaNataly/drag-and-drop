@@ -191,6 +191,7 @@ $( function() {
     function hideVisitLevel(event) {
         $(".search-area").removeClass("multilevel");
         $(".level-visit").addClass("hidden empty");
+        $(".level-visit").find(".condition").remove();
         $(".level-visit").find(".level-empty:not(.ui-droppable)").remove();
         $(".level-pageview").removeClass("inside-visit-level");
         $("#addVisit").show();
