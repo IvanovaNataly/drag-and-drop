@@ -161,9 +161,10 @@ $( function() {
 
     function deleteItem(event) {
         const $target = $(event.target);
+        const $levelEmpty = $target.closest(".level-empty");
         const $levelDroppable = $target.closest(".level-droppable");
-
-        $target.closest(".level-empty").remove();
+        $levelEmpty.prev(".condition").remove();
+        $levelEmpty.remove();
         if($levelDroppable.find(".level-empty").length <= 1) {
             if(!$levelDroppable.hasClass("level-group")) $levelDroppable.addClass("empty");
             if($levelDroppable.hasClass("level-visit")) {
@@ -210,7 +211,7 @@ $( function() {
     function removeGroup(event) {
         const $target = $(event.target);
         const $group = $target.closest(".level-group");
-        $group.prev().remove();
+        $group.prev(".condition").remove();
         $group.remove();
     }
 
