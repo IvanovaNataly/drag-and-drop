@@ -455,6 +455,16 @@ h1, h2, h3, p {
     &:hover {
         border-color: $input-hover;
     }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: -5px;
+        height: 180px;
+        width: 30px;
+        border-left: 1px dashed #ddd;
+    }
     .sequence-filter & {
         width: 80px;
         margin-left: 13px;

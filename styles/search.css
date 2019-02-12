@@ -1550,6 +1550,15 @@ h1, h2, h3, p {
     outline: none; }
   .condition:hover {
     border-color: #b0bac5; }
+  .condition:after {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: -5px;
+    height: 180px;
+    width: 30px;
+    border-left: 1px dashed #ddd; }
   .sequence-filter .condition {
     width: 80px;
     margin-left: 13px;

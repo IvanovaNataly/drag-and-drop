@@ -7,6 +7,7 @@ import {Category} from "./filters/category.js";
 import {Sequence} from "./filters/sequence.js";
 import {TextValue} from "./filters/text-value.js";
 import {BooleanValue} from "./filters/boolean-value.js";
+import {Action} from "./filters/action.js";
 import {SearchData} from "./search-data.js";
 
 $( function() {
@@ -20,6 +21,7 @@ $( function() {
     const textValue = new TextValue();
     const booleanValue = new BooleanValue();
     const searchData = new SearchData();
+    const action = new Action();
     const $gallery = $( "#gallery" );
     const $trash = $(".level-empty");
 
@@ -83,16 +85,20 @@ $( function() {
         let operatingSystem = category.render("Operating System");
         let foldHeight = category.render("Fold height");
         let device = category.render("Device");
-        let actionFilter = sequence.render("Action", "data-title='Behavior' ");
-        let sequenceFilter = sequence.render("Interaction / Sequence");
+        let actionFilter = action.render("Action", "data-title='Behavior' ");
+        let elementFilter = action.render("Element");
+        let sequenceFilter = sequence.render();
         let textValueFilter = textValue.render();
         let looping = booleanValue.render("Looping", "looping", "between looping");
         let firstLastPage = booleanValue.render("First/Last page", "first page", "last page");
         let portrateLandscape = booleanValue.render("Portrate/Landscape", "portrate", "ladnscape");
         let filtersArr =  [pagesFilter,
+            //sequence group
+            sequenceFilter,
+
             // behavior group
             actionFilter,
-            sequenceFilter,
+            elementFilter,
             engagementTime,
             scrollReach,
             timeOnPage,
