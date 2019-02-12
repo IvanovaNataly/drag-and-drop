@@ -199,13 +199,14 @@ $( function() {
 
     function addGroup(event) {
         const $pageview = $(".level-pageview");
+        const addGroup = $("#addGroupBottom");
         const $newGroup = $newGroupContainer.clone();
         const $droppableArea = createDroppable();
         let $newConditionType = $conditionType.clone();
         $newConditionType = setSelectCondition($pageview, $newConditionType);
         $newGroup.append($droppableArea);
-        $pageview.append($newConditionType);
-        $pageview.append($newGroup);
+        addGroup.before($newConditionType);
+        addGroup.before($newGroup);
         $(".close-group").off("click", removeGroup);
         $(".close-group").on("click", removeGroup);
     }
@@ -313,7 +314,7 @@ $( function() {
 
     $('#removeVisitLevel').click( function() { hideVisitLevel(event)});
 
-    $("#addGroup").click( function(event) { addGroup(event)});
+    $(".btn-add-group").click( function(event) { addGroup(event)});
 
     $('.js-errors-select').on("change", function() {
         jsErrors.changeFilterContent( this );
