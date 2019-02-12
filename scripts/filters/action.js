@@ -2,6 +2,7 @@ export class Action {
     constructor() {
         this.actionFilter = ('<li class="ui-widget-content action-filter" data-title="Behavior">'+
                                 '<h3 class="filter-name">Action</h3>' +
+                                '<span class="iconFont question" data-tooltip="Second Line"></span>'+
                                 '<div class="filter-content">' +
                                     '<button class="is-toggle-btn">is</button>' +
                                     '<select class="condition-type">'+
