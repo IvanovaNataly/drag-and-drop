@@ -32,7 +32,7 @@ export class Sequence {
                             '</div>'+
 							'<button class="and-then-btn ct-btn-linked">'+
 								'<span class="iconFont plus"></span>'+
-								'add interaction</button>' +
+								'add step</button>' +
 							'</li>');
     }
 
