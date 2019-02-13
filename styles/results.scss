@@ -48,6 +48,9 @@ $pill-height: 31px;
         text-transform: uppercase;
         margin-top: 5px;
         padding-left: 15px;
+        & + & {
+            display: none;
+        }
     }
     &-group {
         margin-top: 5px;
