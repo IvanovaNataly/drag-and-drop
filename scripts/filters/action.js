@@ -5,9 +5,8 @@ export class Action {
                                 '<span class="iconFont question" data-tooltip="Second Line"></span>'+
                                 '<div class="filter-content">' +
                                     '<button class="is-toggle-btn">is</button>' +
-                                    '<select class="condition-type">'+
-                                        '<option value="one of">one of</option>'+
-                                        '<option value="all of">all of</option>'+
+                                    '<select class="condition-type static">'+
+                                        '<option value="one of the following">one of the following</option>'+
                                     '</select>'+
                                     '<input type="text" placeholder="Type" class="filter-input">'+
                                     '<span class="iconFont trash"></span>'+

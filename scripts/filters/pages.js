@@ -20,9 +20,8 @@ export class Pages {
                                         '<input type="text" placeholder="Type" class="filter-input">'+
                                     '</div>'+
                                     '<div class="pages-filter-attribute hidden">'+
-                                        '<select class="condition-type">' +
-                                            '<option value="one of" selected>one of</option>' +
-                                            '<option value="all of">all of</option>' +
+                                        '<select class="condition-type static">'+
+                                            '<option value="one of the following">one of the following</option>'+
                                         '</select>'+
                                         '<input type="text" placeholder="Search" class="filter-input">'+
                                     '</div>'+

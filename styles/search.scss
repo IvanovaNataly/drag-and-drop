@@ -448,6 +448,18 @@ h1, h2, h3, p {
 .condition-type {
     width: auto;
     flex: 0 0;
+    &.static {
+        padding: 0;
+        border: none;
+        pointer-events: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        text-indent: 1px;
+        text-overflow: '';
+        &::-ms-expand {
+            display: none;
+        }
+    }
 }
 
 .condition {

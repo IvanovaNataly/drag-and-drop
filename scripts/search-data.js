@@ -206,9 +206,9 @@ export class SearchData {
 			'<h3 class="filter-name">Country and region</h3>'+
 			'<div class="filter-content">'+
 			'<button class="is-toggle-btn">is</button>'+
-			'<select class="condition-type">'+
-			'<option value="is one of">is one of</option>'+
-			'</select>'+
+            '<select class="condition-type static">'+
+                '<option value="one of the following">one of the following</option>'+
+            '</select>'+
 			'<input type="text" placeholder="Type" class="filter-input" value=" '+ countryName +' ">'+
 			'<span class="iconFont trash"></span>'+
 			'</div></li></div>'

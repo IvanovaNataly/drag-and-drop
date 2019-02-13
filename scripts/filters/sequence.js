@@ -11,9 +11,8 @@ export class Sequence {
                                     '<option value="JS errors">JS errors</option>' +
                                 '</select>'+
                                 '<div class="sequence-event">'+
-                                    '<select class="condition-type">'+
-                                        '<option value="one of">one of</option>'+
-                                        '<option value="all of">all of</option>'+
+                                    '<select class="condition-type static">'+
+                                        '<option value="one of the following">one of the following</option>'+
                                     '</select>'+
                                     '<input type="text" placeholder="Type" class="filter-input">'+
                                 '</div>'+
@@ -80,10 +79,9 @@ export class Sequence {
 					'<option value="JS errors">JS errors</option>' +
 				'</select>'+
 				'<div class="sequence-event">'+
-				'<select class="condition-type">'+
-					'<option value="one of">one of</option>'+
-					'<option value="all of">all of</option>'+
-				'</select>'+
+					'<select class="condition-type static">'+
+						'<option value="one of the following">one of the following</option>'+
+					'</select>'+
 					'<input type="text" placeholder="Type" class="filter-input">'+
 				'</div>'+
 				'<div class="sequence-element hidden">'+

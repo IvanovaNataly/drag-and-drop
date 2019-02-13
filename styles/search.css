@@ -1576,6 +1576,16 @@ h1, h2, h3, p {
 .condition-type {
   width: auto;
   flex: 0 0; }
+  .condition-type.static {
+    padding: 0;
+    border: none;
+    pointer-events: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: ''; }
+    .condition-type.static::-ms-expand {
+      display: none; }
 
 .condition {
   font-family: "Open Sans", sans-serif;
