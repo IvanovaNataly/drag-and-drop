@@ -243,16 +243,19 @@
 
 .query {
   display: flex;
+  width: 100%;
   margin-top: 5px;
   padding: 0 45px 0 15px;
   flex-wrap: wrap;
   align-items: center; }
   .query-area-queries {
+    display: flex;
     margin-top: 5px;
     padding: 5px 0 10px 0;
     background-color: #ffffff;
     border-radius: 2px;
     box-shadow: 0 1px 3px 0 rgba(48, 53, 66, 0.3);
+    flex-wrap: wrap;
     position: relative; }
     .query-area-queries:nth-child(2) .query-area-title {
       margin-top: 10px; }
@@ -273,15 +276,19 @@
     font-weight: 600;
     text-transform: uppercase;
     margin-top: 5px;
-    padding-left: 15px;
-    float: left; }
-  .query-group .query-condition {
-    margin-top: 0; }
-  .query-group .query-condition:not(:first-child),
-  .query-group .query:not(:nth-child(2)) {
-    margin-left: 106px;
-    margin-top: 0;
-    float: none; }
+    padding-left: 15px; }
+  .query-group {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+    border-top: 1px solid #D7DbE5;
+    border-right: 3px solid #5F6981;
+    border-bottom: 1px solid #D7DbE5;
+    border-left: 3px solid #5F6981;
+    border-radius: 9px; }
+    .query-group .query-condition {
+      margin-top: 0; }
 
 .pills-bar {
   display: flex;

@@ -7,16 +7,19 @@ $pill-height: 31px;
 
 .query {
     display: flex;
+    width: 100%;
     margin-top: 5px;
     padding: 0 45px 0 15px;
     flex-wrap: wrap;
     align-items: center;
     &-area-queries {
+        display: flex;
         margin-top: 5px;
         padding: 5px 0 10px 0;
         background-color: $white;
         border-radius: $dd-border-radius;
         box-shadow: 0 1px 3px 0 rgba(48, 53, 66, 0.3);
+        flex-wrap: wrap;
         position: relative;
         &:nth-child(2) .query-area-title{
             margin-top: 10px;
@@ -45,17 +48,19 @@ $pill-height: 31px;
         text-transform: uppercase;
         margin-top: 5px;
         padding-left: 15px;
-        float: left;
     }
     &-group {
+        margin-top: 5px;
+        margin-bottom: 10px;
+        margin-left: 10px;
+        padding: 10px;
+        border-top: 1px solid $border-color;
+        border-right: 3px solid $text-dark;
+        border-bottom: 1px solid $border-color;
+        border-left: 3px solid $text-dark;
+        border-radius: 9px;
         .query-condition {
             margin-top: 0;
-        }
-        .query-condition:not(:first-child),
-        .query:not(:nth-child(2)){
-            margin-left: 106px;
-            margin-top: 0;
-            float: none;
         }
     }
 }
