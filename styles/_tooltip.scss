@@ -1,4 +1,4 @@
-@mixin dataTooltip($top: 0, $right: auto, $bottom: auto, $left: 60px, $maxWidth: unset) {
+@mixin dataTooltip($top: 0, $right: auto, $bottom: auto, $left: 60px, $maxWidth: auto) {
     position: relative;
 
     &:after {

@@ -2,7 +2,7 @@ export class Action {
     constructor() {
         this.actionFilter = ('<li class="ui-widget-content action-filter" data-title="Behavior">'+
                                 '<h3 class="filter-name">Action</h3>' +
-                                '<span class="iconFont question" data-tooltip="Second Line"></span>'+
+                                '<span class="iconFont question" data-tooltip="A predefined event triggered by user interaction on the current pageset (e.g. added to cart, used search tool, clicked log-in)."></span>'+
                                 '<div class="filter-content">' +
                                     '<button class="is-toggle-btn">is</button>' +
                                     '<select class="condition-type static">'+

@@ -374,7 +374,7 @@ h1, h2, h3, p {
             border-bottom: none;
         }
         .question {
-            @include dataTooltip(-30px, 100%, auto, auto);
+            @include dataTooltip(-78px, 100%, auto, auto, 170px);
             display: block;
             position: absolute;
             top: 13px;
